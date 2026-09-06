@@ -1970,77 +1970,162 @@
   }
 
   /* =========================================================
-     6. SECTION 5: LIVE COUNTDOWN (#countdown)
+     6. SECTION 5: DEDICATED FULL-SCREEN MATERIALISTIC COUNTDOWN SHOW (#countdown)
      ========================================================= */
   .countdown-enhanced-section {
     position: relative;
-    padding: 100px 20px;
-    text-align: center;
+    min-height: 100vh;
     width: 100%;
-    margin: 0 auto;
-    background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    background: radial-gradient(circle at center, #FFFFFF 0%, #F1F5F9 55%, #E2E8F0 100%);
     border-top: 1.5px solid rgba(197, 160, 89, 0.35);
     border-bottom: 1.5px solid rgba(197, 160, 89, 0.35);
     overflow: hidden;
+    box-sizing: border-box;
+  }
+  .countdown-container-stage {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 36px;
+    padding: 54px 40px 48px 40px;
+    max-width: 980px;
+    width: 94%;
+    margin: auto;
+    box-shadow: 0 30px 80px -20px rgba(0, 50, 150, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .countdown-eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #EDE7F6;
+    color: #6750A4;
+    border-radius: var(--radius-full);
+    padding: 7px 20px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(103, 80, 164, 0.15);
   }
   .countdown-date-display {
-    font-family: var(--font-royal);
-    font-size: clamp(32px, 5.5vw, 56px);
+    font-family: var(--font-heading);
+    font-size: clamp(34px, 5.5vw, 62px);
     font-weight: 900;
-    color: var(--text-heading);
-    letter-spacing: 0.04em;
+    color: #1D1B20;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
     margin-bottom: 8px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   }
   .date-sub-text {
     font-family: var(--font-mono);
-    font-size: 13.5px;
-    color: var(--primary);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 32px;
+    font-size: 14px;
+    color: #0052CC;
+    background: #EBF3FF;
+    padding: 6px 20px;
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+    display: inline-block;
   }
   .countdown-flip-grid {
     display: flex;
     justify-content: center;
-    gap: 18px;
+    gap: 20px;
     flex-wrap: wrap;
-    margin: 36px auto;
-    max-width: 860px;
+    margin: 16px auto 32px auto;
+    width: 100%;
+    max-width: 880px;
   }
   .countdown-flip-card {
-    background: #FFFFFF;
-    border: 2px solid rgba(197, 160, 89, 0.45);
-    border-radius: 20px;
-    padding: 24px 28px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+    border: 1.5px solid #E2E8F0;
+    border-radius: 26px;
+    padding: 28px 22px 22px 22px;
+    flex: 1;
     min-width: 130px;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08), 0 0 16px rgba(212, 175, 55, 0.12);
+    max-width: 180px;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    gap: 4px;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
   }
   .countdown-flip-card:hover {
-    transform: translateY(-4px);
-    border-color: #D4AF37;
-    box-shadow: 0 16px 36px rgba(212, 175, 55, 0.25);
+    transform: translateY(-6px);
+    border-color: #0066FF;
+    box-shadow: 0 20px 42px rgba(0, 102, 255, 0.2);
   }
   .countdown-flip-num {
     font-family: var(--font-mono);
-    font-size: clamp(36px, 5.5vw, 54px);
+    font-size: clamp(38px, 6vw, 68px);
     font-weight: 900;
-    color: #0F172A;
+    color: #0052CC;
     line-height: 1;
-    text-shadow: 0 2px 8px rgba(0, 102, 255, 0.15);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
   }
   .countdown-flip-lbl {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 12px;
     font-weight: 800;
-    color: #B45309;
-    letter-spacing: 0.14em;
+    color: #64748B;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
+  }
+  .countdown-actions-wrap {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  @media (max-width: 768px) {
+    .countdown-enhanced-section {
+      min-height: auto;
+      padding: 60px 16px;
+    }
+    .countdown-container-stage {
+      padding: 32px 18px 28px 18px;
+      border-radius: 24px;
+    }
+    .countdown-flip-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 12px 0 24px 0;
+    }
+    .countdown-flip-card {
+      min-width: 0;
+      max-width: 100%;
+      padding: 18px 12px 14px 12px;
+      border-radius: 18px;
+    }
+    .countdown-actions-wrap {
+      flex-direction: column;
+    }
+    .countdown-actions-wrap .btn-material-primary,
+    .countdown-actions-wrap .btn-material-secondary,
+    .countdown-actions-wrap a {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
 
@@ -3090,7 +3175,7 @@
   </section>
 
   <!-- =========================================================
-       SECTION 5: COUNTDOWN SECTION (#countdown)
+       SECTION 5: DEDICATED FULL-SCREEN MATERIALISTIC COUNTDOWN SHOW (#countdown)
        ========================================================= -->
   <section class="countdown-enhanced-section" id="countdown">
     <div class="countdown-ambient-aura" id="cd-aura"></div>
@@ -3098,16 +3183,21 @@
 
     <div class="countdown-container-stage" id="cd-stage">
       <div class="countdown-eyebrow-pill" id="cd-pill">
-        <span>👑 Grand Launch Live Countdown</span>
+        <span class="pulse-dot"></span>
+        <span>👑 Official Inauguration Chronometer</span>
       </div>
 
       <h2 class="countdown-date-display" id="countdown-heading">
-        SEP 10, 2026 &bull; 10:30 AM IST
+        LeukQuant Grand Launch 2026
       </h2>
 
       <div class="date-sub-text" id="cd-subtext">
-        THURSDAY &bull; GROUND FLOOR AUDITORIUM &bull; JEPPIAAR INSTITUTE OF TECHNOLOGY
+        THURSDAY &bull; SEPTEMBER 10, 2026 &bull; 10:30 AM IST
       </div>
+
+      <p style="font-size: 14.5px; color: #475569; max-width: 680px; margin-bottom: 24px; line-height: 1.5;">
+        Ground Floor Innovation Auditorium &bull; Jeppiaar Institute of Technology &bull; Kunnam, Chennai
+      </p>
 
       <div class="countdown-flip-grid" id="countdown-grid">
         <div class="countdown-flip-card">
@@ -3128,18 +3218,18 @@
         </div>
       </div>
 
-      <div id="countdown-live-msg" style="display: none; font-family: var(--font-royal); font-size: 22px; font-weight: 800; color: #D4AF37; margin-bottom: 18px; text-shadow: 0 0 15px rgba(212,175,55,0.7);">
-        ✨ The Grand Launch is Live!
+      <div id="countdown-live-msg" style="display: none; font-family: var(--font-royal); font-size: 24px; font-weight: 800; color: #059669; margin-bottom: 20px; text-shadow: 0 0 15px rgba(5,150,105,0.4);">
+        ✨ The Grand Launch is Live Now!
       </div>
 
       <div class="countdown-actions-wrap" id="cd-actions">
-        <a href="countdown.html" class="btn-material-primary" style="background: linear-gradient(135deg, #0066FF 0%, #00F0FF 100%); color: #0F172A; text-decoration: none; font-weight: 800;">
-          <span>🚀 Dedicated Fullscreen Countdown Page</span>
-        </a>
-        <button class="btn-material-primary" onclick="addToCalendar()">
+        <button class="btn-material-primary" onclick="addToCalendar()" style="padding: 14px 30px; font-size: 14px; font-weight: 800;">
           <span>📅 Add to Calendar (.ics)</span>
         </button>
-        <button class="btn-material-secondary" onclick="window.location.href='#venue'" style="background: rgba(255,255,255,0.1); color: #FEF3C7; border-color: #D4AF37;">
+        <a href="countdown.html" class="btn-material-secondary" style="padding: 13px 26px; font-size: 14px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+          <span>🚀 Open Dedicated Chronometer Page</span>
+        </a>
+        <button class="btn-material-secondary" onclick="window.location.href='#venue'" style="padding: 13px 24px; font-size: 14px; font-weight: 700;">
           <span>📍 Campus Map &amp; Navigation</span>
         </button>
       </div>
