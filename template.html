@@ -665,7 +665,7 @@
   }
 
         /* =========================================================
-     3. SECTION 2: 3D LUXURY ENVELOPE & ROYAL CARD (PINNED & UNSEALING)
+     3. SECTION 2: LUXURY 3D DOUBLE-SIDE OPENING BOOKLET
      ========================================================= */
   .envelope-pinned-section {
     min-height: auto;
@@ -774,7 +774,7 @@
     font-weight: 600;
   }
 
-  /* 3D Physical Envelope Bed / Frame */
+  /* Desktop Envelope Bed / Frame */
   .royal-envelope-bed {
     position: relative;
     width: 100%;
@@ -835,150 +835,19 @@
     text-transform: uppercase;
   }
 
-  /* 3D Hinged Envelope Top Flap */
-  .envelope-flap-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 240px;
-    transform-origin: top center;
-    transform-style: preserve-3d;
-    z-index: 35;
-    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.6));
-    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-    pointer-events: none;
-  }
-  .envelope-flap-top.opened {
-    transform: rotateX(180deg);
-    z-index: 2;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .flap-triangle-shape {
-    position: absolute;
-    inset: 0;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    background: linear-gradient(180deg, #223046 0%, #111B2C 100%);
-    border-top: 3.5px solid #D4AF37;
-  }
-
-  /* Royal Wax Seal on Flap Point */
-  .royal-wax-seal {
-    position: absolute;
-    bottom: -36px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 82px;
-    height: 82px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #F59E0B 0%, #D4AF37 40%, #8D6105 85%, #593D02 100%);
-    border: 3.5px solid #FEF3C7;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6), inset 0 2px 6px rgba(255, 255, 255, 0.8), inset 0 -3px 8px rgba(0, 0, 0, 0.5), 0 0 25px rgba(212, 175, 55, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 50;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, opacity 0.5s ease;
-    overflow: hidden;
-    pointer-events: auto;
-    animation: sealGlowPulse 2.4s infinite alternate;
-  }
-  @keyframes sealGlowPulse {
-    0% { box-shadow: 0 14px 30px rgba(0,0,0,0.6), 0 0 15px rgba(212,175,55,0.4); transform: translateX(-50%) scale(1); }
-    100% { box-shadow: 0 18px 40px rgba(0,0,0,0.8), 0 0 35px rgba(212,175,55,0.8); transform: translateX(-50%) scale(1.06); }
-  }
-  .royal-wax-seal:hover {
-    transform: translateX(-50%) scale(1.15) !important;
-    box-shadow: 0 20px 45px rgba(212, 175, 55, 0.8), inset 0 2px 6px rgba(255, 255, 255, 0.95);
-  }
-  .royal-wax-seal.broken {
-    animation: none;
-    transform: translateX(-50%) scale(1.35) rotate(20deg) !important;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .seal-mascot-img {
-    height: 40px;
-    width: 40px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) brightness(1.15);
-  }
-  .seal-label {
-    font-family: var(--font-royal);
-    font-size: 8.5px;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-    color: #FEF3C7;
-    margin-top: -3px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  }
-
-  /* Envelope Front Pocket Triangular Flaps */
-  .envelope-pocket-flaps {
-    position: absolute;
-    inset: 0;
-    z-index: 25;
-    pointer-events: none;
-    border-radius: 28px;
-    overflow: hidden;
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .envelope-pocket-flaps.hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    pointer-events: none;
-  }
-  .pocket-flap-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(0 0, 0 100%, 50% 55%);
-    background: linear-gradient(135deg, #1C273A 0%, #0F1726 100%);
-    border-left: 3px solid #D4AF37;
-  }
-  .pocket-flap-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(100% 0, 100% 100%, 50% 55%);
-    background: linear-gradient(-135deg, #1C273A 0%, #0F1726 100%);
-    border-right: 3px solid #D4AF37;
-  }
-  .pocket-flap-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(0 100%, 100% 100%, 50% 48%);
-    background: linear-gradient(0deg, #0A101D 0%, #172233 100%);
-    border-bottom: 3px solid #D4AF37;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 20px;
-  }
-  .pocket-embossed-title {
-    font-family: var(--font-royal);
-    font-size: 13px;
-    font-weight: 800;
-    color: #D4AF37;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-    letter-spacing: 0.18em;
-  }
-
   /* =========================================================
-     ROYAL BOOK FOLIO (2-PAGE BI-FOLD SPREAD)
+     3D DOUBLE-SIDE OPENING BOOKLET (ROYAL BOOK FOLIO)
      ========================================================= */
+  .book-stage-perspective {
+    width: 100%;
+    position: relative;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .royal-book-folio {
     display: grid;
     grid-template-columns: 1fr 22px 1fr;
@@ -988,10 +857,156 @@
     box-shadow: inset 0 0 0 5px #FAF7F2, inset 0 0 0 8px #C5A059, 0 35px 90px rgba(0, 0, 0, 0.6);
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
     z-index: 20;
+    transform-style: preserve-3d;
     will-change: transform, opacity;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    transition: box-shadow 0.4s ease;
+  }
+
+  /* 3D DOUBLE-SIDED BOOK COVERS (GATEFOLD DOORS) */
+  .book-gate-cover {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(145deg, #1B263B 0%, #0F172A 100%);
+    border: 3px solid #D4AF37;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, visibility 0.8s;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .book-gate-cover::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1.5px dashed rgba(212, 175, 55, 0.5);
+    border-radius: 12px;
+    pointer-events: none;
+  }
+
+  .gate-left {
+    left: 0;
+    border-radius: 20px 0 0 20px;
+    border-right: 2px solid #D4AF37;
+    transform-origin: left center;
+  }
+
+  .gate-right {
+    right: 0;
+    border-radius: 0 20px 20px 0;
+    border-left: 2px solid #D4AF37;
+    transform-origin: right center;
+  }
+
+  .book-gate-cover.opened.gate-left {
+    transform: rotateY(-140deg);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .book-gate-cover.opened.gate-right {
+    transform: rotateY(140deg);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Center Gold Latch Seal on Closed Covers */
+  .gate-center-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #F59E0B 0%, #D4AF37 45%, #8D6105 85%, #593D02 100%);
+    border: 3.5px solid #FEF3C7;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+    animation: sealGlowPulse 2.4s infinite alternate;
+  }
+
+  .gate-center-seal.opened {
+    transform: translate(-50%, -50%) scale(1.4) rotate(25deg);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  @keyframes sealGlowPulse {
+    0% { box-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 15px rgba(212,175,55,0.4); transform: translate(-50%, -50%) scale(1); }
+    100% { box-shadow: 0 15px 35px rgba(0,0,0,0.9), 0 0 35px rgba(212,175,55,0.85); transform: translate(-50%, -50%) scale(1.06); }
+  }
+
+  .gate-center-seal img {
+    height: 38px;
+    width: 38px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) brightness(1.15);
+  }
+
+  .gate-center-seal span {
+    font-family: var(--font-royal);
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    color: #FEF3C7;
+    margin-top: -2px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  }
+
+  .gate-cover-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  .gate-cover-crest {
+    height: 48px;
+    width: auto;
+    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.5));
+  }
+
+  .gate-cover-title {
+    font-family: var(--font-royal);
+    font-size: 15px;
+    font-weight: 900;
+    color: #FEF3C7;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  }
+
+  .gate-cover-sub {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: #D4AF37;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .card-sheen-overlay {
@@ -1018,18 +1033,22 @@
     box-sizing: border-box;
     word-break: normal;
     overflow-wrap: break-word;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .book-page-left {
     background: linear-gradient(90deg, #FCFBF8 0%, #F5EFE4 100%);
     border-right: 1px solid rgba(197, 160, 89, 0.35);
     box-shadow: inset -15px 0 25px -10px rgba(0, 0, 0, 0.08);
+    transform-origin: right center;
   }
 
   .book-page-right {
     background: linear-gradient(270deg, #FCFBF8 0%, #F5EFE4 100%);
     border-left: 1px solid rgba(197, 160, 89, 0.35);
     box-shadow: inset 15px 0 25px -10px rgba(0, 0, 0, 0.08);
+    transform-origin: left center;
   }
 
   /* 3D Center Book Spine Crease */
@@ -1359,265 +1378,268 @@
     font-size: 13.5px;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.3);
-    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    text-decoration: none;
   }
-
   .btn-material-primary:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(0, 102, 255, 0.38);
+    box-shadow: 0 8px 22px rgba(0, 102, 255, 0.45);
   }
 
-  .btn-material-outline {
+  .btn-material-secondary {
     background: #FFFFFF;
     color: var(--text-heading);
-    border: 1.5px solid #E2E8F0;
+    border: 1.5px solid #CBD5E1;
     border-radius: var(--radius-full);
-    padding: 11px 20px;
+    padding: 10px 22px;
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    text-decoration: none;
   }
-
-  .btn-material-outline:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+  .btn-material-secondary:hover {
+    background: #F8FAFC;
+    border-color: #94A3B8;
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(15, 30, 75, 0.06);
-  }
-
-    /* =========================================================
-     3B. SECTION 2B: OFFICIAL INAUGURATION SCHEDULE (FULL-SCREEN PINNED)
-     ========================================================= */
-  .schedule-fullscreen-section {
-    position: relative;
-    min-height: 100vh;
-    background: radial-gradient(circle at center 40%, #152238 0%, #0A101D 70%, #050811 100%);
-    color: #F8FAFC;
-    padding: 90px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    z-index: 2;
-  }
-
-  .schedule-gold-aura {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 900px;
-    height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.22) 0%, rgba(0, 102, 255, 0.1) 50%, transparent 75%);
-    filter: blur(75px);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .schedule-container-card {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
-    background: rgba(17, 26, 46, 0.85);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 2px solid rgba(212, 175, 55, 0.55);
-    border-radius: 28px;
-    padding: 44px 36px;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7), 0 0 45px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  }
-
-  .schedule-header-center {
-    text-align: center;
-    margin-bottom: 32px;
-  }
-
-  .schedule-badge-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(212, 175, 55, 0.15);
-    border: 1.5px solid #D4AF37;
-    color: #FDE68A;
-    padding: 6px 20px;
-    border-radius: var(--radius-full);
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.25);
-    margin-bottom: 14px;
-  }
-
-  .schedule-hero-date {
-    font-family: var(--font-royal);
-    font-size: clamp(30px, 5.5vw, 56px);
-    font-weight: 900;
-    color: #FFFFFF;
-    letter-spacing: 0.04em;
-    margin-bottom: 10px;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    background: linear-gradient(135deg, #FFFFFF 0%, #FEF3C7 50%, #D4AF37 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .schedule-time-vip-banner {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    background: linear-gradient(90deg, rgba(212, 175, 55, 0.25) 0%, rgba(0, 102, 255, 0.25) 100%);
-    border: 1.5px solid #D4AF37;
-    padding: 10px 28px;
-    border-radius: var(--radius-full);
-    font-family: var(--font-mono);
-    font-size: clamp(14px, 2.2vw, 19px);
-    font-weight: 800;
-    color: #FEF3C7;
-    letter-spacing: 0.08em;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.35);
-    margin-bottom: 8px;
-  }
-
-  .schedule-venue-subtext {
-    font-family: var(--font-body);
-    font-size: 14.5px;
-    color: #CBD5E1;
-    font-weight: 600;
-    margin-top: 6px;
-  }
-
-  /* Schedule Flow Timeline Grid */
-  .schedule-timeline-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin: 32px 0 24px 0;
-  }
-
-  .schedule-timeline-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1.5px solid rgba(212, 175, 55, 0.3);
-    border-radius: 18px;
-    padding: 18px 22px;
-    display: grid;
-    grid-template-columns: 160px 1fr auto;
-    gap: 20px;
-    align-items: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .schedule-timeline-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: #D4AF37;
-    transform: translateX(6px);
-    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.25);
-  }
-
-  .timeline-time-badge {
-    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-    border: 1.5px solid #D4AF37;
-    color: #FEF3C7;
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    font-weight: 800;
-    padding: 8px 14px;
-    border-radius: 10px;
-    text-align: center;
-    letter-spacing: 0.05em;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    white-space: nowrap;
-  }
-
-  .timeline-info-wrap h4 {
-    font-family: var(--font-royal);
-    font-size: 16px;
-    font-weight: 800;
-    color: #FFFFFF;
-    letter-spacing: 0.03em;
-    margin-bottom: 4px;
-  }
-
-  .timeline-info-wrap p {
-    font-size: 12.5px;
-    color: #94A3B8;
-    line-height: 1.45;
-  }
-
-  .timeline-speaker-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    font-weight: 700;
-    color: #FDE68A;
-    background: rgba(212, 175, 55, 0.18);
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    padding: 4px 12px;
-    border-radius: var(--radius-full);
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .schedule-actions-row {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 24px;
-  }
-
-  @media (max-width: 850px) {
-    .schedule-container-card {
-      padding: 24px 16px;
-      border-radius: 20px;
-    }
-    .schedule-timeline-card {
-      grid-template-columns: 1fr;
-      gap: 10px;
-      padding: 14px 14px;
-    }
-    .timeline-time-badge {
-      width: fit-content;
-      font-size: 11px;
-      padding: 5px 10px;
-    }
-    .timeline-info-wrap h4 {
-      font-size: 14.5px;
-    }
-    .timeline-info-wrap p {
-      font-size: 11.5px;
-    }
-    .schedule-hero-date {
-      font-size: clamp(24px, 6.5vw, 36px);
-    }
-    .schedule-time-vip-banner {
-      font-size: 13px;
-      padding: 8px 16px;
-      flex-direction: column;
-      gap: 4px;
-    }
   }
 
   /* =========================================================
+     MOBILE RESPONSIVE: NO ENVELOPE + COMPACT 2-PAGE SPREAD BOOKLET
+     ========================================================= */
+  @media (max-width: 850px) {
+    .envelope-pinned-section {
+      padding: 30px 8px 50px 8px !important;
+    }
+
+    /* IN MOBILE: REMOVE ENVELOPE BED COMPLETELY */
+    .royal-envelope-bed {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      min-height: auto !important;
+      max-width: 100% !important;
+      perspective: 1200px;
+    }
+
+    .envelope-bed-lining,
+    .envelope-top-crest-bar {
+      display: none !important;
+    }
+
+    .envelope-header-hint {
+      margin-bottom: 14px;
+    }
+
+    .envelope-hint-title {
+      font-size: 22px !important;
+    }
+
+    .envelope-hint-subtitle {
+      font-size: 12px !important;
+    }
+
+    /* BOOKLET SIZING ON MOBILE: Compact side-by-side 2-page book spread */
+    .royal-book-folio {
+      grid-template-columns: 1fr 14px 1fr !important;
+      border: 2px solid #C5A059 !important;
+      border-radius: 14px !important;
+      box-shadow: inset 0 0 0 3px #FAF7F2, inset 0 0 0 4.5px #C5A059, 0 16px 40px rgba(0,0,0,0.25) !important;
+      width: 100% !important;
+      max-width: 600px !important;
+      margin: 0 auto !important;
+    }
+
+    .book-page {
+      padding: 14px 8px 12px 8px !important;
+    }
+
+    .book-spine-crease {
+      width: 14px !important;
+    }
+
+    .book-ribbon-tassel {
+      width: 2.5px !important;
+    }
+
+    .corner-vignette {
+      width: 32px !important;
+      height: 32px !important;
+    }
+
+    .royal-header-tag {
+      font-size: 10.5px !important;
+      letter-spacing: 0.2em !important;
+      margin-bottom: 2px !important;
+    }
+
+    .royal-gold-crest {
+      width: 24px !important;
+      margin-bottom: 3px !important;
+    }
+
+    .royal-lead-title {
+      font-size: 8.5px !important;
+      line-height: 1.15 !important;
+      letter-spacing: 0.02em !important;
+    }
+
+    .royal-gold-flourish {
+      font-size: 9px !important;
+      margin: 2px auto !important;
+    }
+    .royal-gold-flourish::before,
+    .royal-gold-flourish::after {
+      width: 18px !important;
+    }
+
+    .royal-sub-line {
+      font-size: 8px !important;
+      line-height: 1.2 !important;
+    }
+
+    .royal-dignitaries-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 5px !important;
+      margin: 6px 0 4px 0 !important;
+    }
+
+    .royal-dignitary-card {
+      padding: 6px 3px !important;
+      border-radius: 10px !important;
+    }
+
+    .royal-guest-img-frame {
+      width: 52px !important;
+      height: 60px !important;
+      border-radius: 8px !important;
+      margin-bottom: 3px !important;
+    }
+
+    .royal-guest-kicker {
+      font-size: 6.5px !important;
+      padding: 1px 4px !important;
+      margin-bottom: 2px !important;
+    }
+
+    .royal-guest-title-name {
+      font-size: 9.5px !important;
+      line-height: 1.1 !important;
+      margin-bottom: 1.5px !important;
+    }
+
+    .royal-guest-detail-text {
+      font-size: 6.5px !important;
+      line-height: 1.2 !important;
+      margin: 1px 0 !important;
+    }
+
+    /* RIGHT PAGE MOBILE STYLING */
+    .royal-leukquant-logo {
+      height: 34px !important;
+      margin: 1px 0 !important;
+    }
+
+    .royal-date-big {
+      font-size: 17px !important;
+      margin: 2px 0 !important;
+    }
+
+    .royal-meta-list {
+      gap: 3px !important;
+      margin: 3px 0 6px 0 !important;
+    }
+
+    .royal-meta-item {
+      font-size: 8px !important;
+      padding: 2px 8px !important;
+      gap: 4px !important;
+    }
+
+    .royal-meta-badge-num {
+      width: 13px !important;
+      height: 13px !important;
+      font-size: 7.5px !important;
+    }
+
+    .royal-inst-footer {
+      gap: 4px !important;
+      padding-top: 6px !important;
+      margin-top: 5px !important;
+      justify-content: center !important;
+    }
+
+    .royal-inst-left-crest {
+      height: 24px !important;
+    }
+
+    .royal-inst-mid-info {
+      min-width: 100px !important;
+    }
+    .royal-inst-mid-info h4 {
+      font-size: 8px !important;
+      margin-bottom: 1px !important;
+    }
+    .royal-inst-mid-info p {
+      font-size: 6.5px !important;
+      line-height: 1.15 !important;
+    }
+
+    .royal-inst-right-seals img {
+      height: 18px !important;
+    }
+
+    .royal-actions-container {
+      margin-top: 6px !important;
+      gap: 5px !important;
+    }
+
+    .btn-material-primary {
+      padding: 6px 14px !important;
+      font-size: 9.5px !important;
+    }
+
+    .btn-material-secondary {
+      padding: 5px 12px !important;
+      font-size: 9.5px !important;
+    }
+
+    /* Mobile Covers */
+    .book-gate-cover {
+      padding: 12px 6px !important;
+    }
+    .gate-cover-crest {
+      height: 32px !important;
+    }
+    .gate-cover-title {
+      font-size: 11px !important;
+      letter-spacing: 0.1em !important;
+    }
+    .gate-cover-sub {
+      font-size: 8px !important;
+    }
+    .gate-center-seal {
+      width: 58px !important;
+      height: 58px !important;
+    }
+    .gate-center-seal img {
+      height: 26px !important;
+      width: 26px !important;
+    }
+    .gate-center-seal span {
+      font-size: 6.5px !important;
+    }
+  }
+
+/* =========================================================
      4. SECTION 3: DIORAMA SHOWCASE (#showcase)
      ========================================================= */
   .showcase-pinned-section {
@@ -2244,193 +2266,199 @@
     <div class="envelope-stage-wrapper" id="envelope-stage">
       <div class="envelope-header-hint" id="envelope-hint">
         <div class="envelope-hint-controls">
-          <span class="envelope-hint-pill">👑 Official Royal Folio &bull; 2026</span>
-          <button class="btn-envelope-action" onclick="replayEnvelopeAnimation()">✨ Replay Unseal</button>
-          <button class="btn-envelope-action" onclick="toggleBookFold()">📖 Folio Inspect</button>
+          <span class="envelope-hint-pill">👑 Royal Double-Side Booklet &bull; 2026</span>
+          <button class="btn-envelope-action" onclick="replayBookletAnimation()">✨ Open / Close Booklet</button>
+          <button class="btn-envelope-action" onclick="toggleBookFold()">📖 3D Perspective</button>
         </div>
         <h2 class="envelope-hint-title">Grand Launch Invitation</h2>
-        <p class="envelope-hint-subtitle">Official Inauguration &bull; September 07, 2026 &bull; 10:30 AM Onwards</p>
+        <p class="envelope-hint-subtitle">Official Inauguration &bull; September 07, 2026 &bull; 09:30 AM IST</p>
       </div>
 
-      <!-- Luxury Physical Envelope Bed / Frame -->
+      <!-- Luxury Envelope / Book Bed -->
       <div class="royal-envelope-bed" id="envelope-bed">
         <div class="envelope-bed-lining"></div>
 
-        <!-- 3D Top Flap with Wax Seal -->
-        <div class="envelope-flap-top" id="envelope-flap">
-          <div class="flap-triangle-shape"></div>
-          <!-- Royal Wax Seal -->
-          <div class="royal-wax-seal" id="royal-wax-seal" onclick="openRoyalEnvelope(false)" title="Click to Unseal Royal Invitation!">
-            <img src="__MASCOT__" alt="LeukQuant Seal" class="seal-mascot-img">
-            <span class="seal-label">👑 UNSEAL</span>
-          </div>
-        </div>
-
-        <!-- Front Pocket Protective Flaps (Folded when sealed) -->
-        <div class="envelope-pocket-flaps" id="envelope-pocket-flaps">
-          <div class="pocket-flap-left"></div>
-          <div class="pocket-flap-right"></div>
-          <div class="pocket-flap-bottom">
-            <span class="pocket-embossed-title">LEUKQUANT &bull; OFFICIAL INAUGURATION 2026</span>
-          </div>
-        </div>
-
-        <!-- Top Envelope Header Crest Ribbon -->
+        <!-- Top Envelope Header Crest Ribbon (Desktop) -->
         <div class="envelope-top-crest-bar">
           <img src="__MASCOT__" alt="LeukQuant Royal Seal">
           <span>👑 Official Royal Invitation &bull; Jeppiaar Institute of Technology</span>
         </div>
 
-        <!-- 2-Page Bi-Fold Royal Book Folio -->
-        <div class="royal-book-folio" id="invitation-card">
-          <div class="card-sheen-overlay" id="card-sheen"></div>
+        <!-- 3D Perspective Stage for Booklet -->
+        <div class="book-stage-perspective" id="book-stage">
+          
+          <!-- 2-Page Bi-Fold Royal Book Folio -->
+          <div class="royal-book-folio" id="invitation-card">
+            <div class="card-sheen-overlay" id="card-sheen"></div>
 
-          <!-- ================= PAGE 1: LEFT PAGE ================= -->
-          <div class="book-page book-page-left">
-            <!-- Botanical Corner Foliage Vines in Dark Navy -->
-            <svg class="corner-vignette corner-tl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
-              <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
-              <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
-              <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
-              <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
-            </svg>
-            <svg class="corner-vignette corner-bl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
-              <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
-              <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
-              <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
-              <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
-            </svg>
+            <!-- 3D DOUBLE-SIDE OPENING COVERS (LEFT & RIGHT GATEFOLD DOORS) -->
+            <div class="book-gate-cover gate-left" id="gate-cover-left" onclick="openRoyalBooklet(false)">
+              <div class="gate-cover-content">
+                <img src="__JIT_CREST__" alt="JIT Crest" class="gate-cover-crest">
+                <div class="gate-cover-title">OFFICIAL INVITATION</div>
+                <div class="gate-cover-sub">JEPPIAAR INSTITUTE OF TECHNOLOGY</div>
+              </div>
+            </div>
 
-            <!-- Top Header & Crest -->
-            <div>
-              <div class="royal-header-tag">I N V I T A T I O N</div>
-              <svg class="royal-gold-crest" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M32 4 L42 22 L62 25 L47 39 L51 59 L32 49 L13 59 L17 39 L2 25 L22 22 Z" stroke="#C5A059" stroke-width="2" fill="rgba(197, 160, 89, 0.15)"/>
-                <circle cx="32" cy="32" r="8" stroke="#C5A059" stroke-width="1.5"/>
+            <div class="book-gate-cover gate-right" id="gate-cover-right" onclick="openRoyalBooklet(false)">
+              <div class="gate-cover-content">
+                <img src="__MASCOT__" alt="LeukQuant Mascot" class="gate-cover-crest">
+                <div class="gate-cover-title">LEUKQUANT 2026</div>
+                <div class="gate-cover-sub">AUTONOMOUS CYBERSECURITY</div>
+              </div>
+            </div>
+
+            <!-- Central Golden Seal / Latch -->
+            <div class="gate-center-seal" id="gate-center-seal" onclick="openRoyalBooklet(false)" title="Click or Scroll to Open Booklet!">
+              <img src="__MASCOT__" alt="LeukQuant Seal">
+              <span>👑 OPEN</span>
+            </div>
+
+            <!-- ================= PAGE 1: LEFT PAGE (DIGNITARIES) ================= -->
+            <div class="book-page book-page-left" id="book-page-left">
+              <!-- Botanical Corner Foliage Vines in Dark Navy -->
+              <svg class="corner-vignette corner-tl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
+                <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
+                <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
+                <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
+                <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
               </svg>
-              <div class="royal-lead-title">WE ARE HONOURED TO CORDIALLY INVITE YOU</div>
-              <div class="royal-gold-flourish">«««««——————»»»»»</div>
-              <div class="royal-sub-line">AN INCUBATED STARTUP AT JIT FOUNDATION</div>
-              <div class="royal-sub-line">FOR THE GRAND LAUNCH</div>
-            </div>
+              <svg class="corner-vignette corner-bl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
+                <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
+                <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
+                <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
+                <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
+              </svg>
 
-            <!-- Dignitaries Grid -->
-            <div class="royal-dignitaries-grid">
-              <!-- Dignitary 1: Dr. N. Marie Wilson (Chief Guest) -->
-              <div class="royal-dignitary-card">
-                <div class="royal-guest-img-frame">
-                  <img src="__GUEST_PHOTO__" alt="Dr. N. Marie Wilson" class="royal-guest-img">
-                </div>
-                <div class="royal-guest-content">
-                  <span class="royal-guest-kicker">CHIEF GUEST</span>
-                  <h3 class="royal-guest-title-name">DR N.MARIE WILSON</h3>
-                  <div class="royal-guest-detail-text">MINISTER FOR FINANCE, PENSIONS,</div>
-                  <div class="royal-guest-detail-text">PLANNING &amp; DEVELOPMENT</div>
-                  <div class="royal-guest-detail-text">MEMBER OF LEGISLATIVE ASSEMBLY</div>
-                  <div class="royal-gold-flourish" style="margin: 2px auto;">«««««——————»»»»»</div>
-                  <div class="royal-guest-detail-text" style="font-weight: 700;">CHAIRMAN &amp; DIRECTOR</div>
-                  <div class="royal-guest-detail-text" style="font-weight: 800; color: #0F172A;">JEPPIAAR INSTITUTE OF TECHNOLOGY</div>
-                </div>
+              <!-- Top Header & Crest -->
+              <div>
+                <div class="royal-header-tag">I N V I T A T I O N</div>
+                <svg class="royal-gold-crest" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 4 L42 22 L62 25 L47 39 L51 59 L32 49 L13 59 L17 39 L2 25 L22 22 Z" stroke="#C5A059" stroke-width="2" fill="rgba(197, 160, 89, 0.15)"/>
+                  <circle cx="32" cy="32" r="8" stroke="#C5A059" stroke-width="1.5"/>
+                </svg>
+                <div class="royal-lead-title">WE ARE HONOURED TO CORDIALLY INVITE YOU</div>
+                <div class="royal-gold-flourish">«««««——————»»»»»</div>
+                <div class="royal-sub-line">AN INCUBATED STARTUP AT JIT FOUNDATION</div>
+                <div class="royal-sub-line">FOR THE GRAND LAUNCH</div>
               </div>
 
-              <!-- Dignitary 2: Soundarraj Kannan (Special Guest of Honour) -->
-              <div class="royal-dignitary-card">
-                <div class="royal-guest-img-frame">
-                  <img src="__GUEST_SOUNDARRAJ__" alt="Soundarraj Kannan" class="royal-guest-img">
+              <!-- Dignitaries Grid -->
+              <div class="royal-dignitaries-grid">
+                <!-- Dignitary 1: Dr. N. Marie Wilson (Chief Guest) -->
+                <div class="royal-dignitary-card">
+                  <div class="royal-guest-img-frame">
+                    <img src="__GUEST_PHOTO__" alt="Dr. N. Marie Wilson" class="royal-guest-img">
+                  </div>
+                  <div class="royal-guest-content">
+                    <span class="royal-guest-kicker">CHIEF GUEST</span>
+                    <h3 class="royal-guest-title-name">DR N.MARIE WILSON</h3>
+                    <div class="royal-guest-detail-text">MINISTER FOR FINANCE, PENSIONS,</div>
+                    <div class="royal-guest-detail-text">PLANNING &amp; DEVELOPMENT</div>
+                    <div class="royal-guest-detail-text">MEMBER OF LEGISLATIVE ASSEMBLY</div>
+                    <div class="royal-gold-flourish" style="margin: 2px auto;">«««««——————»»»»»</div>
+                    <div class="royal-guest-detail-text" style="font-weight: 700;">CHAIRMAN &amp; DIRECTOR</div>
+                    <div class="royal-guest-detail-text" style="font-weight: 800; color: #0F172A;">JEPPIAAR INSTITUTE OF TECHNOLOGY</div>
+                  </div>
                 </div>
-                <div class="royal-guest-content">
-                  <span class="royal-guest-kicker">SPECIAL GUEST OF HONOUR</span>
-                  <h3 class="royal-guest-title-name">SOUNDARRAJ KANNAN</h3>
-                  <div class="royal-guest-detail-text">DIRECTOR &bull; KRP TECH SOLUTIONS</div>
-                  <div class="royal-guest-detail-text">STRATEGIC ADVISOR &amp; INDUSTRY VETERAN</div>
-                  <div class="royal-guest-detail-text">CYBER PLATFORMS INNOVATOR</div>
-                  <div class="royal-gold-flourish" style="margin: 2px auto;">«««««——————»»»»»</div>
-                  <div class="royal-guest-detail-text" style="font-weight: 700;">INDUSTRY 5.0 MENTOR</div>
-                  <div class="royal-guest-detail-text" style="font-weight: 800; color: #0F172A;">ACTIVE DEFENSE ADVISORY</div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <!-- ================= CENTER BOOK SPINE ================= -->
-          <div class="book-spine-crease">
-            <div class="book-ribbon-tassel"></div>
-          </div>
-
-          <!-- ================= PAGE 2: RIGHT PAGE ================= -->
-          <div class="book-page book-page-right">
-            <!-- Botanical Corner Foliage Vines in Dark Navy -->
-            <svg class="corner-vignette corner-tr" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
-              <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
-              <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
-              <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
-              <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
-            </svg>
-            <svg class="corner-vignette corner-br" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
-              <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
-              <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
-              <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
-              <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
-            </svg>
-
-            <!-- LeukQuant Section -->
-            <div>
-              <div class="royal-sub-line" style="margin-top: 4px;">FOR THE GRAND LAUNCH OF</div>
-              <div class="royal-logo-center-wrap">
-                <img src="__LEUKQUANT_LOGO__" alt="LeukQuant" class="royal-leukquant-logo">
-              </div>
-              <div class="royal-gold-flourish">»»»——————«««</div>
-              <div class="royal-date-big">SEP 07, 2026</div>
-
-              <div class="royal-meta-list">
-                <div class="royal-meta-item">
-                  <span class="royal-meta-badge-num">📍</span>
-                  <span>VENUE: Ground Floor Auditorium, JIT</span>
-                </div>
-                <div class="royal-meta-item">
-                  <span class="royal-meta-badge-num">⏰</span>
-                  <span>TIME: 10:30 AM IST Onwards</span>
+                <!-- Dignitary 2: Soundarraj Kannan (Special Guest of Honour) -->
+                <div class="royal-dignitary-card">
+                  <div class="royal-guest-img-frame">
+                    <img src="__GUEST_SOUNDARRAJ__" alt="Soundarraj Kannan" class="royal-guest-img">
+                  </div>
+                  <div class="royal-guest-content">
+                    <span class="royal-guest-kicker">SPECIAL GUEST OF HONOUR</span>
+                    <h3 class="royal-guest-title-name">SOUNDARRAJ KANNAN</h3>
+                    <div class="royal-guest-detail-text">DIRECTOR &bull; KRP TECH SOLUTIONS</div>
+                    <div class="royal-guest-detail-text">STRATEGIC ADVISOR &amp; INDUSTRY VETERAN</div>
+                    <div class="royal-guest-detail-text">CYBER PLATFORMS INNOVATOR</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Institutional Footer -->
-            <div class="royal-inst-footer">
-              <img src="__JIT_CREST__" alt="Jeppiaar Institute of Technology" class="royal-inst-left-crest">
-              
-              <div class="royal-inst-mid-info">
-                <h4>JEPPIAAR INSTITUTE OF TECHNOLOGY</h4>
-                <p style="font-weight: 700; color: #1E293B;">(AN AUTONOMOUS INSTITUTION)</p>
-                <p>---- self belief | self Discipline | self Respect ----</p>
-                <p>Kunnam, Sunguvarchatram, Sriperumbudur, Chennai - 631604</p>
+            <!-- ================= CENTER BOOK SPINE ================= -->
+            <div class="book-spine-crease">
+              <div class="book-ribbon-tassel"></div>
+            </div>
+
+            <!-- ================= PAGE 2: RIGHT PAGE (LAUNCH & CREDENTIALS) ================= -->
+            <div class="book-page book-page-right" id="book-page-right">
+              <!-- Botanical Corner Foliage Vines in Dark Navy -->
+              <svg class="corner-vignette corner-tr" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
+                <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
+                <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
+                <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
+                <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
+              </svg>
+              <svg class="corner-vignette corner-br" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
+                <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
+                <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
+                <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
+                <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
+              </svg>
+
+              <!-- LeukQuant Section -->
+              <div>
+                <div class="royal-sub-line" style="margin-top: 4px;">FOR THE GRAND LAUNCH OF</div>
+                <div class="royal-logo-center-wrap">
+                  <img src="__LEUKQUANT_LOGO__" alt="LeukQuant" class="royal-leukquant-logo">
+                </div>
+                <div class="royal-gold-flourish">»»»——————«««</div>
+                <div class="royal-sub-line">AI-POWERED ACTIVE DECEPTION &amp; AUTONOMOUS CYBERSECURITY</div>
+
+                <!-- Date Display -->
+                <div class="royal-date-big">SEP 07, 2026</div>
+
+                <!-- Meta Pills -->
+                <div class="royal-meta-list">
+                  <div class="royal-meta-item">
+                    <span class="royal-meta-badge-num">1</span>
+                    <span><strong>VENUE:</strong> Ground Floor Auditorium, JIT Kunnam Campus</span>
+                  </div>
+                  <div class="royal-meta-item">
+                    <span class="royal-meta-badge-num">2</span>
+                    <span><strong>TIME:</strong> 09:30 AM IST &bull; Live Demonstrations &amp; Keynote</span>
+                  </div>
+                </div>
               </div>
 
-              <div class="royal-inst-right-seals">
-                <img src="__NBA_LOGO__" alt="NBA Tier-1">
-                <img src="__NAAC_SEAL__" alt="NAAC A+">
+              <!-- Institutional Footer -->
+              <div>
+                <div class="royal-inst-footer">
+                  <img src="__JIT_CREST__" alt="JIT Crest" class="royal-inst-left-crest">
+                  <div class="royal-inst-mid-info">
+                    <h4>JEPPIAAR INSTITUTE OF TECHNOLOGY</h4>
+                    <p>Self-Financing Technical Institution &bull; Kunnam, Sunguvarchatram</p>
+                    <p>Sriperumbudur, Tamil Nadu 631604</p>
+                  </div>
+                  <div class="royal-inst-right-seals">
+                    <img src="__NAAC_SEAL__" alt="NAAC A Grade">
+                    <img src="__NBA_LOGO__" alt="NBA Accredited">
+                  </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="royal-actions-container">
+                  <button class="btn-material-primary" onclick="window.location.href='#venue'">
+                    <span>📍 Navigate to Venue</span>
+                  </button>
+                  <button class="btn-material-secondary" onclick="addToCalendar()">
+                    <span>📅 Add to Calendar</span>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <!-- Interactive Action Buttons -->
-            <div class="royal-actions-container">
-              <button class="btn-material-primary" onclick="addToCalendar()">
-                📅 Add to Calendar (.ics)
-              </button>
-              <button class="btn-material-outline" onclick="shareWhatsapp()">
-                💬 Share on WhatsApp
-              </button>
-              <button class="btn-material-outline" onclick="copyInviteLink()">
-                🔗 Copy Link
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -2633,39 +2661,53 @@
        SECTION 5: COUNTDOWN SECTION (#countdown)
        ========================================================= -->
   <section class="countdown-enhanced-section" id="countdown">
-    <div class="section-eyebrow">Grand Launch Live Countdown</div>
-    <h2 class="countdown-date-display" id="countdown-heading">
-      SEP 07, 2026 &bull; 10:30 AM
-    </h2>
-    <div class="date-sub-text">MONDAY &bull; 10:30 AM ONWARDS &bull; GROUND FLOOR AUDITORIUM</div>
+    <div class="countdown-ambient-aura" id="cd-aura"></div>
+    <div class="countdown-orbital-ring" id="cd-ring"></div>
 
-    <div class="countdown-flip-grid" id="countdown-grid">
-      <div class="countdown-flip-card">
-        <div class="countdown-flip-num" id="cd-days">00</div>
-        <div class="countdown-flip-lbl">DAYS</div>
+    <div class="countdown-container-stage" id="cd-stage">
+      <div class="countdown-eyebrow-pill" id="cd-pill">
+        <span>👑 Grand Launch Live Countdown</span>
       </div>
-      <div class="countdown-flip-card">
-        <div class="countdown-flip-num" id="cd-hours">00</div>
-        <div class="countdown-flip-lbl">HOURS</div>
-      </div>
-      <div class="countdown-flip-card">
-        <div class="countdown-flip-num" id="cd-mins">00</div>
-        <div class="countdown-flip-lbl">MINUTES</div>
-      </div>
-      <div class="countdown-flip-card">
-        <div class="countdown-flip-num" id="cd-secs">00</div>
-        <div class="countdown-flip-lbl">SECONDS</div>
-      </div>
-    </div>
 
-    <div id="countdown-live-msg" style="display: none; font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 24px;">
-      ✨ The Grand Launch is Live!
-    </div>
+      <h2 class="countdown-date-display" id="countdown-heading">
+        SEP 07, 2026 &bull; 09:30 AM IST
+      </h2>
 
-    <div style="margin-top: 20px;">
-      <button class="btn-material-primary" onclick="addToCalendar()">
-        📅 Add to Calendar (.ics)
-      </button>
+      <div class="date-sub-text" id="cd-subtext">
+        MONDAY &bull; GROUND FLOOR AUDITORIUM &bull; JEPPIAAR INSTITUTE OF TECHNOLOGY
+      </div>
+
+      <div class="countdown-flip-grid" id="countdown-grid">
+        <div class="countdown-flip-card">
+          <div class="countdown-flip-num" id="cd-days">00</div>
+          <div class="countdown-flip-lbl">DAYS</div>
+        </div>
+        <div class="countdown-flip-card">
+          <div class="countdown-flip-num" id="cd-hours">00</div>
+          <div class="countdown-flip-lbl">HOURS</div>
+        </div>
+        <div class="countdown-flip-card">
+          <div class="countdown-flip-num" id="cd-mins">00</div>
+          <div class="countdown-flip-lbl">MINUTES</div>
+        </div>
+        <div class="countdown-flip-card">
+          <div class="countdown-flip-num" id="cd-secs">00</div>
+          <div class="countdown-flip-lbl">SECONDS</div>
+        </div>
+      </div>
+
+      <div id="countdown-live-msg" style="display: none; font-family: var(--font-royal); font-size: 22px; font-weight: 800; color: #D4AF37; margin-bottom: 18px; text-shadow: 0 0 15px rgba(212,175,55,0.7);">
+        ✨ The Grand Launch is Live!
+      </div>
+
+      <div class="countdown-actions-wrap" id="cd-actions">
+        <button class="btn-material-primary" onclick="addToCalendar()">
+          <span>📅 Add to Calendar (.ics)</span>
+        </button>
+        <button class="btn-material-secondary" onclick="window.location.href='#venue'" style="background: rgba(255,255,255,0.1); color: #FEF3C7; border-color: #D4AF37;">
+          <span>📍 Campus Map &amp; Navigation</span>
+        </button>
+      </div>
     </div>
   </section>
 
@@ -3057,38 +3099,18 @@
         }
       );
 
-      // (C) SECTION 2: OFFICIAL ROYAL INVITATION TRIGGER
-      if (window.innerWidth <= 850) {
-        gsap.fromTo('#invitation-card',
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: '#invitation',
-              start: 'top 80%',
-              once: true,
-              onEnter: () => {
-                triggerCardPolishReveal();
-              }
-            }
-          }
-        );
-      } else {
-        ScrollTrigger.create({
-          trigger: '#invitation',
-          start: 'top 70%',
-          once: true,
-          onEnter: () => {
-            // Generous visible delay so user sees the sealed envelope first
-            setTimeout(() => {
-              openRoyalEnvelope(true);
-            }, 800);
-          }
-        });
-      }
+      // (C) SECTION 2: OFFICIAL ROYAL BOOKLET SCROLL TRIGGER
+      ScrollTrigger.create({
+        trigger: '#invitation',
+        start: 'top 75%',
+        once: true,
+        onEnter: () => {
+          // Smooth scroll-triggered double-sided opening!
+          setTimeout(() => {
+            openRoyalBooklet(true);
+          }, 350);
+        }
+      });
 
       // Card polish sheen sweep
       function triggerCardPolishReveal() {
@@ -3237,22 +3259,67 @@
         }
       );
 
-      // (F) COUNTDOWN SCALE (#countdown)
-      if (!isReducedMotion) {
-        gsap.fromTo('#countdown-heading',
-          { scale: 1.25, opacity: 0.4 },
-          {
-            scale: 1.0,
-            opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: '#countdown',
-              start: 'top 80%',
-              end: 'top 20%',
-              scrub: 1,
-              invalidateOnRefresh: true
+      // (F) FULLSCREEN PINNED COUNTDOWN SCROLL ANIMATION (#countdown)
+      const cdSection = document.getElementById('countdown');
+      const cdStage = document.getElementById('cd-stage');
+      const cdRing = document.getElementById('cd-ring');
+      const cdHeading = document.getElementById('countdown-heading');
+      const cdCards = document.querySelectorAll('.countdown-flip-card');
+
+      if (cdSection && cdStage) {
+        // Pinned Fullscreen Scroll Scene
+        const cdTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#countdown',
+            start: 'top top',
+            end: '+=1200',
+            pin: true,
+            pinSpacing: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            onEnter: () => {
+              gsap.to('#cd-aura', { scale: 1.25, opacity: 1, duration: 1.0 });
+            },
+            onLeaveBack: () => {
+              gsap.to('#cd-aura', { scale: 1, opacity: 0.8, duration: 0.8 });
             }
           }
+        });
+
+        // Entrance scale & glow
+        cdTl.fromTo(cdStage,
+          { scale: 0.88, opacity: 0.6, y: 40 },
+          { scale: 1.0, opacity: 1, y: 0, ease: 'power2.out', duration: 0.4 }
+        );
+
+        // Orbital ring acceleration during scroll
+        if (cdRing) {
+          cdTl.to(cdRing, { rotate: 180, scale: 1.15, ease: 'none', duration: 0.6 }, 0);
+        }
+
+        // Heading golden pulse
+        if (cdHeading) {
+          cdTl.fromTo(cdHeading,
+            { scale: 0.95 },
+            { scale: 1.05, ease: 'power1.inOut', duration: 0.5 },
+            0.1
+          );
+        }
+
+        // Staggered Flip Cards bounce
+        if (cdCards.length > 0) {
+          cdTl.fromTo(cdCards,
+            { y: 30, opacity: 0.7, scale: 0.92 },
+            { y: 0, opacity: 1, scale: 1, stagger: 0.08, ease: 'back.out(1.7)', duration: 0.5 },
+            0.2
+          );
+        }
+
+        // Actions entrance
+        cdTl.fromTo('#cd-actions',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, ease: 'power2.out', duration: 0.3 },
+          0.5
         );
       }
     }
