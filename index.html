@@ -3014,8 +3014,24 @@
       }
     }
 
-    // 2. Preloader Mascot Stamping Sequence
+    // 2. Ultra-Smooth Fast Loading & Preloader Sequence
+    function dismissPreloader() {
+      const preloader = document.getElementById('preloader');
+      if (preloader && !preloader.classList.contains('loaded')) {
+        preloader.classList.add('loaded');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 800);
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
+      // Run animations immediately so page is ready
+      initGsapAnimations();
+
       const preloader = document.getElementById('preloader');
       const bar = document.getElementById('preloader-bar');
       const status = document.getElementById('preloader-status');
@@ -3023,53 +3039,40 @@
       const stamp = document.getElementById('pmini-stamp');
       const seal = document.getElementById('pmini-seal');
 
-      let progress = 0;
-      let phase = 0;
+      // Click or keydown anywhere on preloader immediately dismisses it
+      if (preloader) {
+        preloader.addEventListener('click', dismissPreloader);
+      }
 
+      let progress = 0;
       const timer = setInterval(() => {
-        progress += 3;
+        progress += 8;
         if (progress > 100) progress = 100;
         if (bar) bar.style.width = progress + '%';
 
-        if (progress >= 25 && phase === 0) {
-          phase = 1;
-          if (status) status.innerText = 'Positioning Mascot Signet Stamp...';
-          if (badgeText) badgeText.innerText = 'Engraving Seal';
-          if (stamp) stamp.style.transform = 'translateX(-50%) translateY(22px)';
+        if (progress >= 30 && stamp) {
+          stamp.style.transform = 'translateX(-50%) translateY(35px)';
         }
-
-        if (progress >= 55 && phase === 1) {
-          phase = 2;
-          if (status) status.innerText = 'Stamping Molten Gold Wax...';
-          if (badgeText) badgeText.innerText = 'Sealing Envelope';
-          if (stamp) stamp.style.transform = 'translateX(-50%) translateY(52px) scale(0.96)';
-        }
-
-        if (progress >= 80 && phase === 2) {
-          phase = 3;
-          if (status) status.innerText = 'Mascot Signet Seal Imprinted!';
-          if (badgeText) badgeText.innerText = 'Sealed & Verified';
-          if (stamp) {
-            stamp.style.transform = 'translateX(-50%) translateY(-70px) scale(0.8)';
-            stamp.style.opacity = '0';
-          }
-          if (seal) {
-            seal.style.opacity = '1';
-            seal.style.transform = 'scale(1)';
-          }
+        if (progress >= 70 && stamp && seal) {
+          stamp.style.transform = 'translateX(-50%) translateY(52px) scale(0.96)';
+          seal.style.opacity = '1';
+          seal.style.transform = 'scale(1)';
         }
 
         if (progress >= 100) {
           clearInterval(timer);
-          if (status) status.innerText = 'Royal Invitation Sealed & Ready!';
-          if (badgeText) badgeText.innerText = 'Grand Launch 2026';
-          setTimeout(() => {
-            if (preloader) preloader.classList.add('loaded');
-            initGsapAnimations();
-            ScrollTrigger.refresh();
-          }, 600);
+          if (status) status.innerText = 'Grand Launch 2026 Ready!';
+          if (badgeText) badgeText.innerText = 'Verified';
+          setTimeout(dismissPreloader, 300);
         }
-      }, 35);
+      }, 25);
+
+      // Hard safety timeout: preloader NEVER hangs under any circumstances
+      setTimeout(dismissPreloader, 1000);
+    });
+
+    window.addEventListener('load', () => {
+      setTimeout(dismissPreloader, 200);
     });
 
                 // 3. GSAP Master Animations & Royal Envelope Functions
