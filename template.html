@@ -1901,10 +1901,14 @@
      ========================================================= */
   .countdown-enhanced-section {
     position: relative;
-    padding: 90px 20px;
+    padding: 100px 20px;
     text-align: center;
-    max-width: 900px;
+    width: 100%;
     margin: 0 auto;
+    background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
+    border-top: 1.5px solid rgba(197, 160, 89, 0.35);
+    border-bottom: 1.5px solid rgba(197, 160, 89, 0.35);
+    overflow: hidden;
   }
   .countdown-date-display {
     font-family: var(--font-royal);
@@ -1913,6 +1917,7 @@
     color: var(--text-heading);
     letter-spacing: 0.04em;
     margin-bottom: 8px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   }
   .date-sub-text {
     font-family: var(--font-mono);
@@ -1925,35 +1930,44 @@
   .countdown-flip-grid {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 18px;
     flex-wrap: wrap;
-    margin: 32px 0;
+    margin: 36px auto;
+    max-width: 860px;
   }
   .countdown-flip-card {
     background: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.95);
-    border-radius: var(--radius-xl);
-    padding: 20px 24px;
-    min-width: 110px;
-    box-shadow: var(--card-shadow), var(--highlight-inset);
+    border: 2px solid rgba(197, 160, 89, 0.45);
+    border-radius: 20px;
+    padding: 24px 28px;
+    min-width: 130px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08), 0 0 16px rgba(212, 175, 55, 0.12);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .countdown-flip-card:hover {
+    transform: translateY(-4px);
+    border-color: #D4AF37;
+    box-shadow: 0 16px 36px rgba(212, 175, 55, 0.25);
   }
   .countdown-flip-num {
     font-family: var(--font-mono);
-    font-size: clamp(34px, 4.5vw, 48px);
-    font-weight: 800;
-    color: var(--primary);
+    font-size: clamp(36px, 5.5vw, 54px);
+    font-weight: 900;
+    color: #0F172A;
     line-height: 1;
+    text-shadow: 0 2px 8px rgba(0, 102, 255, 0.15);
   }
   .countdown-flip-lbl {
     font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 0.08em;
+    font-size: 12px;
+    font-weight: 800;
+    color: #B45309;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
 
 
