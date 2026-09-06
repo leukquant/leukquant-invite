@@ -574,11 +574,84 @@
     font-size: clamp(16px, 2.3vw, 22px);
     color: var(--text-body);
     max-width: 720px;
-    margin: 0 auto 36px auto;
+    margin: 0 auto 20px auto;
     line-height: 1.6;
     font-weight: 500;
     position: relative;
     z-index: 2;
+  }
+
+  /* Hero Live Countdown Widget */
+  .hero-countdown-widget {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(197, 160, 89, 0.55);
+    border-radius: 20px;
+    padding: 16px 22px 14px 22px;
+    margin: 0 auto 28px auto;
+    max-width: 540px;
+    width: 92%;
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08), 0 0 20px rgba(212, 175, 55, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+  }
+  .hero-cd-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-royal);
+    font-size: 11px;
+    font-weight: 800;
+    color: #B45309;
+    letter-spacing: 0.16em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .hero-cd-grid {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .hero-cd-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+    border: 1.5px solid rgba(197, 160, 89, 0.4);
+    border-radius: 12px;
+    padding: 10px 12px;
+    flex: 1;
+    min-width: 55px;
+    max-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+  .hero-cd-num {
+    font-family: var(--font-mono);
+    font-size: clamp(22px, 4.2vw, 32px);
+    font-weight: 900;
+    color: #0F172A;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .hero-cd-lbl {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 800;
+    color: #C5A059;
+    letter-spacing: 0.12em;
+  }
+  .hero-cd-date-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: #475569;
+    letter-spacing: 0.06em;
   }
 
   .hero-stage-preview {
@@ -2652,6 +2725,33 @@
       Incubated at <strong>JIT Foundation</strong> &bull; Backed by <strong>Industry 5.0</strong> &bull; <strong>Jeppiaar Institute of Technology</strong>.
     </p>
 
+    <!-- Hero Live Countdown Display on Main Screen -->
+    <div class="hero-countdown-widget">
+      <div class="hero-cd-badge">
+        <span class="pulse-dot"></span>
+        <span>👑 GRAND LAUNCH LIVE IN</span>
+      </div>
+      <div class="hero-cd-grid">
+        <div class="hero-cd-card">
+          <div class="hero-cd-num" id="hero-days">00</div>
+          <div class="hero-cd-lbl">DAYS</div>
+        </div>
+        <div class="hero-cd-card">
+          <div class="hero-cd-num" id="hero-hours">00</div>
+          <div class="hero-cd-lbl">HOURS</div>
+        </div>
+        <div class="hero-cd-card">
+          <div class="hero-cd-num" id="hero-mins">00</div>
+          <div class="hero-cd-lbl">MINUTES</div>
+        </div>
+        <div class="hero-cd-card">
+          <div class="hero-cd-num" id="hero-secs">00</div>
+          <div class="hero-cd-lbl">SECONDS</div>
+        </div>
+      </div>
+      <div class="hero-cd-date-tag">THURSDAY, SEPTEMBER 10, 2026 &bull; 10:30 AM IST</div>
+    </div>
+
     <div class="hero-stage-preview">
       <img src="__ISO_LAUNCH_STAGE__" alt="LeukQuant Launch Stage" class="hero-stage-img">
       <div class="hero-mascot-badge" onclick="mascotPulse()" title="Interact with mascot!">
@@ -3684,10 +3784,10 @@
       const distance = targetLaunchDate - now;
 
       if (distance <= 0) {
-        ['cd-days', 'radar-days'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = '00'; });
-        ['cd-hours', 'radar-hours'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = '00'; });
-        ['cd-mins', 'radar-mins'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = '00'; });
-        ['cd-secs', 'radar-secs'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = '00'; });
+        ['cd-days', 'radar-days', 'hero-days'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = '00'; });
+        ['cd-hours', 'radar-hours', 'hero-hours'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = '00'; });
+        ['cd-mins', 'radar-mins', 'hero-mins'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = '00'; });
+        ['cd-secs', 'radar-secs', 'hero-secs'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = '00'; });
         const msg = document.getElementById('countdown-live-msg');
         if (msg) msg.style.display = 'block';
         return;
@@ -3703,10 +3803,10 @@
       const mStr = String(mins).padStart(2, '0');
       const sStr = String(secs).padStart(2, '0');
 
-      ['cd-days', 'radar-days'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = dStr; });
-      ['cd-hours', 'radar-hours'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = hStr; });
-      ['cd-mins', 'radar-mins'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = mStr; });
-      ['cd-secs', 'radar-secs'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = sStr; });
+      ['cd-days', 'radar-days', 'hero-days'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = dStr; });
+      ['cd-hours', 'radar-hours', 'hero-hours'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = hStr; });
+      ['cd-mins', 'radar-mins', 'hero-mins'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = mStr; });
+      ['cd-secs', 'radar-secs', 'hero-secs'].forEach(id => { const el = document.getElementById(id); if (el) el.innerText = sStr; });
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
