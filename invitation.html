@@ -1980,150 +1980,271 @@
     }
   }
 
-      /* Tablets & Mobile Devices (<= 850px) - Direct Double-Sided Open Folio */
+  /* =========================================================
+     MOBILE RESPONSIVE: COMPACT SMALL 2-PAGE SPREAD BOOKLET (NO ENVELOPE)
+     ========================================================= */
   @media (max-width: 850px) {
-    .envelope-flap-top,
-    .royal-wax-seal,
-    .envelope-pocket-flaps,
-    .envelope-bed-lining,
-    .envelope-hint-controls {
-      display: none !important;
-    }
     .envelope-pinned-section {
-      padding: 30px 10px 50px 10px !important;
+      padding: 24px 6px 40px 6px !important;
     }
+
+    /* IN MOBILE: REMOVE ENVELOPE BED COMPLETELY */
     .royal-envelope-bed {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
       padding: 0 !important;
-      width: 100% !important;
-      max-width: 100% !important;
       min-height: auto !important;
+      max-width: 100% !important;
+      perspective: 1200px !important;
     }
-    .envelope-top-crest-bar {
+
+    .envelope-bed-lining,
+    .envelope-top-crest-bar,
+    .envelope-flap-top,
+    .envelope-pocket-flaps,
+    .royal-wax-seal {
+      display: none !important;
+    }
+
+    .envelope-header-hint {
       margin-bottom: 12px !important;
-      font-size: 10.5px !important;
-      padding: 6px 14px !important;
-      width: 95% !important;
-      justify-content: center !important;
-      background: linear-gradient(135deg, #1E293B, #0F172A) !important;
     }
-    .envelope-top-crest-bar span {
-      font-size: 10.5px !important;
-      letter-spacing: 0.08em !important;
+
+    .envelope-hint-title {
+      font-size: 20px !important;
+      margin: 4px 0 2px 0 !important;
     }
-    .royal-book-folio {
-      grid-template-columns: 1fr !important;
-      opacity: 1 !important;
-      transform: none !important;
-      border-radius: 18px !important;
-      box-shadow: 0 16px 40px rgba(15, 30, 75, 0.12) !important;
-      background: #FAF7F2 !important;
-      border: 2.5px solid #C5A059 !important;
-    }
-    .book-page {
-      padding: 24px 14px 20px 14px !important;
-    }
-    .book-page-left {
-      border-right: none !important;
-      border-bottom: 2px dashed #C5A059 !important;
-      box-shadow: none !important;
-    }
-    .book-spine-crease {
-      width: 100% !important;
-      height: 14px !important;
-      background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(197, 160, 89, 0.75) 50%, rgba(0,0,0,0.06) 100%) !important;
-    }
-    .book-ribbon-tassel {
-      width: 45% !important;
-      height: 3px !important;
-    }
-    .book-page-right {
-      border-left: none !important;
-      box-shadow: none !important;
-      padding-top: 20px !important;
-    }
-    .royal-dignitaries-grid {
-      grid-template-columns: 1fr !important;
-      gap: 12px !important;
-      margin: 12px 0 6px 0 !important;
-    }
-    .royal-dignitary-card {
-      padding: 12px 10px !important;
-    }
-    .royal-guest-img-frame {
-      width: 96px !important;
-      height: 110px !important;
-      margin-bottom: 6px !important;
-    }
-    .royal-guest-title-name {
-      font-size: 15.5px !important;
-    }
-    .royal-guest-detail-text {
-      font-size: 9.5px !important;
-    }
-    .royal-leukquant-logo {
-      height: 48px !important;
-    }
-    .royal-date-big {
-      font-size: 26px !important;
-      margin: 4px 0 !important;
-    }
-    .royal-meta-item {
+
+    .envelope-hint-subtitle {
       font-size: 11px !important;
-      padding: 4px 10px !important;
     }
-    .royal-inst-footer {
-      flex-direction: column !important;
-      gap: 8px !important;
+
+    /* COMPACT MINIATURE BOOKLET (2-PAGE BI-FOLD SPREAD) */
+    .book-stage-perspective {
+      width: 100% !important;
+      max-width: 520px !important;
+      margin: 0 auto !important;
+    }
+
+    .royal-book-folio {
+      display: grid !important;
+      grid-template-columns: 1fr 10px 1fr !important;
+      border: 2px solid #C5A059 !important;
+      border-radius: 14px !important;
+      box-shadow: inset 0 0 0 2.5px #FAF7F2, inset 0 0 0 4px #C5A059, 0 12px 30px rgba(0,0,0,0.2) !important;
+      width: 100% !important;
+      max-width: 520px !important;
+      margin: 0 auto !important;
+      background: #FAF7F2 !important;
+    }
+
+    .book-page {
+      padding: 10px 6px 10px 6px !important;
+      min-width: 0 !important;
+    }
+
+    .book-page-left {
+      border-right: 1px solid rgba(197, 160, 89, 0.35) !important;
+      border-bottom: none !important;
+    }
+
+    .book-page-right {
+      border-left: 1px solid rgba(197, 160, 89, 0.35) !important;
+      border-top: none !important;
       padding-top: 10px !important;
     }
-    .royal-inst-left-crest {
-      height: 42px !important;
-    }
-    .royal-actions-container {
-      flex-direction: column !important;
-      width: 100% !important;
-      gap: 8px !important;
-    }
-    .btn-material-primary, .btn-material-outline {
-      width: 100% !important;
-      justify-content: center !important;
-      padding: 11px 16px !important;
-      font-size: 13px !important;
-    }
-  }
 
-  /* Small Smartphones (<= 480px) */
-  @media (max-width: 480px) {
-    .hero-badge-pill {
-      font-size: 10px !important;
-      padding: 5px 12px !important;
+    .book-spine-crease {
+      width: 10px !important;
+      height: 100% !important;
     }
+
+    .book-ribbon-tassel {
+      width: 2px !important;
+      height: 85% !important;
+    }
+
+    .corner-vignette {
+      width: 24px !important;
+      height: 24px !important;
+    }
+
+    /* LEFT PAGE MINI TYPOGRAPHY */
     .royal-header-tag {
-      font-size: 12px !important;
-      letter-spacing: 0.22em !important;
+      font-size: 8.5px !important;
+      letter-spacing: 0.16em !important;
+      margin-bottom: 1px !important;
     }
+
+    .royal-gold-crest {
+      width: 18px !important;
+      margin-bottom: 2px !important;
+    }
+
     .royal-lead-title {
-      font-size: 11px !important;
+      font-size: 7px !important;
+      line-height: 1.15 !important;
+      letter-spacing: 0.02em !important;
+      margin-bottom: 1px !important;
     }
-    .royal-guest-title-name {
-      font-size: 14.5px !important;
+
+    .royal-gold-flourish {
+      font-size: 7.5px !important;
+      margin: 1px auto !important;
     }
+    .royal-gold-flourish::before,
+    .royal-gold-flourish::after {
+      width: 14px !important;
+      height: 1px !important;
+    }
+
+    .royal-sub-line {
+      font-size: 6.5px !important;
+      line-height: 1.15 !important;
+      margin: 1px 0 !important;
+    }
+
+    .royal-dignitaries-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 4px !important;
+      margin: 4px 0 2px 0 !important;
+    }
+
+    .royal-dignitary-card {
+      padding: 4px 2px !important;
+      border-radius: 8px !important;
+    }
+
     .royal-guest-img-frame {
-      width: 85px !important;
-      height: 98px !important;
+      width: 42px !important;
+      height: 48px !important;
+      border-radius: 6px !important;
+      margin-bottom: 2px !important;
     }
+
+    .royal-guest-kicker {
+      font-size: 5.5px !important;
+      padding: 1px 3px !important;
+      margin-bottom: 1px !important;
+    }
+
+    .royal-guest-title-name {
+      font-size: 8px !important;
+      line-height: 1.1 !important;
+      margin-bottom: 1px !important;
+    }
+
+    .royal-guest-detail-text {
+      font-size: 5.5px !important;
+      line-height: 1.15 !important;
+      margin: 0.5px 0 !important;
+    }
+
+    /* RIGHT PAGE MINI TYPOGRAPHY */
+    .royal-leukquant-logo {
+      height: 26px !important;
+      margin: 1px 0 !important;
+    }
+
     .royal-date-big {
-      font-size: 22px !important;
-    }
-    .audio-toggle-btn {
-      width: 40px !important;
-      height: 40px !important;
-      bottom: 16px !important;
-      right: 16px !important;
       font-size: 14px !important;
+      margin: 1px 0 !important;
+    }
+
+    .royal-meta-list {
+      gap: 2px !important;
+      margin: 2px 0 4px 0 !important;
+    }
+
+    .royal-meta-item {
+      font-size: 6.5px !important;
+      padding: 1.5px 6px !important;
+      gap: 3px !important;
+    }
+
+    .royal-meta-badge-num {
+      width: 10px !important;
+      height: 10px !important;
+      font-size: 6px !important;
+    }
+
+    .royal-inst-footer {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 3px !important;
+      padding-top: 4px !important;
+      margin-top: 4px !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+
+    .royal-inst-left-crest {
+      height: 20px !important;
+    }
+
+    .royal-inst-mid-info {
+      min-width: 60px !important;
+      flex: 1 !important;
+    }
+    .royal-inst-mid-info h4 {
+      font-size: 6.5px !important;
+      margin-bottom: 0.5px !important;
+    }
+    .royal-inst-mid-info p {
+      font-size: 5.5px !important;
+      line-height: 1.1 !important;
+    }
+
+    .royal-inst-right-seals img {
+      height: 14px !important;
+    }
+
+    .royal-actions-container {
+      display: flex !important;
+      flex-direction: row !important;
+      margin-top: 5px !important;
+      gap: 4px !important;
+      justify-content: center !important;
+    }
+
+    .btn-material-primary {
+      padding: 4px 10px !important;
+      font-size: 8px !important;
+      width: auto !important;
+    }
+
+    .btn-material-secondary {
+      padding: 4px 8px !important;
+      font-size: 8px !important;
+      width: auto !important;
+    }
+
+    /* Mobile Gatefold Covers */
+    .book-gate-cover {
+      padding: 8px 4px !important;
+    }
+    .gate-cover-crest {
+      height: 24px !important;
+    }
+    .gate-cover-title {
+      font-size: 9px !important;
+      letter-spacing: 0.08em !important;
+    }
+    .gate-cover-sub {
+      font-size: 6.5px !important;
+    }
+    .gate-center-seal {
+      width: 46px !important;
+      height: 46px !important;
+    }
+    .gate-center-seal img {
+      height: 20px !important;
+      width: 20px !important;
+    }
+    .gate-center-seal span {
+      font-size: 5.5px !important;
     }
   }
 
