@@ -2332,25 +2332,25 @@
 
       let cardRevealed = false;
 
-      // Extended scroll range (+480%) with dedicated resting plateau so user can read invitation thoroughly
+      // Extended scroll range (+900%) with dedicated resting plateau so user can read invitation thoroughly
       const envelopeTL = gsap.timeline({
         scrollTrigger: {
           trigger: '#invitation',
           start: 'top top',
-          end: '+=480%',
+          end: '+=900%',
           pin: true,
           scrub: 0.8,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
             const cardCont = document.getElementById('envelope-card-container');
             if (cardCont) {
-              if (self.progress > 0.15) {
+              if (self.progress > 0.08) {
                 cardCont.classList.add('active-interactive');
               } else {
                 cardCont.classList.remove('active-interactive');
               }
             }
-            if (self.progress >= 0.25 && !cardRevealed) {
+            if (self.progress >= 0.15 && !cardRevealed) {
               cardRevealed = true;
               triggerCardPolishReveal();
             }
@@ -2421,8 +2421,8 @@
       }, '-=1.6');
 
       // 9. Dedicated reading & interactive resting plateau
-      // The invitation stays pinned in the center for a long scroll duration!
-      envelopeTL.to({}, { duration: 14.0 });
+      // The invitation stays pinned in the center for a long, relaxed reading duration!
+      envelopeTL.to({}, { duration: 36.0 });
 
       // Card polish sheen sweep
       function triggerCardPolishReveal() {
