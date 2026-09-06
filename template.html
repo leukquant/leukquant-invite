@@ -882,7 +882,7 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
     transform-style: preserve-3d;
     backface-visibility: hidden;
-    transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, visibility 0.8s;
+    transition: transform 2.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.8s ease, visibility 1.8s;
     cursor: pointer;
     overflow: hidden;
   }
@@ -2545,7 +2545,7 @@
           <span class="envelope-hint-pill">👑 Official Royal Booklet &bull; 2026</span>
           <button class="btn-envelope-action" onclick="replayBookletAnimation()">✨ Open / Close Booklet</button>
           <button class="btn-envelope-action" onclick="toggleBookFold()">📖 3D Perspective</button>
-          <button class="btn-envelope-action" onclick="openOfficialCardModal()" style="background: linear-gradient(135deg, #B45309 0%, #D4AF37 100%); color: #0F172A; font-weight: 800; border-color: #FEF3C7;">📜 View Full Official Card (HD)</button>
+          
         </div>
         <h2 class="envelope-hint-title">Grand Launch Invitation</h2>
         <p class="envelope-hint-subtitle">Official Inauguration &bull; September 07, 2026 &bull; 09:30 AM IST</p>
@@ -2726,9 +2726,7 @@
 
                 <!-- Action Buttons -->
                 <div class="royal-actions-container">
-                  <button class="btn-material-primary" onclick="openOfficialCardModal()" style="background: linear-gradient(135deg, #B45309 0%, #D4AF37 100%); color: #0F172A; font-weight: 800;">
-                    <span>📜 Official Card (HD)</span>
-                  </button>
+                  
                   <button class="btn-material-primary" onclick="window.location.href='#venue'">
                     <span>📍 Navigate to Venue</span>
                   </button>
@@ -2742,32 +2740,7 @@
           </div>
         </div>
 
-        <!-- Authentic Official Invitation Card Inline Container -->
-        <div class="official-card-inline-wrap" id="official-card-inline">
-          <div class="official-card-header">
-            <span class="official-card-tag">📜 OFFICIAL PRINTED INVITATION CARD</span>
-            <button class="btn-envelope-action" onclick="openOfficialCardModal()" style="font-size: 10.5px; padding: 4px 12px;">🔍 Fullscreen HD Zoom</button>
-          </div>
-          <div class="official-card-frame">
-            <img src="__OFFICIAL_INVITE_FULL__" alt="LeukQuant Official Grand Launch Invitation Card" class="official-card-img" onclick="openOfficialCardModal()" title="Click to View Fullscreen Official Card">
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Official Fullscreen Modal -->
-    <div id="official-card-modal" class="official-modal-backdrop" onclick="closeOfficialCardModal()">
-      <div class="official-modal-content" onclick="event.stopPropagation()">
-        <button class="official-modal-close" onclick="closeOfficialCardModal()" title="Close">&times;</button>
-        <div class="official-modal-header">
-          <span class="official-modal-title">👑 LeukQuant Official Grand Launch 2026 Invitation Card</span>
-          <a href="__OFFICIAL_INVITE_FULL__" download="LeukQuant_Official_Invitation_2026.png" class="btn-envelope-action" style="background: #D4AF37; color: #0F172A;">📥 Download HD Card</a>
-        </div>
-        <div class="official-modal-img-wrap">
-          <img src="__OFFICIAL_INVITE_FULL__" alt="Official Invitation Card HD" class="official-modal-img">
-        </div>
-      </div>
+        
     </div>
   </section>
 
@@ -3093,42 +3066,67 @@
       const sheen = document.getElementById('card-sheen');
 
       if (card) {
-        gsap.to(card, { opacity: 1, scale: 1, y: 0, duration: 0.6 });
+        gsap.to(card, { opacity: 1, scale: 1, y: 0, duration: 0.8 });
       }
 
-      // 1. Break / Open Center Seal
+      // Step 1: Break & fade center seal slowly
       if (centerSeal) {
-        centerSeal.classList.add('opened');
+        gsap.to(centerSeal, {
+          scale: 1.3,
+          rotate: 20,
+          opacity: 0,
+          duration: 1.2,
+          ease: 'power2.out',
+          onComplete: () => {
+            centerSeal.classList.add('opened');
+          }
+        });
       }
 
-      // 2. Swing open Left and Right covers simultaneously (Double-Side Open!)
+      // Step 2: Swing open Left and Right covers in majestic slow 3D motion (Double-Side Open!)
       if (coverLeft && coverRight) {
         coverLeft.classList.add('opened');
         coverRight.classList.add('opened');
+        
+        gsap.to(coverLeft, {
+          rotateY: -140,
+          opacity: 0,
+          duration: 2.6,
+          ease: 'power2.inOut',
+          delay: 0.15
+        });
+
+        gsap.to(coverRight, {
+          rotateY: 140,
+          opacity: 0,
+          duration: 2.6,
+          ease: 'power2.inOut',
+          delay: 0.15
+        });
       }
 
-      // 3. Unfold left & right pages from subtle 3D perspective to crisp flat spread
+      // Step 3: Inner pages unfold slowly from 3D angle into flat spread
       if (pageLeft && pageRight) {
         gsap.fromTo(pageLeft,
-          { rotateY: 18, transformOrigin: 'right center' },
-          { rotateY: 0, duration: 1.2, ease: 'power2.out', delay: 0.1 }
+          { rotateY: 22, transformOrigin: 'right center' },
+          { rotateY: 0, duration: 2.4, ease: 'power2.out', delay: 0.4 }
         );
         gsap.fromTo(pageRight,
-          { rotateY: -18, transformOrigin: 'left center' },
-          { rotateY: 0, duration: 1.2, ease: 'power2.out', delay: 0.1 }
+          { rotateY: -22, transformOrigin: 'left center' },
+          { rotateY: 0, duration: 2.4, ease: 'power2.out', delay: 0.4 }
         );
       }
 
-      // 4. Gold sheen sweep across unfolded 2-page spread
+      // Step 4: Gold sheen sweep across unfolded 2-page spread
       if (sheen) {
         gsap.fromTo(sheen,
           { left: '-150%' },
-          { left: '150%', duration: 1.8, ease: 'power2.inOut', delay: 0.3 }
+          { left: '150%', duration: 2.2, ease: 'power2.inOut', delay: 1.2 }
         );
       }
 
       if (!autoTriggered) {
-        showToast('📖 Royal Double-Side Booklet Opened!');
+        showToast('📖 Royal Double-Side Booklet Opened');
       }
     }
 
@@ -3163,23 +3161,6 @@
     function openRoyalEnvelope(auto = false) { openRoyalBooklet(auto); }
     function replayEnvelopeAnimation() { replayBookletAnimation(); }
 
-    let isFolioFolded = false;
-    function toggleBookFold() {
-      const leftPage = document.querySelector('.book-page-left');
-      const rightPage = document.querySelector('.book-page-right');
-      if (!leftPage || !rightPage) return;
-
-      if (!isFolioFolded) {
-        isFolioFolded = true;
-        gsap.to(leftPage, { rotateY: -18, transformOrigin: 'right center', duration: 0.6, ease: 'power2.out' });
-        gsap.to(rightPage, { rotateY: 18, transformOrigin: 'left center', duration: 0.6, ease: 'power2.out' });
-        showToast('📖 3D Folio Perspective Flexed');
-      } else {
-        isFolioFolded = false;
-        gsap.to([leftPage, rightPage], { rotateY: 0, duration: 0.6, ease: 'power2.out' });
-        showToast('📖 2-Page Royal Spread Flat');
-      }
-    }
 
     
     function openOfficialCardModal() {
