@@ -2767,103 +2767,92 @@
     });
 
                 // 3. GSAP Master Animations & Royal Envelope Functions
-    let isEnvelopeOpened = false;
+    // 3. GSAP Master Animations & Royal Booklet Functions
+    let isBookletOpened = false;
+    let isFolioFolded = false;
 
-    function openRoyalEnvelope(isAuto = false) {
-      if (window.innerWidth <= 850) {
-        // Mobile: directly flat & fully open
-        isEnvelopeOpened = true;
-        const card = document.getElementById('invitation-card');
-        if (card) gsap.to(card, { opacity: 1, y: 0, scale: 1, duration: 0.5 });
-        triggerCardPolishReveal();
-        return;
+    function openRoyalBooklet(autoTriggered = false) {
+      if (isBookletOpened && !autoTriggered) return;
+      isBookletOpened = true;
+
+      const coverLeft = document.getElementById('gate-cover-left');
+      const coverRight = document.getElementById('gate-cover-right');
+      const centerSeal = document.getElementById('gate-center-seal');
+      const pageLeft = document.getElementById('book-page-left');
+      const pageRight = document.getElementById('book-page-right');
+      const card = document.getElementById('invitation-card');
+      const sheen = document.getElementById('card-sheen');
+
+      if (card) {
+        gsap.to(card, { opacity: 1, scale: 1, y: 0, duration: 0.6 });
       }
 
-      if (isEnvelopeOpened && isAuto) return;
-      isEnvelopeOpened = true;
+      // 1. Break / Open Center Seal
+      if (centerSeal) {
+        centerSeal.classList.add('opened');
+      }
 
-      const seal = document.getElementById('royal-wax-seal');
-      const flap = document.getElementById('envelope-flap');
-      const pocket = document.getElementById('envelope-pocket-flaps');
-      const card = document.getElementById('invitation-card');
+      // 2. Swing open Left and Right covers simultaneously (Double-Side Open!)
+      if (coverLeft && coverRight) {
+        coverLeft.classList.add('opened');
+        coverRight.classList.add('opened');
+      }
 
-      showToast('👑 Unsealing Royal Mascot Signet...');
-      
-      const tl = gsap.timeline();
+      // 3. Unfold left & right pages from subtle 3D perspective to crisp flat spread
+      if (pageLeft && pageRight) {
+        gsap.fromTo(pageLeft,
+          { rotateY: 18, transformOrigin: 'right center' },
+          { rotateY: 0, duration: 1.2, ease: 'power2.out', delay: 0.1 }
+        );
+        gsap.fromTo(pageRight,
+          { rotateY: -18, transformOrigin: 'left center' },
+          { rotateY: 0, duration: 1.2, ease: 'power2.out', delay: 0.1 }
+        );
+      }
 
-      // Step 1: Wax seal crack & burst (clearly visible unsealing pace)
-      tl.to(seal, {
-        scale: 1.25,
-        boxShadow: '0 0 45px rgba(212, 175, 55, 1)',
-        duration: 0.7,
-        ease: 'power2.out',
-        onComplete: () => {
-          spawnConfettiBurst();
-          if (seal) seal.classList.add('broken');
+      // 4. Gold sheen sweep across unfolded 2-page spread
+      if (sheen) {
+        gsap.fromTo(sheen,
+          { left: '-150%' },
+          { left: '150%', duration: 1.8, ease: 'power2.inOut', delay: 0.3 }
+        );
+      }
+
+      if (!autoTriggered) {
+        showToast('📖 Royal Double-Side Booklet Opened!');
+      }
+    }
+
+    function replayBookletAnimation() {
+      const coverLeft = document.getElementById('gate-cover-left');
+      const coverRight = document.getElementById('gate-cover-right');
+      const centerSeal = document.getElementById('gate-center-seal');
+      const pageLeft = document.getElementById('book-page-left');
+      const pageRight = document.getElementById('book-page-right');
+
+      if (isBookletOpened) {
+        // Close booklet
+        isBookletOpened = false;
+        if (coverLeft && coverRight) {
+          coverLeft.classList.remove('opened');
+          coverRight.classList.remove('opened');
         }
-      });
-
-      // Step 2: Flap rotates open majestically
-      tl.to(flap, {
-        rotateX: 180,
-        opacity: 0,
-        duration: 1.4,
-        ease: 'power3.inOut'
-      }, '+=0.2');
-
-      // Step 3: Pocket flaps gently dissolve
-      tl.to(pocket, {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: 'power2.out'
-      }, '-=0.8');
-
-      // Step 4: Card emerges upward & expands flat
-      tl.fromTo(card,
-        { y: 70, scale: 0.90, opacity: 0.3 },
-        {
-          y: 0,
-          scale: 1.0,
-          opacity: 1,
-          duration: 1.5,
-          ease: 'power3.out'
-        },
-        '-=0.7'
-      );
-
-      // Step 5: Card polish sheen sweep
-      tl.add(() => {
-        showToast('✨ Royal Invitation Folio Unfolded');
-        triggerCardPolishReveal();
-      }, '-=0.4');
-    }
-
-    function replayEnvelopeAnimation() {
-      if (window.innerWidth <= 850) {
-        showToast('👑 Royal Invitation Folio Active');
-        triggerCardPolishReveal();
-        return;
+        if (centerSeal) {
+          centerSeal.classList.remove('opened');
+        }
+        if (pageLeft && pageRight) {
+          gsap.to([pageLeft, pageRight], { rotateY: 0, duration: 0.4 });
+        }
+        showToast('📖 Booklet Closed');
+      } else {
+        // Open booklet
+        openRoyalBooklet(false);
       }
-      const seal = document.getElementById('royal-wax-seal');
-      const flap = document.getElementById('envelope-flap');
-      const pocket = document.getElementById('envelope-pocket-flaps');
-      const card = document.getElementById('invitation-card');
-
-      isEnvelopeOpened = false;
-      if (seal) seal.classList.remove('broken');
-      if (flap) flap.classList.remove('opened');
-      if (pocket) pocket.classList.remove('hidden');
-
-      gsap.set(seal, { scale: 1, opacity: 1 });
-      gsap.set(flap, { rotateX: 0, opacity: 1 });
-      gsap.set(pocket, { opacity: 1, y: 0 });
-      gsap.set(card, { y: 70, scale: 0.90, opacity: 0.3 });
-
-      setTimeout(() => {
-        openRoyalEnvelope(false);
-      }, 400);
     }
+
+    // Aliases for backwards compatibility
+    function openRoyalEnvelope(auto = false) { openRoyalBooklet(auto); }
+    function replayEnvelopeAnimation() { replayBookletAnimation(); }
 
     let isFolioFolded = false;
     function toggleBookFold() {
