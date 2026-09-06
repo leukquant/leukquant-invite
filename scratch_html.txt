@@ -1,0 +1,198 @@
+section class="envelope-pinned-section" id="invitation">
+    <div class="envelope-gold-spotlight" id="envelope-spotlight"></div>
+
+    <div class="envelope-stage-wrapper" id="envelope-stage">
+      <div class="envelope-header-hint" id="envelope-hint">
+        <div class="envelope-hint-controls">
+          <span class="envelope-hint-pill">👑 Official Royal Folio &bull; 2026</span>
+          <button class="btn-envelope-action" onclick="replayEnvelopeAnimation()">✨ Replay Unseal</button>
+          <button class="btn-envelope-action" onclick="toggleBookFold()">📖 Folio Inspect</button>
+        </div>
+        <h2 class="envelope-hint-title">Grand Launch Invitation</h2>
+        <p class="envelope-hint-subtitle">Official Inauguration &bull; September 07, 2026 &bull; 10:30 AM Onwards</p>
+      </div>
+
+      <!-- Luxury Physical Envelope Bed / Frame -->
+      <div class="royal-envelope-bed" id="envelope-bed">
+        <div class="envelope-bed-lining"></div>
+
+        <!-- 3D Top Flap with Wax Seal -->
+        <div class="envelope-flap-top" id="envelope-flap">
+          <div class="flap-triangle-shape"></div>
+          <!-- Royal Wax Seal -->
+          <div class="royal-wax-seal" id="royal-wax-seal" onclick="openRoyalEnvelope(false)" title="Click to Unseal Royal Invitation!">
+            <img src="__MASCOT__" alt="LeukQuant Seal" class="seal-mascot-img">
+            <span class="seal-label">👑 UNSEAL</span>
+          </div>
+        </div>
+
+        <!-- Front Pocket Protective Flaps (Folded when sealed) -->
+        <div class="envelope-pocket-flaps" id="envelope-pocket-flaps">
+          <div class="pocket-flap-left"></div>
+          <div class="pocket-flap-right"></div>
+          <div class="pocket-flap-bottom">
+            <span class="pocket-embossed-title">LEUKQUANT &bull; OFFICIAL INAUGURATION 2026</span>
+          </div>
+        </div>
+
+        <!-- Top Envelope Header Crest Ribbon -->
+        <div class="envelope-top-crest-bar">
+          <img src="__MASCOT__" alt="LeukQuant Royal Seal">
+          <span>👑 Official Royal Invitation &bull; Jeppiaar Institute of Technology</span>
+        </div>
+
+        <!-- 2-Page Bi-Fold Royal Book Folio -->
+        <div class="royal-book-folio" id="invitation-card">
+          <div class="card-sheen-overlay" id="card-sheen"></div>
+
+          <!-- ================= PAGE 1: LEFT PAGE ================= -->
+          <div class="book-page book-page-left">
+            <!-- Botanical Corner Foliage Vines in Dark Navy -->
+            <svg class="corner-vignette corner-tl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
+              <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
+              <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
+              <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
+              <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
+            </svg>
+            <svg class="corner-vignette corner-bl" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
+              <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
+              <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
+              <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
+              <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
+            </svg>
+
+            <!-- Top Header & Crest -->
+            <div>
+              <div class="royal-header-tag">I N V I T A T I O N</div>
+              <svg class="royal-gold-crest" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 4 L42 22 L62 25 L47 39 L51 59 L32 49 L13 59 L17 39 L2 25 L22 22 Z" stroke="#C5A059" stroke-width="2" fill="rgba(197, 160, 89, 0.15)"/>
+                <circle cx="32" cy="32" r="8" stroke="#C5A059" stroke-width="1.5"/>
+              </svg>
+              <div class="royal-lead-title">WE ARE HONOURED TO CORDIALLY INVITE YOU</div>
+              <div class="royal-gold-flourish">«««««——————»»»»»</div>
+              <div class="royal-sub-line">AN INCUBATED STARTUP AT JIT FOUNDATION</div>
+              <div class="royal-sub-line">FOR THE GRAND LAUNCH</div>
+            </div>
+
+            <!-- Dignitaries Grid -->
+            <div class="royal-dignitaries-grid">
+              <!-- Dignitary 1: Dr. N. Marie Wilson (Chief Guest) -->
+              <div class="royal-dignitary-card">
+                <div class="royal-guest-img-frame">
+                  <img src="__GUEST_PHOTO__" alt="Dr. N. Marie Wilson" class="royal-guest-img">
+                </div>
+                <div class="royal-guest-content">
+                  <span class="royal-guest-kicker">CHIEF GUEST</span>
+                  <h3 class="royal-guest-title-name">DR N.MARIE WILSON</h3>
+                  <div class="royal-guest-detail-text">MINISTER FOR FINANCE, PENSIONS,</div>
+                  <div class="royal-guest-detail-text">PLANNING &amp; DEVELOPMENT</div>
+                  <div class="royal-guest-detail-text">MEMBER OF LEGISLATIVE ASSEMBLY</div>
+                  <div class="royal-gold-flourish" style="margin: 2px auto;">«««««——————»»»»»</div>
+                  <div class="royal-guest-detail-text" style="font-weight: 700;">CHAIRMAN &amp; DIRECTOR</div>
+                  <div class="royal-guest-detail-text" style="font-weight: 800; color: #0F172A;">JEPPIAAR INSTITUTE OF TECHNOLOGY</div>
+                </div>
+              </div>
+
+              <!-- Dignitary 2: Soundarraj Kannan (Special Guest of Honour) -->
+              <div class="royal-dignitary-card">
+                <div class="royal-guest-img-frame">
+                  <img src="__GUEST_SOUNDARRAJ__" alt="Soundarraj Kannan" class="royal-guest-img">
+                </div>
+                <div class="royal-guest-content">
+                  <span class="royal-guest-kicker">SPECIAL GUEST OF HONOUR</span>
+                  <h3 class="royal-guest-title-name">SOUNDARRAJ KANNAN</h3>
+                  <div class="royal-guest-detail-text">DIRECTOR &bull; KRP TECH SOLUTIONS</div>
+                  <div class="royal-guest-detail-text">STRATEGIC ADVISOR &amp; INDUSTRY VETERAN</div>
+                  <div class="royal-guest-detail-text">CYBER PLATFORMS INNOVATOR</div>
+                  <div class="royal-gold-flourish" style="margin: 2px auto;">«««««——————»»»»»</div>
+                  <div class="royal-guest-detail-text" style="font-weight: 700;">INDUSTRY 5.0 MENTOR</div>
+                  <div class="royal-guest-detail-text" style="font-weight: 800; color: #0F172A;">ACTIVE DEFENSE ADVISORY</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= CENTER BOOK SPINE ================= -->
+          <div class="book-spine-crease">
+            <div class="book-ribbon-tassel"></div>
+          </div>
+
+          <!-- ================= PAGE 2: RIGHT PAGE ================= -->
+          <div class="book-page book-page-right">
+            <!-- Botanical Corner Foliage Vines in Dark Navy -->
+            <svg class="corner-vignette corner-tr" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
+              <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
+              <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
+              <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
+              <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
+            </svg>
+            <svg class="corner-vignette corner-br" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 108 C12 45 45 12 108 12 M28 108 C28 58 58 28 108 28 M12 72 C36 48 72 36 108 12" stroke="#2A3B5C" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="28" cy="28" r="4.5" fill="#2A3B5C"/>
+              <circle cx="68" cy="18" r="3.5" fill="#2A3B5C"/>
+              <circle cx="18" cy="68" r="3.5" fill="#2A3B5C"/>
+              <path d="M40 16 C52 28 52 46 40 58 C28 46 28 28 40 16 Z" fill="#2A3B5C" opacity="0.85"/>
+              <path d="M16 40 C28 52 46 52 58 40 C46 28 28 28 16 40 Z" fill="#2A3B5C" opacity="0.85"/>
+            </svg>
+
+            <!-- LeukQuant Section -->
+            <div>
+              <div class="royal-sub-line" style="margin-top: 4px;">FOR THE GRAND LAUNCH OF</div>
+              <div class="royal-logo-center-wrap">
+                <img src="__LEUKQUANT_LOGO__" alt="LeukQuant" class="royal-leukquant-logo">
+              </div>
+              <div class="royal-gold-flourish">»»»——————«««</div>
+              <div class="royal-date-big">SEP 07, 2026</div>
+
+              <div class="royal-meta-list">
+                <div class="royal-meta-item">
+                  <span class="royal-meta-badge-num">📍</span>
+                  <span>VENUE: Ground Floor Auditorium, JIT</span>
+                </div>
+                <div class="royal-meta-item">
+                  <span class="royal-meta-badge-num">⏰</span>
+                  <span>TIME: 10:30 AM IST Onwards</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Institutional Footer -->
+            <div class="royal-inst-footer">
+              <img src="__JIT_CREST__" alt="Jeppiaar Institute of Technology" class="royal-inst-left-crest">
+              
+              <div class="royal-inst-mid-info">
+                <h4>JEPPIAAR INSTITUTE OF TECHNOLOGY</h4>
+                <p style="font-weight: 700; color: #1E293B;">(AN AUTONOMOUS INSTITUTION)</p>
+                <p>---- self belief | self Discipline | self Respect ----</p>
+                <p>Kunnam, Sunguvarchatram, Sriperumbudur, Chennai - 631604</p>
+              </div>
+
+              <div class="royal-inst-right-seals">
+                <img src="__NBA_LOGO__" alt="NBA Tier-1">
+                <img src="__NAAC_SEAL__" alt="NAAC A+">
+              </div>
+            </div>
+
+            <!-- Interactive Action Buttons -->
+            <div class="royal-actions-container">
+              <button class="btn-material-primary" onclick="addToCalendar()">
+                📅 Add to Calendar (.ics)
+              </button>
+              <button class="btn-material-outline" onclick="shareWhatsapp()">
+                💬 Share on WhatsApp
+              </button>
+              <button class="btn-material-outline" onclick="copyInviteLink()">
+                🔗 Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
