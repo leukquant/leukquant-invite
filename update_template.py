@@ -1,0 +1,3078 @@
+import sys
+
+template_code = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>LeukQuant Grand Launch 2026 | Official Invitation</title>
+<meta name="description" content="Official Grand Launch of LeukQuant - AI-Powered Active Deception & Autonomous Cybersecurity Platform. Chief Guest: Dr N. Marie Wilson on September 10, 2026 at Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam.">
+<meta name="theme-color" content="#0F172A">
+
+<!-- Open Graph & Twitter Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="LeukQuant Grand Launch 2026 | Official Invitation">
+<meta property="og:description" content="Official Grand Launch of LeukQuant - AI-Powered Active Deception & Autonomous Cybersecurity Platform. Chief Guest: Dr N. Marie Wilson on September 10, 2026 at Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam.">
+<meta property="og:image" content="__SHARE_IMAGE__">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LeukQuant Grand Launch 2026 | Official Invitation">
+<meta name="twitter:description" content="Official Grand Launch of LeukQuant - AI-Powered Active Deception & Autonomous Cybersecurity Platform. Chief Guest: Dr N. Marie Wilson on September 10, 2026 at Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam.">
+<meta name="twitter:image" content="__SHARE_IMAGE__">
+
+<!-- Premium Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- GSAP 3 + ScrollTrigger + Lenis Smooth Scroll CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+<style>
+  :root {
+    --bg-base: #F8FAFC;
+    --bg-canvas: #FFFFFF;
+    --primary: #0066FF;
+    --primary-hover: #0052CC;
+    --primary-light: #EBF3FF;
+    --accent-cyan: #00B8D9;
+    --accent-gold: #D4AF37;
+    --accent-gold-light: #FEF3C7;
+    --accent-emerald: #10B981;
+    --accent-coral: #FF5A5F;
+    --accent-amber: #F59E0B;
+    --accent-purple: #7C3AED;
+    
+    --card-bg: rgba(255, 255, 255, 0.94);
+    --card-border: rgba(255, 255, 255, 0.98);
+    --card-shadow: 0 24px 50px -10px rgba(15, 30, 75, 0.08), 0 8px 20px -4px rgba(15, 30, 75, 0.04);
+    --card-shadow-hover: 0 32px 70px -12px rgba(15, 30, 75, 0.14), 0 12px 28px -6px rgba(15, 30, 75, 0.06);
+    --highlight-inset: inset 0 1px 0 rgba(255, 255, 255, 1), inset 0 -1px 0 rgba(0, 0, 0, 0.02);
+    
+    --text-heading: #0F172A;
+    --text-body: #334155;
+    --text-muted: #64748B;
+    --text-light: #94A3B8;
+    
+    --radius-full: 9999px;
+    --radius-2xl: 32px;
+    --radius-xl: 24px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    
+    --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+    --font-royal: 'Cinzel', serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--text-body);
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* =========================================================
+     1. PRELOADER WITH 3D MASCOT SIGNET
+     ========================================================= */
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+  }
+
+  #preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.05);
+    pointer-events: none;
+  }
+
+  .preloader-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-2xl);
+    padding: 36px 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    max-width: 92vw;
+    width: 420px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .preloader-envelope-stage {
+    width: 220px;
+    height: 140px;
+    position: relative;
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px 0 8px 0;
+  }
+
+  .preloader-mini-envelope {
+    width: 190px;
+    height: 115px;
+    position: relative;
+    background: linear-gradient(145deg, #1E293B, #0F172A);
+    border: 2px solid #D4AF37;
+    border-radius: 14px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
+    transform-style: preserve-3d;
+  }
+
+  .pmini-lining {
+    position: absolute;
+    inset: 4px;
+    border: 1px dashed rgba(212, 175, 55, 0.4);
+    border-radius: 10px;
+  }
+
+  .pmini-pocket {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 100%, 100% 100%, 50% 46%);
+    background: linear-gradient(0deg, #0F172A, #1E293B);
+    border-bottom: 2px solid #D4AF37;
+    border-radius: 14px;
+    z-index: 5;
+  }
+
+  .pmini-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background: linear-gradient(180deg, #2A374A, #172133);
+    border-top: 2px solid #D4AF37;
+    z-index: 6;
+  }
+
+  .pmini-wax-puddle {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pmini-wax-seal {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #F59E0B 0%, #D4AF37 40%, #8D6105 85%, #593D02 100%);
+    border: 2.5px solid #FEF3C7;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.55), inset 0 2px 4px rgba(255,255,255,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .pmini-seal-mascot {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) brightness(1.2);
+  }
+
+  .pmini-seal-text {
+    font-family: var(--font-royal);
+    font-size: 6.5px;
+    font-weight: 900;
+    color: #FEF3C7;
+    letter-spacing: 0.1em;
+    margin-top: -1px;
+  }
+
+  .preloader-signet-stamp {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .stamp-handle {
+    width: 18px;
+    height: 40px;
+    background: linear-gradient(90deg, #5C3D1E 0%, #8B5A2B 40%, #3D2314 100%);
+    border-radius: 9px 9px 4px 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    border: 1px solid #D4AF37;
+  }
+
+  .stamp-brass-base {
+    width: 46px;
+    height: 16px;
+    background: radial-gradient(circle, #FDE68A 0%, #D4AF37 60%, #92400E 100%);
+    border-radius: 50%;
+    border: 2px solid #FEF3C7;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -3px;
+  }
+
+  .stamp-mascot-engraved {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    filter: invert(1) brightness(2) contrast(1.5);
+    opacity: 0.85;
+  }
+
+  .preloader-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+    color: #FDE68A;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .preloader-badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #D4AF37;
+    box-shadow: 0 0 10px #D4AF37;
+    animation: blink 1.2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .preloader-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+  }
+
+  .preloader-progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .preloader-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #D4AF37, #0066FF, #00B8D9);
+    border-radius: var(--radius-full);
+    transition: width 0.2s ease;
+  }
+
+  .preloader-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #94A3B8;
+  }
+
+  /* Floating Ambient Audio Button */
+  .audio-toggle-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: var(--radius-full);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(15, 30, 75, 0.12);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease;
+    font-size: 16px;
+  }
+
+  .audio-toggle-btn:hover {
+    transform: scale(1.12);
+    background: #FFFFFF;
+    border-color: #D4AF37;
+  }
+
+  .audio-toggle-btn.playing {
+    background: #FFFBEB;
+    border-color: #D4AF37;
+    color: #B45309;
+    box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+  }
+
+  /* Progress Line */
+  .scroll-progress-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3.5px;
+    width: 0%;
+    background: linear-gradient(90deg, #D4AF37, #0066FF, #00B8D9);
+    z-index: 100000;
+  }
+
+  /* Canvas backgrounds */
+  #particles-canvas, #gold-particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+  }
+  #gold-particles-canvas {
+    z-index: 0;
+    opacity: 0.35;
+  }
+  #confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 99999;
+  }
+
+  /* Parallax Background Blobs */
+  .parallax-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .parallax-blob {
+    position: absolute;
+    filter: blur(90px);
+    opacity: 0.55;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .pblob-1 {
+    top: -10%;
+    left: 15%;
+    width: 580px;
+    height: 580px;
+    background: radial-gradient(circle, #E0EDFF 0%, #BAE6FD 60%, transparent 80%);
+  }
+
+  .pblob-2 {
+    bottom: 5%;
+    right: -5%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, #EDE9FE 0%, #DDD6FE 50%, transparent 80%);
+  }
+
+  .pblob-3 {
+    top: 45%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #CCFBF1 0%, #E0F2FE 60%, transparent 80%);
+  }
+
+  /* Custom Gold Cursor */
+  .custom-gold-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #D4AF37;
+    box-shadow: 0 0 12px #D4AF37, 0 0 20px rgba(212, 175, 55, 0.6);
+    pointer-events: none;
+    z-index: 1000000;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+  }
+  .custom-gold-cursor.active {
+    opacity: 1;
+  }
+  .custom-gold-cursor.hover {
+    width: 28px;
+    height: 28px;
+    background: rgba(212, 175, 55, 0.25);
+    border: 1.5px solid #D4AF37;
+  }
+  @media (pointer: coarse), (max-width: 900px) {
+    .custom-gold-cursor { display: none !important; }
+  }
+
+  /* =========================================================
+     2. HERO SECTION
+     ========================================================= */
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px 60px 20px;
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .hero-parallax-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-parallax-far {
+    position: absolute;
+    inset: -15%;
+    background: radial-gradient(circle at 50% 20%, rgba(0, 102, 255, 0.08) 0%, transparent 70%);
+    background-image: radial-gradient(rgba(0, 102, 255, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+    will-change: transform;
+  }
+  .hero-parallax-mid {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 650px;
+    height: 650px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: blur(40px);
+    opacity: 0.16;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  .hero-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 24px rgba(15, 30, 75, 0.05), var(--highlight-inset);
+    padding: 8px 20px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-emerald);
+    box-shadow: 0 0 12px var(--accent-emerald);
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(40px, 7.5vw, 84px);
+    font-weight: 900;
+    color: var(--text-heading);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title .char {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 2.3vw, 22px);
+    color: var(--text-body);
+    max-width: 720px;
+    margin: 0 auto 36px auto;
+    line-height: 1.6;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-stage-preview {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto 36px auto;
+    perspective: 1400px;
+    transform-style: preserve-3d;
+    z-index: 2;
+  }
+
+  .hero-stage-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 30px 60px rgba(15, 30, 75, 0.12), var(--highlight-inset);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    background: #FFFFFF;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-mascot-badge {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-full);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 16px 36px rgba(15, 30, 75, 0.12);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+  }
+
+  .hero-mascot-badge:hover {
+    transform: translateX(-50%) translateY(-6px) scale(1.05);
+  }
+
+  .hero-mascot-badge img {
+    height: 34px;
+    width: auto;
+  }
+
+  .hero-scroll-indicator {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+    z-index: 2;
+  }
+
+  .hero-scroll-indicator:hover {
+    transform: translateY(4px);
+    color: var(--primary);
+  }
+
+  .hero-gold-scroll-line {
+    width: 2px;
+    height: 36px;
+    background: linear-gradient(180deg, #D4AF37, transparent);
+    margin: 4px auto 0 auto;
+    animation: goldLinePulse 1.8s ease-in-out infinite;
+    transform-origin: top center;
+  }
+
+  @keyframes goldLinePulse {
+    0% { transform: scaleY(0.2); opacity: 0.2; }
+    50% { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(0.2); opacity: 0.2; }
+  }
+
+  /* =========================================================
+     3. SECTION 2: 3D LUXURY ENVELOPE & ROYAL CARD (PINNED SCRUB)
+     ========================================================= */
+  .envelope-pinned-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 16px;
+    overflow: visible;
+  }
+
+  .envelope-gold-spotlight {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 850px;
+    height: 550px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.08) 50%, transparent 75%);
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    will-change: opacity;
+  }
+
+  .envelope-stage-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    perspective: 2200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .envelope-header-hint {
+    text-align: center;
+    margin-bottom: 20px;
+    will-change: transform, opacity;
+  }
+
+  .envelope-hint-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFFBEB;
+    border: 1.5px solid #FDE68A;
+    color: #B45309;
+    padding: 5px 18px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 6px 14px rgba(180, 83, 9, 0.1);
+  }
+
+  .envelope-hint-title {
+    font-family: var(--font-royal);
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: 0.04em;
+    margin: 8px 0 4px 0;
+  }
+
+  .envelope-hint-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  /* Physical 3D Envelope Box */
+  .luxury-envelope-box {
+    position: relative;
+    width: min(92vw, 700px);
+    height: 430px;
+    background: linear-gradient(145deg, #1E293B 0%, #0F172A 100%);
+    border: 3px solid #D4AF37;
+    border-radius: 24px;
+    box-shadow: 0 35px 90px rgba(15, 23, 42, 0.45), inset 0 0 40px rgba(0,0,0,0.6);
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    margin: 0 auto;
+    overflow: visible;
+    will-change: transform, opacity;
+  }
+
+  .envelope-inner-lining {
+    position: absolute;
+    inset: 10px;
+    border: 1.5px dashed rgba(212, 175, 55, 0.4);
+    border-radius: 18px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(15, 23, 42, 0.95) 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Emergent Royal Card Wrapper */
+  .card-reveal-container {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.68);
+    transform-origin: top center;
+    width: 95%;
+    max-width: 660px;
+    z-index: 5;
+    pointer-events: none;
+    will-change: transform, opacity, z-index;
+    opacity: 1;
+  }
+
+  .card-reveal-container.active-interactive {
+    pointer-events: auto;
+  }
+
+  /* Front Pocket Flaps */
+  .envelope-front-flaps {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 24px;
+    overflow: hidden;
+    will-change: transform, opacity;
+  }
+
+  .front-flap-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 50% 55%);
+    background: linear-gradient(135deg, #2A374A 0%, #172133 100%);
+    border-left: 3px solid #D4AF37;
+  }
+
+  .front-flap-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 100% 100%, 50% 55%);
+    background: linear-gradient(-135deg, #2A374A 0%, #172133 100%);
+    border-right: 3px solid #D4AF37;
+  }
+
+  .front-flap-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 100%, 100% 100%, 50% 48%);
+    background: linear-gradient(0deg, #0F172A 0%, #1E293B 100%);
+    border-bottom: 3px solid #D4AF37;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 24px;
+  }
+
+  .envelope-embossed-title {
+    font-family: var(--font-royal);
+    font-size: 13px;
+    font-weight: 800;
+    color: #D4AF37;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    text-align: center;
+    letter-spacing: 0.15em;
+  }
+
+  /* Top Flap */
+  .envelope-top-triangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    z-index: 20;
+    will-change: transform;
+    filter: drop-shadow(0 16px 28px rgba(0,0,0,0.45));
+  }
+
+  .top-triangle-bg {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    background: linear-gradient(180deg, #2A374A 0%, #172133 100%);
+    border-top: 3px solid #D4AF37;
+  }
+
+  /* Royal Wax Seal */
+  .royal-wax-seal {
+    position: absolute;
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 78px;
+    height: 78px;
+    max-width: 78px;
+    max-height: 78px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #F59E0B 0%, #D4AF37 40%, #8D6105 85%, #593D02 100%);
+    border: 3.5px solid #FEF3C7;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.55), inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -3px 8px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    will-change: transform, opacity;
+    z-index: 30;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  .royal-wax-seal:hover {
+    transform: translateX(-50%) scale(1.08);
+  }
+
+  .seal-inner-crest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  }
+
+  .seal-mascot-img {
+    height: 36px;
+    width: 36px;
+    max-width: 36px;
+    max-height: 36px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+  }
+
+  .seal-label {
+    font-family: var(--font-royal);
+    font-size: 8.5px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: #FEF3C7;
+    margin-top: -2px;
+  }
+
+  .envelope-scroll-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 36px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* Authentic Royal Invitation Card */
+  .material-card-inner {
+    background: #FAF7F0;
+    border: 2.5px solid #C5A059;
+    border-radius: var(--radius-xl);
+    box-shadow: inset 0 0 0 5px #FAF7F0, inset 0 0 0 7px #C5A059, 0 35px 80px rgba(15, 30, 75, 0.16);
+    padding: 38px 32px;
+    margin-top: 10px;
+    will-change: transform, opacity;
+    position: relative;
+    transform-style: preserve-3d;
+    overflow: hidden;
+  }
+
+  .card-sheen-overlay {
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), rgba(212, 175, 55, 0.35), transparent);
+    transform: skewX(-25deg);
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  .corner-vignette {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .corner-tl { top: 10px; left: 10px; }
+  .corner-tr { top: 10px; right: 10px; transform: scaleX(-1); }
+  .corner-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+  .corner-br { bottom: 10px; right: 10px; transform: scale(-1); }
+
+  .royal-invite-header-tag {
+    font-family: var(--font-royal);
+    font-size: 15px;
+    letter-spacing: 0.35em;
+    color: #475569;
+    font-weight: 700;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .royal-gold-emblem {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px auto;
+    display: block;
+  }
+
+  .royal-invite-lead {
+    font-family: var(--font-royal);
+    font-size: 14px;
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .royal-ornament-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #C5A059;
+    font-size: 13px;
+    margin: 6px auto;
+  }
+  .royal-ornament-line::before,
+  .royal-ornament-line::after {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 1.5px;
+    background: #C5A059;
+  }
+
+  .royal-invite-subline {
+    font-family: var(--font-royal);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #334155;
+    letter-spacing: 0.06em;
+    margin: 2px 0;
+    text-align: center;
+  }
+
+  .royal-guests-flex-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+    align-items: stretch;
+    text-align: left;
+    position: relative;
+  }
+  @media (max-width: 680px) {
+    .royal-guests-flex-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .royal-guest-box {
+    background: rgba(255, 255, 255, 0.82);
+    border: 1.5px solid #D4AF37;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(15, 30, 75, 0.04);
+  }
+
+  .royal-guest-photo {
+    width: 78px;
+    height: 88px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #C5A059;
+    flex-shrink: 0;
+    background: #FFFFFF;
+  }
+
+  .royal-guest-tag {
+    font-family: var(--font-royal);
+    font-size: 10.5px;
+    font-weight: 800;
+    color: #1E293B;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+  }
+
+  .royal-guest-name {
+    font-family: var(--font-royal);
+    font-size: 14.5px;
+    font-weight: 800;
+    color: #334155;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .royal-guest-desc {
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    color: #1E293B;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+
+  .royal-mascot-float-badge {
+    position: absolute;
+    top: -24px;
+    right: 8px;
+    width: 58px;
+    height: auto;
+    filter: drop-shadow(0 6px 14px rgba(0, 102, 255, 0.35));
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+  }
+  .royal-mascot-float-badge:hover {
+    transform: translateY(-6px) scale(1.12);
+  }
+
+  .royal-logo-area {
+    margin: 14px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .royal-logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .royal-date-display {
+    font-family: var(--font-royal);
+    font-size: 26px;
+    font-weight: 900;
+    color: #334155;
+    letter-spacing: 0.04em;
+    margin: 10px 0 4px 0;
+    text-align: center;
+  }
+
+  .royal-meta-pill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    font-family: var(--font-royal), var(--font-body), serif;
+    font-size: 12.5px;
+    color: #1E293B;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .royal-num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    background: #C5A059;
+    color: #FFFFFF;
+    border-radius: 50%;
+    font-size: 10.5px;
+    margin-right: 5px;
+  }
+
+  .royal-footer-inst {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1.5px solid #E2D9C2;
+    text-align: center;
+  }
+
+  .royal-inst-crest {
+    height: 44px;
+    width: auto;
+  }
+
+  .royal-inst-center-text {
+    flex: 1;
+    min-width: 180px;
+  }
+  .royal-inst-center-text h4 {
+    font-family: var(--font-royal);
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #0F172A;
+    letter-spacing: 0.04em;
+  }
+  .royal-inst-center-text p {
+    font-size: 9px;
+    color: #475569;
+    margin-top: 2px;
+  }
+
+  .royal-inst-seals {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .royal-inst-seals img {
+    height: 30px;
+    width: auto;
+  }
+
+  .btn-material-primary {
+    background: var(--primary);
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--radius-full);
+    padding: 12px 28px;
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0, 102, 255, 0.3);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .btn-material-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 102, 255, 0.38);
+  }
+
+  .btn-material-outline {
+    background: #FFFFFF;
+    color: var(--text-heading);
+    border: 1.5px solid #E2E8F0;
+    border-radius: var(--radius-full);
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .btn-material-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 30, 75, 0.06);
+  }
+
+  /* =========================================================
+     4. SECTION 3: DIORAMA SHOWCASE (#showcase)
+     ========================================================= */
+  .showcase-pinned-section {
+    position: relative;
+    padding: 90px 0;
+    overflow: hidden;
+    perspective: 1600px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-header-center {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-heading-main {
+    font-family: var(--font-heading);
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: -0.02em;
+  }
+  .showcase-track-container {
+    display: flex;
+    gap: 32px;
+    padding: 20px 40px;
+    width: max-content;
+    will-change: transform;
+    transform-style: preserve-3d;
+  }
+  .showcase-card {
+    width: 380px;
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-2xl);
+    padding: 24px;
+    box-shadow: var(--card-shadow), var(--highlight-inset);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-shrink: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+  .showcase-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 35px 80px rgba(15, 30, 75, 0.14);
+  }
+  .showcase-img-wrap {
+    width: 100%;
+    height: 240px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+  }
+  .showcase-img {
+    width: 115%;
+    margin-left: -7.5%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+  }
+  .showcase-caption-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .showcase-caption-title {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--text-heading);
+  }
+  .showcase-caption-desc {
+    font-size: 13.5px;
+    color: var(--text-body);
+    line-height: 1.5;
+  }
+  .showcase-progress-wrap {
+    width: 240px;
+    height: 4px;
+    background: #E2E8F0;
+    border-radius: var(--radius-full);
+    margin: 30px auto 0 auto;
+    overflow: hidden;
+  }
+  .showcase-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #D4AF37, #0066FF);
+    border-radius: var(--radius-full);
+    transition: width 0.1s linear;
+  }
+  @media (max-width: 900px) {
+    .showcase-track-container {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100%;
+      padding: 20px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .showcase-card {
+      scroll-snap-align: center;
+      width: 82vw;
+    }
+  }
+
+  /* =========================================================
+     5. SECTION 4: VENUE & DIRECTIONS (#venue)
+     ========================================================= */
+  .venue-enhanced-section {
+    position: relative;
+    padding: 90px 20px;
+    overflow: hidden;
+  }
+  .venue-bg-parallax {
+    position: absolute;
+    inset: -20px;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.7);
+    opacity: 0.22;
+    will-change: transform;
+    z-index: 0;
+  }
+  .venue-content-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .venue-enhanced-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-2xl);
+    padding: 40px;
+    box-shadow: var(--card-shadow), var(--highlight-inset);
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .venue-map-iframe {
+    width: 100%;
+    height: 280px;
+    border-radius: var(--radius-xl);
+    border: 1px solid #E2E8F0;
+  }
+  @media (max-width: 768px) {
+    .venue-enhanced-card {
+      grid-template-columns: 1fr;
+      padding: 28px 20px;
+    }
+  }
+
+  /* =========================================================
+     6. SECTION 5: LIVE COUNTDOWN (#countdown)
+     ========================================================= */
+  .countdown-enhanced-section {
+    position: relative;
+    padding: 90px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .countdown-date-display {
+    font-family: var(--font-royal);
+    font-size: clamp(32px, 5.5vw, 56px);
+    font-weight: 900;
+    color: var(--text-heading);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .date-sub-text {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 32px;
+  }
+  .countdown-flip-grid {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 32px 0;
+  }
+  .countdown-flip-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-xl);
+    padding: 20px 24px;
+    min-width: 110px;
+    box-shadow: var(--card-shadow), var(--highlight-inset);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .countdown-flip-num {
+    font-family: var(--font-mono);
+    font-size: clamp(34px, 4.5vw, 48px);
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+  }
+  .countdown-flip-lbl {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* =========================================================
+     7. SECTION 6: EVENT FLOW TIMELINE (#flow)
+     ========================================================= */
+  .flow-timeline-section {
+    position: relative;
+    padding: 90px 20px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .flow-timeline-wrap {
+    position: relative;
+    max-width: 820px;
+    margin: 40px auto 0 auto;
+    padding: 20px 0;
+  }
+  .flow-line-track {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    background: #E2E8F0;
+  }
+  .flow-line-progress {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 0%;
+    background: linear-gradient(180deg, #D4AF37, #0066FF, #00B8D9);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+    transform-origin: top center;
+    will-change: height;
+  }
+  .flow-item {
+    display: flex;
+    position: relative;
+    margin-bottom: 44px;
+    width: 50%;
+    will-change: transform, opacity;
+  }
+  .flow-item:last-child {
+    margin-bottom: 0;
+  }
+  .flow-item.left {
+    left: 0;
+    padding-right: 40px;
+    text-align: right;
+    justify-content: flex-end;
+  }
+  .flow-item.right {
+    left: 50%;
+    padding-left: 40px;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  .flow-item-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: var(--radius-xl);
+    padding: 22px 26px;
+    box-shadow: var(--card-shadow), var(--highlight-inset);
+    width: 100%;
+    max-width: 340px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .flow-item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+  }
+  .flow-dot {
+    position: absolute;
+    top: 24px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 3px solid #D4AF37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    z-index: 10;
+    will-change: transform;
+  }
+  .flow-item.left .flow-dot { right: -8px; }
+  .flow-item.right .flow-dot { left: -8px; }
+
+  .flow-time-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--primary-light);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .flow-title {
+    font-family: var(--font-heading);
+    font-size: 16.5px;
+    font-weight: 800;
+    color: var(--text-heading);
+    margin-bottom: 4px;
+  }
+  .flow-desc {
+    font-size: 13px;
+    color: var(--text-body);
+    line-height: 1.45;
+  }
+  @media (max-width: 768px) {
+    .flow-line-track, .flow-line-progress { left: 20px; }
+    .flow-item, .flow-item.left, .flow-item.right {
+      width: 100%;
+      left: 0;
+      padding-left: 48px;
+      padding-right: 0;
+      text-align: left;
+      justify-content: flex-start;
+    }
+    .flow-item.left .flow-dot, .flow-item.right .flow-dot {
+      left: 12px;
+      right: auto;
+    }
+    .flow-item-card { max-width: 100%; }
+  }
+
+  /* =========================================================
+     8. FOOTER (#footer)
+     ========================================================= */
+  .site-footer-parallax {
+    background: #0F172A;
+    color: #F8FAFC;
+    padding: 70px 20px 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .footer-back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #FEF3C7;
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: all 0.25s ease;
+  }
+  .footer-back-to-top:hover {
+    background: rgba(212, 175, 55, 0.25);
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+  }
+  .footer-logo-img {
+    height: 48px;
+    width: auto;
+    margin-bottom: 16px;
+    filter: brightness(0) invert(1);
+  }
+  .footer-sub-text {
+    font-size: 14px;
+    color: #94A3B8;
+    max-width: 680px;
+    margin: 0 auto 24px auto;
+    line-height: 1.6;
+  }
+  .footer-links-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 24px 0;
+  }
+  .footer-copyright {
+    font-size: 12px;
+    color: #64748B;
+    margin-top: 24px;
+  }
+
+  /* Toast Notification */
+  #toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    color: #FFFFFF;
+    border: 1px solid #D4AF37;
+    border-radius: var(--radius-full);
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.3);
+    z-index: 1000000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  #toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- 1. Smooth Loading Screen with 3D Envelope & Mascot Signet Stamp -->
+  <div id="preloader">
+    <div class="preloader-card">
+      <div class="preloader-envelope-stage">
+        <div class="preloader-mini-envelope">
+          <div class="pmini-lining"></div>
+          <div class="pmini-pocket"></div>
+          <div class="pmini-flap"></div>
+          <div class="pmini-wax-puddle" id="pmini-wax">
+            <div class="pmini-wax-seal" id="pmini-seal">
+              <img src="__MASCOT__" alt="Mascot Seal" class="pmini-seal-mascot">
+              <span class="pmini-seal-text">LEUKQUANT</span>
+            </div>
+          </div>
+          <div class="preloader-signet-stamp" id="pmini-stamp">
+            <div class="stamp-handle"></div>
+            <div class="stamp-brass-base">
+              <img src="__MASCOT__" alt="Mascot Signet" class="stamp-mascot-engraved">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="preloader-badge">
+        <span class="preloader-badge-dot"></span>
+        <span id="preloader-badge-text">Royal Signet Sealing</span>
+      </div>
+      <div class="preloader-title">LeukQuant Grand Launch 2026</div>
+      <div class="preloader-progress-bar">
+        <div class="preloader-progress-fill" id="preloader-bar"></div>
+      </div>
+      <div class="preloader-tag" id="preloader-status">Stamping Royal Mascot Wax Seal...</div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-line" id="scroll-progress"></div>
+
+  <!-- Background Canvases -->
+  <canvas id="particles-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+  <canvas id="gold-particles-canvas"></canvas>
+
+  <!-- Custom Gold Cursor -->
+  <div class="custom-gold-cursor" id="custom-cursor"></div>
+
+  <!-- Parallax Blobs -->
+  <div class="parallax-background">
+    <div class="parallax-blob pblob-1"></div>
+    <div class="parallax-blob pblob-2"></div>
+    <div class="parallax-blob pblob-3"></div>
+  </div>
+
+  <!-- Floating Audio Toggle Button (Bottom Right) -->
+  <button class="audio-toggle-btn" id="audio-toggle" onclick="toggleAudio()" title="Toggle Launch Ambience Audio">
+    🎵
+  </button>
+
+  <!-- =========================================================
+       SECTION 1: HERO SECTION
+       ========================================================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-parallax-bg">
+      <div class="hero-parallax-far" id="hero-far"></div>
+      <div class="hero-parallax-mid" id="hero-mid" style="background-image: url('__ISO_CYBER_SHIELD__');"></div>
+    </div>
+
+    <div class="hero-badge-pill">
+      <span class="hero-badge-dot"></span>
+      <span>Official Grand Launch &bull; September 10, 2026</span>
+    </div>
+
+    <h1 class="hero-title" id="hero-title-split">
+      LEUKQUANT 2026
+    </h1>
+
+    <p class="hero-subtitle">
+      Pioneering <strong>AI-Powered Active Deception &amp; Autonomous Cybersecurity</strong>.<br>
+      Incubated at <strong>JIT Foundation</strong> &bull; Backed by <strong>Industry 5.0</strong> &bull; <strong>Jeppiaar Institute of Technology</strong>.
+    </p>
+
+    <div class="hero-stage-preview">
+      <img src="__ISO_LAUNCH_STAGE__" alt="LeukQuant Launch Stage" class="hero-stage-img">
+      <div class="hero-mascot-badge" onclick="mascotPulse()" title="Interact with mascot!">
+        <img src="__MASCOT__" alt="Mascot">
+        <span style="font-size: 12.5px; font-weight: 700; color: var(--text-heading);">Click Mascot for AI Cheer!</span>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator" onclick="smoothScrollTo('#invitation')">
+      <span>Scroll to Open Royal Invitation</span>
+      <div class="hero-gold-scroll-line" id="hero-gold-line"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 2: PINNED LUXURY ENVELOPE OPENING & OFFICIAL CARD
+       ========================================================= -->
+  <section class="envelope-pinned-section" id="invitation">
+    <div class="envelope-gold-spotlight" id="envelope-spotlight"></div>
+
+    <div class="envelope-stage-wrapper" id="envelope-stage">
+      <div class="envelope-header-hint" id="envelope-hint">
+        <span class="envelope-hint-pill">👑 Official Royal Letter &bull; 2026</span>
+        <h2 class="envelope-hint-title">Grand Launch Invitation</h2>
+        <p class="envelope-hint-subtitle">Scroll down to unseal the envelope &amp; reveal the invitation</p>
+      </div>
+
+      <!-- The 3D Luxury Physical Envelope -->
+      <div class="luxury-envelope-box" id="luxury-envelope-box">
+        <div class="envelope-inner-lining"></div>
+
+        <!-- The Emergent Royal Card (Starts inside the envelope, glides out on scroll) -->
+        <div class="card-reveal-container" id="envelope-card-container">
+          <article class="material-card-inner" id="invitation-card">
+            <div class="card-sheen-overlay" id="card-sheen"></div>
+
+            <!-- 4 Corner Botanical Vignettes in Gold -->
+            <svg class="corner-vignette corner-tl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 90 C10 40 40 10 90 10 M25 90 C25 50 50 25 90 25 M10 60 C30 40 60 30 90 10" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="25" cy="25" r="4" fill="#C5A059"/>
+              <path d="M35 15 C45 25 45 40 35 50 C25 40 25 25 35 15 Z" fill="#C5A059" opacity="0.8"/>
+            </svg>
+            <svg class="corner-vignette corner-tr" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 90 C10 40 40 10 90 10 M25 90 C25 50 50 25 90 25 M10 60 C30 40 60 30 90 10" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="25" cy="25" r="4" fill="#C5A059"/>
+              <path d="M35 15 C45 25 45 40 35 50 C25 40 25 25 35 15 Z" fill="#C5A059" opacity="0.8"/>
+            </svg>
+            <svg class="corner-vignette corner-bl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 90 C10 40 40 10 90 10 M25 90 C25 50 50 25 90 25 M10 60 C30 40 60 30 90 10" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="25" cy="25" r="4" fill="#C5A059"/>
+              <path d="M35 15 C45 25 45 40 35 50 C25 40 25 25 35 15 Z" fill="#C5A059" opacity="0.8"/>
+            </svg>
+            <svg class="corner-vignette corner-br" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 90 C10 40 40 10 90 10 M25 90 C25 50 50 25 90 25 M10 60 C30 40 60 30 90 10" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="25" cy="25" r="4" fill="#C5A059"/>
+              <path d="M35 15 C45 25 45 40 35 50 C25 40 25 25 35 15 Z" fill="#C5A059" opacity="0.8"/>
+            </svg>
+
+            <!-- Card Header & Emblem -->
+            <div class="royal-invite-header-tag">I N V I T A T I O N</div>
+            
+            <svg class="royal-gold-emblem" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4 L42 22 L62 25 L47 39 L51 59 L32 49 L13 59 L17 39 L2 25 L22 22 Z" stroke="#C5A059" stroke-width="2" fill="rgba(197, 160, 89, 0.15)"/>
+              <circle cx="32" cy="32" r="8" stroke="#C5A059" stroke-width="1.5"/>
+            </svg>
+
+            <div class="royal-invite-lead">WE ARE HONOURED TO CORDIALLY INVITE YOU</div>
+            <div class="royal-ornament-line">«««««——————»»»»»</div>
+            <div class="royal-invite-subline">AN INCUBATED STARTUP AT JIT FOUNDATION</div>
+            <div class="royal-invite-subline" style="color: #0066FF; font-weight: 800;">BACKED BY INDUSTRY 5.0</div>
+            <div class="royal-invite-subline">FOR THE GRAND LAUNCH</div>
+
+            <!-- Dual Guests Grid inside the Invitation -->
+            <div class="royal-guests-flex-grid">
+              <!-- Floating Mascot -->
+              <img src="__MASCOT__" alt="LeukQuant Mascot" class="royal-mascot-float-badge" onclick="mascotPulse()" title="LeukQuant Mascot!">
+
+              <!-- Chief Guest: Dr. N. Marie Wilson -->
+              <div class="royal-guest-box">
+                <img src="__GUEST_PHOTO__" alt="Dr N. Marie Wilson" class="royal-guest-photo">
+                <div>
+                  <div class="royal-guest-tag">CHIEF GUEST</div>
+                  <h3 class="royal-guest-name">DR N. MARIE WILSON</h3>
+                  <div class="royal-guest-desc">
+                    MINISTER FOR FINANCE, PENSIONS, PLANNING &amp; DEVELOPMENT<br>
+                    MEMBER OF THE LEGISLATIVE ASSEMBLY<br>
+                    <span style="color: #C5A059;">«««««——————»»»»»</span><br>
+                    <strong>CHAIRMAN OF JEPPIAAR INSTITUTE OF TECHNOLOGY</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Special Guest of Honour: Soundarraj Kannan -->
+              <div class="royal-guest-box">
+                <img src="__GUEST_SOUNDARRAJ__" alt="Soundarraj Kannan" class="royal-guest-photo">
+                <div>
+                  <div class="royal-guest-tag" style="color: #00B8D9;">SPECIAL GUEST OF HONOUR</div>
+                  <h3 class="royal-guest-name">SOUNDARRAJ KANNAN</h3>
+                  <div class="royal-guest-desc">
+                    DIRECTOR @ KRP TECH SOLUTIONS<br>
+                    NEARBY PETS INDIA | PETS ECOMMERCE<br>
+                    <span style="color: #C5A059;">«««««——————»»»»»</span><br>
+                    <strong>STRATEGIC INDUSTRY MENTOR</strong><br>
+                    <a href="https://www.linkedin.com/in/soundarraj-kannan/" target="_blank" rel="noopener" style="color: #0066FF; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-top: 4px;">
+                      🔗 LinkedIn Profile &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Logo & Date Display -->
+            <div class="royal-invite-subline" style="margin-top: 10px;">FOR THE GRAND LAUNCH OF</div>
+            
+            <div class="royal-logo-area">
+              <img src="__LEUKQUANT_LOGO__" alt="LeukQuant Logo" class="royal-logo-img">
+            </div>
+
+            <div class="royal-ornament-line">»»»——————«««</div>
+            <div class="royal-date-display">SEP 10, 2026</div>
+
+            <div class="royal-meta-pill-row">
+              <div><span class="royal-num-badge">1</span> VENUE: GROUND FLOOR, AUDITORIUM</div>
+              <div><span class="royal-num-badge">2</span> TIME: 10:30 AM ONWARDS</div>
+            </div>
+
+            <!-- Institutional Footer -->
+            <div class="royal-footer-inst">
+              <img src="__JIT_CREST__" alt="Jeppiaar Institute of Technology" class="royal-inst-crest">
+              
+              <div class="royal-inst-center-text">
+                <h4>JEPPIAAR INSTITUTE OF TECHNOLOGY</h4>
+                <p style="font-weight: 700; color: #1E293B;">(AN AUTONOMOUS INSTITUTION)</p>
+                <p>---- self belief | self Discipline | self Respect ----</p>
+                <p>Kunnam, Sunguvarchatram, Sriperumbudur, Chennai &ndash; 631604</p>
+              </div>
+
+              <div class="royal-inst-seals">
+                <img src="__NBA_LOGO__" alt="NBA Tier-1">
+                <img src="__NAAC_SEAL__" alt="NAAC A+">
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 22px;">
+              <button class="btn-material-primary" onclick="addToCalendar()">
+                &#128197; Add to Calendar (.ics)
+              </button>
+              <button class="btn-material-outline" onclick="shareWhatsapp()">
+                &#128172; Share via WhatsApp
+              </button>
+              <button class="btn-material-outline" onclick="copyInviteLink()">
+                &#128279; Copy Link
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Envelope Front Flaps -->
+        <div class="envelope-front-flaps" id="envelope-front-flaps">
+          <div class="front-flap-left"></div>
+          <div class="front-flap-right"></div>
+          <div class="front-flap-bottom">
+            <div class="envelope-embossed-title">
+              <span style="letter-spacing: 0.25em;">LEUKQUANT GRAND LAUNCH</span><br>
+              <span style="font-size: 10px; color: #AA7C11; letter-spacing: 0.15em;">JEPPIAAR INSTITUTE OF TECHNOLOGY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Envelope Top Flap -->
+        <div class="envelope-top-triangle" id="envelope-flap">
+          <div class="top-triangle-bg"></div>
+          <div class="royal-wax-seal" id="wax-seal" onclick="smoothScrollTo('#invitation')" title="Royal Mascot Signet Seal">
+            <div class="seal-inner-crest">
+              <img src="__MASCOT__" alt="LeukQuant Mascot" class="seal-mascot-img">
+              <div class="seal-label">LEUKQUANT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="envelope-scroll-prompt" id="envelope-scroll-prompt">
+        <span>Scroll down to unseal &amp; open invitation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 3: DIORAMA SHOWCASE SECTION (#showcase)
+       ========================================================= -->
+  <section class="showcase-pinned-section" id="showcase">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Innovation Ecosystem</div>
+      <h2 class="section-heading-main">LeukQuant 3D Showcase</h2>
+    </div>
+
+    <div class="showcase-track-container" id="showcase-track">
+      <!-- 1. The Launch Stage -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="__ISO_LAUNCH_STAGE__" alt="The Launch Stage" class="showcase-img" loading="lazy">
+        </div>
+        <span class="showcase-caption-tag">3D Architecture</span>
+        <h3 class="showcase-caption-title">The Launch Stage</h3>
+        <p class="showcase-caption-desc">High-compute server cluster orchestrated for active threat deception.</p>
+      </div>
+
+      <!-- 2. JIT Auditorium -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="__ISO_LOCATION_AUDITORIUM__" alt="JIT Auditorium" class="showcase-img" loading="lazy">
+        </div>
+        <span class="showcase-caption-tag">Campus Venue</span>
+        <h3 class="showcase-caption-title">JIT Auditorium</h3>
+        <p class="showcase-caption-desc">Ground Floor Auditorium at Jeppiaar Institute of Technology, equipped with live cyber streaming arrays.</p>
+      </div>
+
+      <!-- 3. September 10, Thursday -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="__ISO_CALENDAR_3D__" alt="September 10, Thursday" class="showcase-img" loading="lazy">
+        </div>
+        <span class="showcase-caption-tag">Milestone Date</span>
+        <h3 class="showcase-caption-title">September 10, Thursday</h3>
+        <p class="showcase-caption-desc">Official launch day for corporate deployment across South India.</p>
+      </div>
+
+      <!-- 4. AI Cyber Deception -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="__ISO_CYBER_SHIELD__" alt="AI Cyber Deception" class="showcase-img" loading="lazy">
+        </div>
+        <span class="showcase-caption-tag">Sovereign Security</span>
+        <h3 class="showcase-caption-title">AI Cyber Deception</h3>
+        <p class="showcase-caption-desc">Enterprise-grade cryptographic tripwires with sub-10s forensic alerts.</p>
+      </div>
+    </div>
+
+    <div class="showcase-progress-wrap">
+      <div class="showcase-progress-fill" id="showcase-progress"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 4: VENUE & DIRECTIONS SECTION (#venue)
+       ========================================================= -->
+  <section class="venue-enhanced-section" id="venue">
+    <div class="venue-bg-parallax" id="venue-bg" style="background-image: url('__ISO_LOCATION_AUDITORIUM__');"></div>
+    <div class="venue-content-wrapper">
+      <div class="section-header-center">
+        <div class="section-eyebrow">Campus Directions</div>
+        <h2 class="section-heading-main">Venue &amp; Directions</h2>
+      </div>
+
+      <div class="venue-enhanced-card" id="venue-card">
+        <div style="text-align: left;">
+          <div class="section-eyebrow" style="color: var(--primary); margin-bottom: 6px;">📍 JEPPIAAR INSTITUTE OF TECHNOLOGY</div>
+          <h3 style="font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: var(--text-heading); margin-bottom: 12px;">
+            Ground Floor Auditorium
+          </h3>
+          <p style="font-size: 14.5px; color: var(--text-body); line-height: 1.6; margin-bottom: 16px;">
+            Kunnam, Sunguvarchatram, Sriperumbudur, Chennai &ndash; 631604
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 12px; color: #059669; margin-bottom: 24px;">
+            ⚡ GPS: 12.8711° N, 79.9142° E &bull; Autonomous Institution
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="https://www.google.com/maps/search/?api=1&query=Jeppiaar+Institute+of+Technology+Kunnam" target="_blank" rel="noopener" class="btn-material-primary">
+              📍 Open in Google Maps
+            </a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Jeppiaar+Institute+of+Technology+Kunnam" target="_blank" rel="noopener" class="btn-material-outline">
+              🧭 Get Directions
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7656641203914!2d79.9116!3d12.8711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f4eb27e449df%3A0x6b04859f9ef21228!2sJeppiaar%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1690000000000" 
+            class="venue-map-iframe"
+            title="Jeppiaar Institute of Technology Location Map"
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 5: COUNTDOWN SECTION (#countdown)
+       ========================================================= -->
+  <section class="countdown-enhanced-section" id="countdown">
+    <div class="section-eyebrow">Official Inauguration Schedule</div>
+    <h2 class="countdown-date-display" id="countdown-heading">
+      SEP 10, 2026 &bull; 10:30 AM
+    </h2>
+    <div class="date-sub-text">THURSDAY &bull; 10:30 AM IST &bull; GROUND FLOOR AUDITORIUM</div>
+
+    <div class="countdown-flip-grid" id="countdown-grid">
+      <div class="countdown-flip-card">
+        <div class="countdown-flip-num" id="cd-days">00</div>
+        <div class="countdown-flip-lbl">DAYS</div>
+      </div>
+      <div class="countdown-flip-card">
+        <div class="countdown-flip-num" id="cd-hours">00</div>
+        <div class="countdown-flip-lbl">HOURS</div>
+      </div>
+      <div class="countdown-flip-card">
+        <div class="countdown-flip-num" id="cd-mins">00</div>
+        <div class="countdown-flip-lbl">MINUTES</div>
+      </div>
+      <div class="countdown-flip-card">
+        <div class="countdown-flip-num" id="cd-secs">00</div>
+        <div class="countdown-flip-lbl">SECONDS</div>
+      </div>
+    </div>
+
+    <div id="countdown-live-msg" style="display: none; font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: var(--primary); margin-bottom: 24px;">
+      ✨ The Grand Launch is Live!
+    </div>
+
+    <div style="margin-top: 20px;">
+      <button class="btn-material-primary" onclick="addToCalendar()">
+        📅 Add to Calendar (.ics)
+      </button>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SECTION 6: EVENT FLOW TIMELINE SECTION (#flow)
+       ========================================================= -->
+  <section class="flow-timeline-section" id="flow">
+    <div class="section-header-center">
+      <div class="section-eyebrow">Event Itinerary &bull; Launch Day</div>
+      <h2 class="section-heading-main">Event Flow Timeline</h2>
+    </div>
+
+    <div class="flow-timeline-wrap">
+      <div class="flow-line-track"></div>
+      <div class="flow-line-progress" id="flow-line-progress"></div>
+
+      <div class="flow-item left">
+        <div class="flow-dot"></div>
+        <div class="flow-item-card">
+          <span class="flow-time-badge">10:30 AM</span>
+          <h3 class="flow-title">Guest Arrival &amp; Registration</h3>
+          <p class="flow-desc">Dignitaries, faculty delegates, industry partners, and attendees arrive and register at Ground Floor Auditorium.</p>
+        </div>
+      </div>
+
+      <div class="flow-item right">
+        <div class="flow-dot"></div>
+        <div class="flow-item-card">
+          <span class="flow-time-badge">11:00 AM</span>
+          <h3 class="flow-title">Welcome Address</h3>
+          <p class="flow-desc">Opening address by JIT Innovation Council and introduction of founding vision.</p>
+        </div>
+      </div>
+
+      <div class="flow-item left">
+        <div class="flow-dot"></div>
+        <div class="flow-item-card">
+          <span class="flow-time-badge">11:20 AM</span>
+          <h3 class="flow-title">Chief Guest Address</h3>
+          <p class="flow-desc">Keynote address by Chief Guest <strong>Dr. N. Marie Wilson</strong>, Chairman of Jeppiaar Institute of Technology.</p>
+        </div>
+      </div>
+
+      <div class="flow-item right">
+        <div class="flow-dot"></div>
+        <div class="flow-item-card">
+          <span class="flow-time-badge">11:45 AM</span>
+          <h3 class="flow-title">LeukQuant Product Launch</h3>
+          <p class="flow-desc">Official unboxing and live demonstration of AI-Powered Active Deception platform.</p>
+        </div>
+      </div>
+
+      <div class="flow-item left">
+        <div class="flow-dot"></div>
+        <div class="flow-item-card">
+          <span class="flow-time-badge">12:15 PM</span>
+          <h3 class="flow-title">Special Guest of Honour Address</h3>
+          <p class="flow-desc">Industry keynote by Special Guest of Honour <strong>Soundarraj Kannan</strong>, Director @ KRP Tech Solutions.</p>
+        </div>
+      </div>
+
+      <div class="flow-item right">
+        <div class="flow-dot"></div>
+        <div class="flow-item-card">
+          <span class="flow-time-badge">12:45 PM</span>
+          <h3 class="flow-title">Vote of Thanks</h3>
+          <p class="flow-desc">Closing remarks, group photography with dignitaries, followed by high tea &amp; networking tour.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER (#footer)
+       ========================================================= -->
+  <footer class="site-footer-parallax" id="footer">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <button class="footer-back-to-top" id="back-to-top" onclick="smoothScrollTo('#hero')">
+        ↑ Back to Top
+      </button>
+    </div>
+
+    <img src="__LEUKQUANT_LOGO__" alt="LeukQuant" class="footer-logo-img" loading="lazy">
+    <p class="footer-sub-text">
+      LeukQuant Inc. &bull; Incubated at JIT Foundation &bull; Backed by Industry 5.0 &bull; Jeppiaar Institute of Technology.<br>
+      Pioneering AI-Powered Active Deception &amp; Autonomous Cyber Defense.
+    </p>
+
+    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin: 24px 0; flex-wrap: wrap;">
+      <img src="__JIT_CREST__" alt="Jeppiaar Institute of Technology" style="height: 48px; width: auto; filter: brightness(0) invert(1);" loading="lazy">
+      <img src="__NBA_LOGO__" alt="NBA Tier-1" style="height: 32px; width: auto; filter: brightness(0) invert(1);" loading="lazy">
+      <img src="__NAAC_SEAL__" alt="NAAC A+" style="height: 32px; width: auto; filter: brightness(0) invert(1);" loading="lazy">
+    </div>
+
+    <p style="font-family: var(--font-royal); font-size: 11px; letter-spacing: 0.15em; color: #FEF3C7; margin-bottom: 20px;">
+      ---- self belief | self Discipline | self Respect ----
+    </p>
+
+    <div class="footer-links-row">
+      <button class="btn-material-outline" style="color:#FFF; background:transparent; border-color:rgba(255,255,255,0.2);" onclick="addToCalendar()">&#128197; Add to Calendar</button>
+      <button class="btn-material-outline" style="color:#FFF; background:transparent; border-color:rgba(255,255,255,0.2);" onclick="shareWhatsapp()">&#128172; Share on WhatsApp</button>
+      <button class="btn-material-outline" style="color:#FFF; background:transparent; border-color:rgba(255,255,255,0.2);" onclick="copyInviteLink()">&#128279; Copy Link</button>
+    </div>
+
+    <div class="footer-copyright">
+      &copy; 2026 LeukQuant &bull; Jeppiaar Institute of Technology, Kunnam &bull; Made with excellence.
+    </div>
+  </footer>
+
+  <!-- Toast Element -->
+  <div id="toast"></div>
+
+  <!-- =========================================================
+       GSAP 3 + SCROLLTRIGGER + LENIS JAVASCRIPT LOGIC
+       ========================================================= -->
+  <script>
+    // 1. Lenis Smooth Scroll Setup
+    let lenis = null;
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    try {
+      if (!isReducedMotion && typeof Lenis !== 'undefined') {
+        lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+          touchMultiplier: 1.6
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+      }
+    } catch (e) {
+      console.warn('Lenis fallback active', e);
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    function smoothScrollTo(target) {
+      if (lenis) {
+        lenis.scrollTo(target, { duration: 1.2, offset: target === '#invitation' ? 0 : -20 });
+      } else {
+        const el = document.querySelector(target);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // 2. Preloader Mascot Stamping Sequence
+    window.addEventListener('DOMContentLoaded', () => {
+      const preloader = document.getElementById('preloader');
+      const bar = document.getElementById('preloader-bar');
+      const status = document.getElementById('preloader-status');
+      const badgeText = document.getElementById('preloader-badge-text');
+      const stamp = document.getElementById('pmini-stamp');
+      const seal = document.getElementById('pmini-seal');
+
+      let progress = 0;
+      let phase = 0;
+
+      const timer = setInterval(() => {
+        progress += 3;
+        if (progress > 100) progress = 100;
+        if (bar) bar.style.width = progress + '%';
+
+        if (progress >= 25 && phase === 0) {
+          phase = 1;
+          if (status) status.innerText = 'Positioning Mascot Signet Stamp...';
+          if (badgeText) badgeText.innerText = 'Engraving Seal';
+          if (stamp) stamp.style.transform = 'translateX(-50%) translateY(22px)';
+        }
+
+        if (progress >= 55 && phase === 1) {
+          phase = 2;
+          if (status) status.innerText = 'Stamping Molten Gold Wax...';
+          if (badgeText) badgeText.innerText = 'Sealing Envelope';
+          if (stamp) stamp.style.transform = 'translateX(-50%) translateY(52px) scale(0.96)';
+        }
+
+        if (progress >= 80 && phase === 2) {
+          phase = 3;
+          if (status) status.innerText = 'Mascot Signet Seal Imprinted!';
+          if (badgeText) badgeText.innerText = 'Sealed & Verified';
+          if (stamp) {
+            stamp.style.transform = 'translateX(-50%) translateY(-70px) scale(0.8)';
+            stamp.style.opacity = '0';
+          }
+          if (seal) {
+            seal.style.opacity = '1';
+            seal.style.transform = 'scale(1)';
+          }
+        }
+
+        if (progress >= 100) {
+          clearInterval(timer);
+          if (status) status.innerText = 'Royal Invitation Sealed & Ready!';
+          if (badgeText) badgeText.innerText = 'Grand Launch 2026';
+          setTimeout(() => {
+            if (preloader) preloader.classList.add('loaded');
+            initGsapAnimations();
+            ScrollTrigger.refresh();
+          }, 600);
+        }
+      }, 35);
+    });
+
+    // 3. GSAP Master Animations
+    function initGsapAnimations() {
+      // (A) Parallax Blobs
+      gsap.to('.pblob-1', {
+        y: -180,
+        x: 60,
+        scale: 1.2,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.5,
+          invalidateOnRefresh: true
+        }
+      });
+      gsap.to('.pblob-2', {
+        y: 220,
+        x: -80,
+        scale: 0.9,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 2,
+          invalidateOnRefresh: true
+        }
+      });
+      gsap.to('.pblob-3', {
+        y: -140,
+        scale: 1.15,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: 'body',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.2,
+          invalidateOnRefresh: true
+        }
+      });
+
+      // (B) Hero Section Entrance
+      const heroTitle = document.getElementById('hero-title-split');
+      if (heroTitle) {
+        const text = heroTitle.innerText.trim();
+        heroTitle.innerHTML = text.split('').map(c => `<span class="char" style="display:inline-block;">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
+        
+        gsap.from('#hero-title-split .char', {
+          y: 60,
+          opacity: 0,
+          duration: 0.9,
+          stagger: 0.04,
+          ease: 'power3.out',
+          delay: 0.1
+        });
+      }
+
+      gsap.from('.hero-badge-pill', {
+        y: -30,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        delay: 0.05
+      });
+
+      gsap.from('.hero-subtitle', {
+        y: 35,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        delay: 0.3
+      });
+
+      // Hero Parallax Background Layers
+      gsap.to('#hero-far', {
+        y: 120,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.25,
+          invalidateOnRefresh: true
+        }
+      });
+
+      gsap.to('#hero-mid', {
+        y: 200,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 0.5,
+          invalidateOnRefresh: true
+        }
+      });
+
+      // Gold Scroll Line fade
+      gsap.to('#hero-gold-line', {
+        opacity: 0,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: '+=60',
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      });
+
+      // Spotlight Glow on Envelope
+      gsap.fromTo('#envelope-spotlight',
+        { opacity: 0 },
+        {
+          opacity: 0.65,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: '#invitation',
+            start: 'top 80%',
+            end: 'top 20%',
+            scrub: 1,
+            invalidateOnRefresh: true
+          }
+        }
+      );
+
+      // (C) SECTION 2: 3D PINNED LUXURY ENVELOPE UNBOXING SCRUB
+      gsap.set('#luxury-envelope-box', { scale: 0.94, opacity: 0.9, rotateX: 6, y: 20 });
+      gsap.set('#envelope-card-container', { y: 0, scale: 0.68, opacity: 1, zIndex: 5 });
+      gsap.set('#envelope-front-flaps', { opacity: 1, y: 0, scale: 1, zIndex: 10 });
+      gsap.set('#envelope-flap', { rotateX: 0, zIndex: 20 });
+      gsap.set('#wax-seal', { scale: 1, opacity: 1, zIndex: 30 });
+
+      let cardRevealed = false;
+
+      const envelopeTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#invitation',
+          start: 'top top',
+          end: '+=220%',
+          pin: true,
+          scrub: 1.0,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const cardCont = document.getElementById('envelope-card-container');
+            if (cardCont) {
+              if (self.progress > 0.45) {
+                cardCont.classList.add('active-interactive');
+              } else {
+                cardCont.classList.remove('active-interactive');
+              }
+            }
+            if (self.progress >= 0.75 && !cardRevealed) {
+              cardRevealed = true;
+              triggerCardPolishReveal();
+            }
+          }
+        }
+      });
+
+      // 1. Envelope enters & centers
+      envelopeTL.to('#luxury-envelope-box', {
+        scale: 1.0,
+        rotateX: 0,
+        y: 0,
+        opacity: 1,
+        duration: 1.0,
+        ease: 'power2.out'
+      });
+
+      // 2. Royal Wax Seal expands & cracks (0-20%)
+      envelopeTL.to('#wax-seal', {
+        scale: 1.4,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.in'
+      }, '-=0.3');
+
+      // 3. Envelope Flap flips open 180 degrees upwards (20-50%)
+      envelopeTL.to('#envelope-flap', {
+        rotateX: -180,
+        duration: 1.6,
+        ease: 'power2.inOut'
+      }, '-=0.5');
+
+      // 4. Set flap z-index behind the card
+      envelopeTL.set('#envelope-flap', { zIndex: 2 }, '-=0.3');
+
+      // 5. Card glides UP and emerges from the envelope pocket (40-85%)
+      envelopeTL.to('#envelope-card-container', {
+        y: -240,
+        scale: 1.0,
+        opacity: 1,
+        zIndex: 50,
+        duration: 2.8,
+        ease: 'power2.out'
+      }, '-=0.8');
+
+      // 6. Front flaps gently fade & recede (70-100%)
+      envelopeTL.to('#envelope-front-flaps', {
+        opacity: 0.15,
+        y: 70,
+        scale: 0.95,
+        duration: 1.8,
+        ease: 'power2.out'
+      }, '-=2.0');
+
+      // 7. Envelope box settles into subtle pedestal
+      envelopeTL.to('#luxury-envelope-box', {
+        scale: 0.86,
+        opacity: 0.25,
+        y: 80,
+        duration: 2.0,
+        ease: 'power2.out'
+      }, '-=2.0');
+
+      // 8. Hint and scroll prompt fade away
+      envelopeTL.to('#envelope-hint, #envelope-scroll-prompt', {
+        opacity: 0,
+        duration: 0.6
+      }, '-=2.0');
+
+      // 9. Dual VIP Guest profiles pop in inside card
+      envelopeTL.fromTo('.royal-guest-box',
+        { rotateY: -12, scale: 0.95, opacity: 0.85 },
+        { rotateY: 0, scale: 1, opacity: 1, duration: 1.0, stagger: 0.18, ease: 'back.out(1.5)' },
+        '-=1.2'
+      );
+
+      // Card polish sheen sweep
+      function triggerCardPolishReveal() {
+        const sheen = document.getElementById('card-sheen');
+        if (sheen) {
+          gsap.fromTo(sheen,
+            { left: '-150%' },
+            { left: '150%', duration: 1.2, ease: 'power2.inOut' }
+          );
+        }
+      }
+
+      // 3D Mouse Parallax Tilt on Card (Desktop only)
+      if (window.innerWidth > 900 && !isReducedMotion) {
+        const card = document.getElementById('invitation-card');
+        if (card) {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotX = ((y - centerY) / centerY) * -6;
+            const rotY = ((x - centerX) / centerX) * 6;
+            gsap.to(card, {
+              rotateX: rotX,
+              rotateY: rotY,
+              duration: 0.3,
+              ease: 'power2.out',
+              transformPerspective: 1200
+            });
+          });
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              rotateX: 0,
+              rotateY: 0,
+              duration: 0.6,
+              ease: 'power3.out'
+            });
+          });
+        }
+      }
+
+      // (D) DIORAMA SHOWCASE PINNED HORIZONTAL SCROLL (#showcase)
+      const showcaseTrack = document.getElementById('showcase-track');
+      if (showcaseTrack && window.innerWidth > 900 && !isReducedMotion) {
+        const getScrollAmount = () => -(showcaseTrack.scrollWidth - window.innerWidth + 80);
+
+        gsap.to(showcaseTrack, {
+          x: getScrollAmount,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '#showcase',
+            start: 'top top',
+            end: () => `+=${showcaseTrack.scrollWidth}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const fill = document.getElementById('showcase-progress');
+              if (fill) fill.style.width = (self.progress * 100) + '%';
+            }
+          }
+        });
+
+        document.querySelectorAll('.showcase-img').forEach((img) => {
+          gsap.fromTo(img,
+            { xPercent: -12 },
+            {
+              xPercent: 12,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: '#showcase',
+                start: 'top top',
+                end: () => `+=${showcaseTrack.scrollWidth}`,
+                scrub: 0.85,
+                invalidateOnRefresh: true
+              }
+            }
+          );
+        });
+      }
+
+      // (E) VENUE SECTION PARALLAX (#venue)
+      gsap.to('#venue-bg', {
+        y: 100,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#venue',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.3,
+          invalidateOnRefresh: true
+        }
+      });
+
+      gsap.fromTo('#venue-card',
+        { y: 50, opacity: 0, scale: 0.96 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '#venue-card',
+            start: 'top 85%',
+            invalidateOnRefresh: true
+          }
+        }
+      );
+
+      // (F) COUNTDOWN SCALE (#countdown)
+      if (!isReducedMotion) {
+        gsap.fromTo('#countdown-heading',
+          { scale: 1.25, opacity: 0.4 },
+          {
+            scale: 1.0,
+            opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: '#countdown',
+              start: 'top 80%',
+              end: 'top 20%',
+              scrub: 1,
+              invalidateOnRefresh: true
+            }
+          }
+        );
+      }
+
+      // (G) EVENT FLOW TIMELINE DRAW (#flow)
+      gsap.to('#flow-line-progress', {
+        height: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#flow',
+          start: 'top 70%',
+          end: 'bottom 80%',
+          scrub: 1,
+          invalidateOnRefresh: true
+        }
+      });
+
+      document.querySelectorAll('.flow-item').forEach((item) => {
+        const dot = item.querySelector('.flow-dot');
+        const card = item.querySelector('.flow-item-card');
+
+        if (dot) {
+          gsap.fromTo(dot,
+            { scale: 0, opacity: 0 },
+            {
+              scale: 1,
+              opacity: 1,
+              duration: 0.5,
+              ease: 'back.out(2)',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+                invalidateOnRefresh: true
+              }
+            }
+          );
+        }
+
+        if (card) {
+          gsap.fromTo(card,
+            { x: item.classList.contains('left') ? -35 : 35, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 82%',
+                invalidateOnRefresh: true
+              }
+            }
+          );
+        }
+      });
+    }
+
+    // 4. Live Countdown to September 10, 2026 at 10:30 AM IST
+    const targetLaunchDate = new Date('2026-09-10T10:30:00+05:30').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetLaunchDate - now;
+
+      if (distance <= 0) {
+        document.getElementById('cd-days').innerText = '00';
+        document.getElementById('cd-hours').innerText = '00';
+        document.getElementById('cd-mins').innerText = '00';
+        document.getElementById('cd-secs').innerText = '00';
+        const msg = document.getElementById('countdown-live-msg');
+        if (msg) msg.style.display = 'block';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+      document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+      document.getElementById('cd-mins').innerText = String(mins).padStart(2, '0');
+      document.getElementById('cd-secs').innerText = String(secs).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 5. Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      const pBar = document.getElementById('scroll-progress');
+      if (pBar) pBar.style.width = scrollPercent + '%';
+    });
+
+    // 6. Interactive Features (Confetti, Mascot Cheer)
+    function mascotPulse() {
+      showToast('⚡ LeukQuant AI Mascot: Ready for Grand Launch!');
+      spawnConfettiBurst();
+    }
+
+    // 7. Ambient Audio Synthesizer Toggle
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let audioInterval = null;
+
+    function toggleAudio() {
+      const btn = document.getElementById('audio-toggle');
+      if (!isAudioPlaying) {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          audioCtx = new AudioContext();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        isAudioPlaying = true;
+        btn.classList.add('playing');
+        btn.innerHTML = '🔊';
+        showToast('🎵 Launch Ambience Synthesizer Active');
+        playHarmonicChime();
+        audioInterval = setInterval(playHarmonicChime, 6000);
+      } else {
+        isAudioPlaying = false;
+        btn.classList.remove('playing');
+        btn.innerHTML = '🎵';
+        if (audioInterval) clearInterval(audioInterval);
+        showToast('🔇 Audio Muted');
+      }
+    }
+
+    function playHarmonicChime() {
+      if (!audioCtx || !isAudioPlaying) return;
+      const notes = [261.63, 329.63, 392.00, 523.25, 659.25]; // C major chord
+      const freq = notes[Math.floor(Math.random() * notes.length)];
+      
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      
+      gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.08, audioCtx.currentTime + 0.4);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.0);
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.start();
+      osc.stop(audioCtx.currentTime + 3.2);
+    }
+
+    // 8. Calendar, WhatsApp & Link Sharing
+    function addToCalendar() {
+      const icsData = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//LeukQuant//Launch Invitation//EN',
+        'BEGIN:VEVENT',
+        'UID:leukquant-launch-2026@jit',
+        'DTSTAMP:20260901T000000Z',
+        'DTSTART:20260910T050000Z',
+        'DTEND:20260910T083000Z',
+        'SUMMARY:LeukQuant Grand Launch & AI Deception Demonstration',
+        'DESCRIPTION:Grand Launch of LeukQuant AI Cybersecurity Platform. Chief Guest: Dr N. Marie Wilson. Venue: Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam.',
+        'LOCATION:Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam, Chennai, India',
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\\r\\n');
+
+      const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', 'LeukQuant_Grand_Launch.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('📅 Calendar Event (.ics) Downloaded!');
+      spawnConfettiBurst();
+    }
+
+    function shareWhatsapp() {
+      const text = encodeURIComponent('Join us for the Grand Launch of LeukQuant (AI-Powered Active Deception & Cybersecurity Platform) on Sep 10, 2026 at Ground Floor Auditorium, Jeppiaar Institute of Technology! Chief Guest: Dr. N. Marie Wilson | Special Guest: Soundarraj Kannan (Director @ KRP Tech Solutions).');
+      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+    }
+
+    function copyInviteLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast('🔗 Invite Link Copied to Clipboard!');
+      }).catch(() => {
+        showToast('🔗 Link: ' + window.location.href);
+      });
+      spawnConfettiBurst();
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      if (t) {
+        t.innerText = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3200);
+      }
+    }
+
+    // 9. Gold Particles Canvas
+    (function initGoldParticles() {
+      const canvas = document.getElementById('gold-particles-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+      let isRunning = !isReducedMotion;
+
+      window.addEventListener('resize', () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      });
+
+      document.addEventListener('visibilitychange', () => {
+        isRunning = !document.hidden && !isReducedMotion;
+      });
+
+      const goldParticles = Array.from({ length: 32 }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        radius: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        alpha: Math.random() * 0.5 + 0.2
+      }));
+
+      function render() {
+        if (!isRunning) return;
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = '#D4AF37';
+        goldParticles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = w;
+          if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h;
+          if (p.y > h) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.globalAlpha = p.alpha;
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      if (isRunning) render();
+    })();
+
+    // 10. Custom Gold Cursor
+    (function initCustomCursor() {
+      const cursor = document.getElementById('custom-cursor');
+      if (!cursor || window.matchMedia('(pointer: coarse)').matches) return;
+
+      document.addEventListener('mousemove', (e) => {
+        cursor.classList.add('active');
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+      });
+
+      const hoverTargets = document.querySelectorAll('a, button, .btn-material-primary, .btn-material-outline, .royal-mascot-float-badge, .royal-wax-seal');
+      hoverTargets.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+    })();
+
+    // 11. Blue Ambient Particles Canvas
+    (function initParticles() {
+      const canvas = document.getElementById('particles-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = window.innerWidth;
+      let h = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      });
+
+      const particles = Array.from({ length: 24 }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        radius: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        alpha: Math.random() * 0.3 + 0.1
+      }));
+
+      function render() {
+        ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = '#0066FF';
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = w;
+          if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h;
+          if (p.y > h) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.globalAlpha = p.alpha;
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    })();
+
+    // 12. Confetti Burst Function
+    function spawnConfettiBurst() {
+      const cCanvas = document.getElementById('confetti-canvas');
+      if (!cCanvas) return;
+      const cCtx = cCanvas.getContext('2d');
+      cCanvas.width = window.innerWidth;
+      cCanvas.height = window.innerHeight;
+
+      let confettis = [];
+      const colors = ['#D4AF37', '#0066FF', '#00B8D9', '#7C3AED', '#10B981', '#FF5A5F', '#F59E0B'];
+
+      for (let i = 0; i < 75; i++) {
+        confettis.push({
+          x: cCanvas.width / 2,
+          y: cCanvas.height * 0.45,
+          vx: (Math.random() - 0.5) * 16,
+          vy: (Math.random() - 0.8) * 16,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rot: Math.random() * 360,
+          vrot: (Math.random() - 0.5) * 12,
+          alpha: 1
+        });
+      }
+
+      function renderConfetti() {
+        cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+        let active = false;
+        confettis.forEach(c => {
+          c.x += c.vx;
+          c.y += c.vy;
+          c.vy += 0.38;
+          c.rot += c.vrot;
+          c.alpha -= 0.016;
+          if (c.alpha > 0) {
+            active = true;
+            cCtx.save();
+            cCtx.translate(c.x, c.y);
+            cCtx.rotate((c.rot * Math.PI) / 180);
+            cCtx.fillStyle = c.color;
+            cCtx.globalAlpha = Math.max(0, c.alpha);
+            cCtx.fillRect(-c.size/2, -c.size/2, c.size, c.size * 0.65);
+            cCtx.restore();
+          }
+        });
+
+        if (active) {
+          requestAnimationFrame(renderConfetti);
+        } else {
+          cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+        }
+      }
+      renderConfetti();
+    }
+
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => ScrollTrigger.refresh(), 200);
+    });
+  </script>
+</body>
+</html>
+'''
+
+with open('template.html', 'w', encoding='utf-8') as f:
+    f.write(template_code)
+
+print("template.html updated with NO navbar and clean layout!")
