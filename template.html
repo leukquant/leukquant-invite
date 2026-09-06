@@ -1972,6 +1972,35 @@
   /* =========================================================
      6. SECTION 5: DEDICATED FULL-SCREEN MATERIALISTIC COUNTDOWN SHOW (#countdown)
      ========================================================= */
+  @keyframes cd-bg-drift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @keyframes cd-aura-pulse {
+    0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.15); }
+  }
+  @keyframes cd-ring-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  @keyframes cd-pulse-glow {
+    0%, 100% { box-shadow: 0 0 30px rgba(103, 80, 164, 0.25), 0 0 60px rgba(103, 80, 164, 0.1); }
+    50% { box-shadow: 0 0 50px rgba(103, 80, 164, 0.4), 0 0 100px rgba(103, 80, 164, 0.15); }
+  }
+  @keyframes cd-num-glow {
+    0%, 100% { text-shadow: 0 0 8px rgba(187, 134, 252, 0.3); }
+    50% { text-shadow: 0 0 20px rgba(187, 134, 252, 0.6), 0 0 40px rgba(187, 134, 252, 0.2); }
+  }
+  @keyframes cd-dot-blink {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px #00E676; }
+    50% { opacity: 0.4; box-shadow: 0 0 2px #00E676; }
+  }
+  @keyframes cd-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
   .countdown-enhanced-section {
     position: relative;
     min-height: 100vh;
@@ -1980,142 +2009,287 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 20px;
-    background: radial-gradient(circle at center, #FFFFFF 0%, #F1F5F9 55%, #E2E8F0 100%);
-    border-top: 1.5px solid rgba(197, 160, 89, 0.35);
-    border-bottom: 1.5px solid rgba(197, 160, 89, 0.35);
+    padding: 0;
+    background: linear-gradient(135deg, #0D0D1A 0%, #1A1A2E 25%, #16213E 50%, #0F3460 75%, #1A1A2E 100%);
+    background-size: 400% 400%;
+    animation: cd-bg-drift 20s ease-in-out infinite;
     overflow: hidden;
     box-sizing: border-box;
+    border: none;
   }
+
+  /* Ambient Aura - large pulsing glow behind the card */
+  .countdown-ambient-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(103, 80, 164, 0.35) 0%, rgba(103, 80, 164, 0.08) 50%, transparent 70%);
+    animation: cd-aura-pulse 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Orbital Ring - rotating dashed ring */
+  .countdown-orbital-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 580px;
+    height: 580px;
+    border: 2px dashed rgba(187, 134, 252, 0.18);
+    border-radius: 50%;
+    animation: cd-ring-spin 45s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .countdown-orbital-ring::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: #BB86FC;
+    border-radius: 50%;
+    box-shadow: 0 0 16px rgba(187, 134, 252, 0.6);
+    transform: translateX(-50%);
+  }
+
   .countdown-container-stage {
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    background: rgba(30, 30, 50, 0.7);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(187, 134, 252, 0.2);
     border-radius: 36px;
-    padding: 54px 40px 48px 40px;
-    max-width: 980px;
-    width: 94%;
+    padding: 60px 48px 52px 48px;
+    max-width: 960px;
+    width: 90%;
     margin: auto;
-    box-shadow: 0 30px 80px -20px rgba(0, 50, 150, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    box-shadow:
+      0 40px 100px -20px rgba(103, 80, 164, 0.3),
+      0 0 0 1px rgba(187, 134, 252, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
     z-index: 2;
+    animation: cd-pulse-glow 5s ease-in-out infinite;
   }
+  .countdown-container-stage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(187, 134, 252, 0.5), transparent);
+  }
+
   .countdown-eyebrow-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #EDE7F6;
-    color: #6750A4;
+    background: rgba(103, 80, 164, 0.2);
+    color: #BB86FC;
+    border: 1px solid rgba(187, 134, 252, 0.25);
     border-radius: var(--radius-full);
-    padding: 7px 20px;
+    padding: 8px 22px;
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(103, 80, 164, 0.15);
+    margin-bottom: 20px;
   }
+  .countdown-eyebrow-pill .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00E676;
+    animation: cd-dot-blink 1.5s ease-in-out infinite;
+  }
+
   .countdown-date-display {
     font-family: var(--font-heading);
-    font-size: clamp(34px, 5.5vw, 62px);
+    font-size: clamp(32px, 5.5vw, 58px);
     font-weight: 900;
-    color: #1D1B20;
+    color: #FFFFFF;
     letter-spacing: -0.02em;
     line-height: 1.15;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #BB86FC 50%, #FFFFFF 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: cd-shimmer 4s linear infinite;
   }
+
   .date-sub-text {
     font-family: var(--font-mono);
-    font-size: 14px;
-    color: #0052CC;
-    background: #EBF3FF;
-    padding: 6px 20px;
+    font-size: 13.5px;
+    color: #BB86FC;
+    background: rgba(187, 134, 252, 0.12);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    padding: 7px 22px;
     border-radius: var(--radius-full);
     font-weight: 800;
-    letter-spacing: 0.06em;
-    margin-bottom: 24px;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
     display: inline-block;
   }
+
   .countdown-flip-grid {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
-    margin: 16px auto 32px auto;
+    flex-wrap: nowrap;
+    margin: 20px auto 36px auto;
     width: 100%;
     max-width: 880px;
   }
+
   .countdown-flip-card {
-    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
-    border: 1.5px solid #E2E8F0;
-    border-radius: 26px;
-    padding: 28px 22px 22px 22px;
+    background: linear-gradient(180deg, rgba(40, 35, 60, 0.9) 0%, rgba(25, 22, 45, 0.95) 100%);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    border-radius: 24px;
+    padding: 30px 20px 24px 20px;
     flex: 1;
-    min-width: 130px;
-    max-width: 180px;
-    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+    min-width: 120px;
+    max-width: 190px;
+    box-shadow:
+      0 16px 40px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(103, 80, 164, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+    gap: 6px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .countdown-flip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(187, 134, 252, 0.4), transparent);
   }
   .countdown-flip-card:hover {
-    transform: translateY(-6px);
-    border-color: #0066FF;
-    box-shadow: 0 20px 42px rgba(0, 102, 255, 0.2);
+    transform: translateY(-8px) scale(1.03);
+    border-color: #BB86FC;
+    box-shadow:
+      0 24px 60px rgba(103, 80, 164, 0.35),
+      0 0 30px rgba(187, 134, 252, 0.2);
   }
+
   .countdown-flip-num {
     font-family: var(--font-mono);
-    font-size: clamp(38px, 6vw, 68px);
+    font-size: clamp(40px, 6vw, 72px);
     font-weight: 900;
-    color: #0052CC;
+    color: #E8DEF8;
     line-height: 1;
     letter-spacing: -0.02em;
     margin-bottom: 4px;
+    animation: cd-num-glow 3s ease-in-out infinite;
   }
+
   .countdown-flip-lbl {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
-    color: #64748B;
-    letter-spacing: 0.16em;
+    color: rgba(187, 134, 252, 0.7);
+    letter-spacing: 0.2em;
     text-transform: uppercase;
   }
+
   .countdown-actions-wrap {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 14px;
   }
+  /* Override button styles inside the dark countdown */
+  .countdown-enhanced-section .btn-material-primary {
+    background: linear-gradient(135deg, #6750A4 0%, #7C3AED 100%);
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 8px 24px rgba(103, 80, 164, 0.4);
+  }
+  .countdown-enhanced-section .btn-material-primary:hover {
+    background: linear-gradient(135deg, #7C3AED 0%, #9C6BFF 100%);
+    box-shadow: 0 12px 32px rgba(124, 58, 237, 0.5);
+    transform: translateY(-2px);
+  }
+  .countdown-enhanced-section .btn-material-secondary {
+    background: rgba(187, 134, 252, 0.1);
+    color: #BB86FC;
+    border: 1px solid rgba(187, 134, 252, 0.25);
+  }
+  .countdown-enhanced-section .btn-material-secondary:hover {
+    background: rgba(187, 134, 252, 0.2);
+    border-color: #BB86FC;
+    transform: translateY(-2px);
+  }
+
+  /* Particle star field for the countdown background */
+  .countdown-enhanced-section .cd-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: cd-dot-blink 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
   @media (max-width: 768px) {
     .countdown-enhanced-section {
-      min-height: auto;
-      padding: 60px 16px;
+      min-height: 100vh;
+      padding: 40px 16px;
+    }
+    .countdown-ambient-aura {
+      width: 350px;
+      height: 350px;
+    }
+    .countdown-orbital-ring {
+      width: 300px;
+      height: 300px;
     }
     .countdown-container-stage {
       padding: 32px 18px 28px 18px;
       border-radius: 24px;
+      width: 95%;
     }
     .countdown-flip-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      margin: 12px 0 24px 0;
+      margin: 14px 0 24px 0;
     }
     .countdown-flip-card {
       min-width: 0;
       max-width: 100%;
-      padding: 18px 12px 14px 12px;
+      padding: 20px 14px 16px 14px;
       border-radius: 18px;
+    }
+    .countdown-flip-num {
+      font-size: clamp(32px, 10vw, 50px);
+    }
+    .countdown-date-display {
+      font-size: clamp(24px, 6vw, 36px);
     }
     .countdown-actions-wrap {
       flex-direction: column;
@@ -2543,7 +2717,8 @@
     }
   }
 
-.showcase-pinned-section, .countdown-enhanced-section, .site-footer-parallax {
+  @media print {
+    .showcase-pinned-section, .countdown-enhanced-section, .site-footer-parallax {
       display: none !important;
     }
     body, .envelope-pinned-section {
@@ -2814,7 +2989,7 @@
     <div class="hero-countdown-widget">
       <div class="hero-cd-badge">
         <span class="pulse-dot"></span>
-        <span>👑 GRAND LAUNCH LIVE IN</span>
+        <span>GRAND LAUNCH LIVE IN</span>
       </div>
       <div class="hero-cd-grid">
         <div class="hero-cd-card">
@@ -2881,7 +3056,7 @@
         <!-- Top Envelope Header Crest Ribbon (Desktop) -->
         <div class="envelope-top-crest-bar">
           <img src="__MASCOT__" alt="LeukQuant Royal Seal">
-          <span>👑 Official Royal Invitation &bull; Jeppiaar Institute of Technology</span>
+          <span>Official Royal Invitation &bull; Jeppiaar Institute of Technology</span>
         </div>
 
         <!-- 3D Perspective Stage for Booklet -->
@@ -2911,7 +3086,7 @@
             <!-- Central Golden Seal / Latch -->
             <div class="gate-center-seal" id="gate-center-seal" onclick="openRoyalBooklet(false)" title="Click or Scroll to Open Booklet!">
               <img src="__MASCOT__" alt="LeukQuant Seal">
-              <span>👑 OPEN</span>
+              <span>OPEN</span>
             </div>
 
             <!-- ================= PAGE 1: LEFT PAGE (DIGNITARIES) ================= -->
@@ -3181,10 +3356,13 @@
     <div class="countdown-ambient-aura" id="cd-aura"></div>
     <div class="countdown-orbital-ring" id="cd-ring"></div>
 
+    <!-- Dynamic star field (generated via JS) -->
+    <div id="cd-starfield" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden;"></div>
+
     <div class="countdown-container-stage" id="cd-stage">
       <div class="countdown-eyebrow-pill" id="cd-pill">
         <span class="pulse-dot"></span>
-        <span>👑 Official Inauguration Chronometer</span>
+        <span>Official Inauguration Chronometer</span>
       </div>
 
       <h2 class="countdown-date-display" id="countdown-heading">
@@ -3195,7 +3373,7 @@
         THURSDAY &bull; SEPTEMBER 10, 2026 &bull; 10:30 AM IST
       </div>
 
-      <p style="font-size: 14.5px; color: #475569; max-width: 680px; margin-bottom: 24px; line-height: 1.5;">
+      <p style="font-size: 14px; color: rgba(203, 213, 225, 0.85); max-width: 680px; margin-bottom: 24px; line-height: 1.6; font-family: var(--font-body);">
         Ground Floor Innovation Auditorium &bull; Jeppiaar Institute of Technology &bull; Kunnam, Chennai
       </p>
 
@@ -3218,7 +3396,7 @@
         </div>
       </div>
 
-      <div id="countdown-live-msg" style="display: none; font-family: var(--font-royal); font-size: 24px; font-weight: 800; color: #059669; margin-bottom: 20px; text-shadow: 0 0 15px rgba(5,150,105,0.4);">
+      <div id="countdown-live-msg" style="display: none; font-family: var(--font-royal); font-size: 24px; font-weight: 800; color: #00E676; margin-bottom: 20px; text-shadow: 0 0 20px rgba(0,230,118,0.5);">
         ✨ The Grand Launch is Live Now!
       </div>
 
@@ -3900,6 +4078,24 @@
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // 4b. Generate dynamic star field for countdown background
+    (function() {
+      const sf = document.getElementById('cd-starfield');
+      if (!sf) return;
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement('div');
+        star.className = 'cd-star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.width = (Math.random() * 2.5 + 1) + 'px';
+        star.style.height = star.style.width;
+        star.style.animationDelay = (Math.random() * 5) + 's';
+        star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        star.style.opacity = (Math.random() * 0.4 + 0.1).toString();
+        sf.appendChild(star);
+      }
+    })();
 
     // 5. Scroll Progress Bar
     window.addEventListener('scroll', () => {
