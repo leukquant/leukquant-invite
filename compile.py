@@ -64,4 +64,22 @@ with open('index.html', 'w', encoding='utf-8') as f:
 with open('invitation.html', 'w', encoding='utf-8') as f:
     f.write(rendered)
 
+# 5. Compile countdown.html if countdown_template.html exists
+if os.path.exists('countdown_template.html'):
+    with open('countdown_template.html', 'r', encoding='utf-8') as f:
+        cd_tpl = f.read()
+    
+    cd_rendered = cd_tpl.replace('__JIT_CREST__', jit_crest_uri)
+    cd_rendered = cd_rendered.replace('__NAAC_SEAL__', naac_uri)
+    cd_rendered = cd_rendered.replace('__NBA_LOGO__', nba_uri)
+    cd_rendered = cd_rendered.replace('__MASCOT__', mascot_uri)
+    cd_rendered = cd_rendered.replace('__LEUKQUANT_LOGO__', logo_uri)
+    cd_rendered = cd_rendered.replace('__GUEST_PHOTO__', guest_uri)
+    cd_rendered = cd_rendered.replace('__GUEST_SOUNDARRAJ__', guest_soundarraj_uri)
+    cd_rendered = cd_rendered.replace('__SHARE_IMAGE__', mascot_uri)
+
+    with open('countdown.html', 'w', encoding='utf-8') as f:
+        f.write(cd_rendered)
+    print(f"DONE! Written {len(cd_rendered)} bytes to countdown.html")
+
 print(f"DONE! Written {len(rendered)} bytes to index.html & invitation.html")
