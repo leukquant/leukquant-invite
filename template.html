@@ -947,14 +947,14 @@
     border: 2px solid #C5A059;
     border-radius: 16px;
     box-shadow: inset 0 0 0 6px #FAF8F5, inset 0 0 0 8.5px #C5A059, 0 35px 90px rgba(15, 30, 75, 0.18);
-    padding: 36px 32px 30px 32px;
+    padding: 34px 26px 24px 26px;
     margin-top: 0;
     will-change: transform, opacity;
     position: relative;
     transform-style: preserve-3d;
     overflow: hidden;
     text-align: center;
-    max-width: 680px;
+    max-width: 760px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1038,32 +1038,43 @@
     margin: 2px 0;
   }
 
-  /* Chief Guest Row */
-  .royal-guest-grid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 22px;
-    margin: 20px 0 16px 0;
-    text-align: left;
+  /* Dignitaries Row (Chief Guest & Special Guest of Honour) */
+  .royal-dignitaries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 16px 0 14px 0;
     position: relative;
+    text-align: center;
   }
-  @media (max-width: 600px) {
-    .royal-guest-grid {
-      flex-direction: column;
-      text-align: center;
-    }
+
+  .royal-dignitary-card {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1.5px solid rgba(197, 160, 89, 0.45);
+    border-radius: 14px;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(15, 30, 75, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .royal-dignitary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(197, 160, 89, 0.18);
+    border-color: #C5A059;
   }
 
   .royal-guest-img-frame {
-    width: 140px;
-    height: 160px;
-    border: 3px solid #D4AF37;
-    border-radius: 18px;
+    width: 120px;
+    height: 135px;
+    border: 2.5px solid #C5A059;
+    border-radius: 14px;
     overflow: hidden;
     flex-shrink: 0;
     background: #E8D7B8;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 8px;
   }
   .royal-guest-img {
     width: 100%;
@@ -1072,53 +1083,53 @@
   }
 
   .royal-guest-content {
-    flex: 1;
+    width: 100%;
     text-align: center;
   }
 
   .royal-guest-kicker {
     font-family: var(--font-royal);
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #2D3748;
-    letter-spacing: 0.15em;
-    margin-bottom: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #B45309;
+    letter-spacing: 0.14em;
+    margin-bottom: 3px;
     text-transform: uppercase;
   }
 
   .royal-guest-title-name {
     font-family: var(--font-royal);
-    font-size: 25px;
-    font-weight: 700;
-    color: #525F7F;
+    font-size: 19px;
+    font-weight: 800;
+    color: #334155;
     letter-spacing: 0.02em;
-    margin-bottom: 6px;
+    margin-bottom: 3px;
     line-height: 1.15;
   }
 
   .royal-guest-detail-text {
     font-family: var(--font-royal);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    color: #2D3748;
-    letter-spacing: 0.04em;
-    line-height: 1.45;
-    margin: 2px 0;
+    color: #334155;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    margin: 1.5px 0;
   }
 
   .royal-mascot-flying {
     position: absolute;
-    top: -30px;
-    right: 10px;
-    width: 68px;
+    top: -26px;
+    right: 4px;
+    width: 58px;
     height: auto;
-    filter: drop-shadow(0 8px 18px rgba(0, 102, 255, 0.4));
+    filter: drop-shadow(0 6px 14px rgba(0, 102, 255, 0.4));
     cursor: pointer;
     transition: transform 0.3s ease;
     z-index: 10;
   }
   .royal-mascot-flying:hover {
-    transform: translateY(-8px) scale(1.15);
+    transform: translateY(-6px) scale(1.15);
   }
 
   /* Logo & Date Section */
@@ -1774,26 +1785,43 @@
             <div class="royal-sub-line">A INCUBATED STARTUP AT JIT FOUNDATION</div>
             <div class="royal-sub-line">FOR THE GRAND LAUNCH</div>
 
-            <!-- Chief Guest Section -->
-            <div class="royal-guest-grid">
+            <!-- Dignitaries Section: Chief Guest & Special Guest of Honour -->
+            <div class="royal-dignitaries-grid">
               <!-- Floating Mascot -->
               <img src="__MASCOT__" alt="LeukQuant Mascot" class="royal-mascot-flying" onclick="mascotPulse()" title="LeukQuant Mascot!">
 
-              <!-- Dr. N. Marie Wilson Photo -->
-              <div class="royal-guest-img-frame">
-                <img src="__GUEST_PHOTO__" alt="Dr. N. Marie Wilson" class="royal-guest-img">
+              <!-- Dignitary 1: Dr. N. Marie Wilson (Chief Guest) -->
+              <div class="royal-dignitary-card">
+                <div class="royal-guest-img-frame">
+                  <img src="__GUEST_PHOTO__" alt="Dr. N. Marie Wilson" class="royal-guest-img">
+                </div>
+                <div class="royal-guest-content">
+                  <div class="royal-guest-kicker">CHIEF GUEST</div>
+                  <h3 class="royal-guest-title-name">DR N.MARIE WILSON</h3>
+                  <div class="royal-guest-detail-text">MINISTER FOR FINANCE,PENSIONS,</div>
+                  <div class="royal-guest-detail-text">PLANNING &amp; DEVELOPMENT</div>
+                  <div class="royal-guest-detail-text">MEMBER OF THE LEGISLATIVE ASSEMBLY</div>
+                  <div class="royal-gold-flourish" style="margin: 2px auto;">«««««——————»»»»»</div>
+                  <div class="royal-guest-detail-text" style="font-weight: 700;">CHAIRMAN OF</div>
+                  <div class="royal-guest-detail-text" style="font-weight: 800; color: #0F172A;">JEPPIAAR INSTITUTE OF TECHNOLOGY</div>
+                </div>
               </div>
 
-              <!-- Chief Guest Description -->
-              <div class="royal-guest-content">
-                <div class="royal-guest-kicker">CHIEF GUEST</div>
-                <h3 class="royal-guest-title-name">DR N.MARIE WILSON</h3>
-                <div class="royal-guest-detail-text">MINISTER FOR FINANCE,PENSIONS,</div>
-                <div class="royal-guest-detail-text">PLANNING &amp; DEVELOPMENT</div>
-                <div class="royal-guest-detail-text">MEMBER OF THE LEGISLATIVE ASSEMBLY</div>
-                <div class="royal-gold-flourish" style="margin: 3px auto;">«««««——————»»»»»</div>
-                <div class="royal-guest-detail-text" style="font-weight: 700;">CHAIRMAN OF</div>
-                <div class="royal-guest-detail-text" style="font-weight: 800; color: #0F172A;">JEPPIAAR INSTITUTE OF TECHNOLOGY</div>
+              <!-- Dignitary 2: Soundarraj Kannan (Special Guest of Honour) -->
+              <div class="royal-dignitary-card">
+                <div class="royal-guest-img-frame">
+                  <img src="__GUEST_SOUNDARRAJ__" alt="Soundarraj Kannan" class="royal-guest-img">
+                </div>
+                <div class="royal-guest-content">
+                  <div class="royal-guest-kicker">SPECIAL GUEST OF HONOUR</div>
+                  <h3 class="royal-guest-title-name">SOUNDARRAJ KANNAN</h3>
+                  <div class="royal-guest-detail-text">DIRECTOR &bull; KRP TECH SOLUTIONS</div>
+                  <div class="royal-guest-detail-text">STRATEGIC ADVISOR &amp; INDUSTRY VETERAN</div>
+                  <div class="royal-guest-detail-text">CYBER PLATFORMS INNOVATOR</div>
+                  <div class="royal-gold-flourish" style="margin: 2px auto;">«««««——————»»»»»</div>
+                  <div class="royal-guest-detail-text" style="font-weight: 700;">INDUSTRY 5.0 MENTOR</div>
+                  <div class="royal-guest-detail-text" style="font-weight: 800; color: #0F172A;">ACTIVE DEFENSE ADVISORY</div>
+                </div>
               </div>
             </div>
 
