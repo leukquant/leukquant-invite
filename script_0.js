@@ -583,8 +583,8 @@
       }
     }
 
-// 4. Live Countdown to September 07, 2026 at 10:30 AM IST
-    const targetLaunchDate = new Date('2026-09-07T10:30:00+05:30').getTime();
+// 4. Live Countdown to September 10, 2026 at 10:30 AM IST
+    const targetLaunchDate = new Date('2026-09-10T10:30:00+05:30').getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
@@ -691,20 +691,39 @@
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
         'PRODID:-//LeukQuant//Launch Invitation//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
         'BEGIN:VEVENT',
-        'UID:leukquant-launch-2026@jit',
+        'UID:leukquant-grand-launch-20260910@leukquant.com',
         'DTSTAMP:20260901T000000Z',
-        'DTSTART:20260907T043000Z',
-        'DTEND:20260907T080000Z',
-        'SUMMARY:LeukQuant Grand Launch Ceremony 2026 & AI Demonstration',
-        'DESCRIPTION:Official Grand Launch Ceremony of LeukQuant AI Cybersecurity Platform. Chief Guest: Dr N. Marie Wilson (Director, JIT). Special Guest: Soundarraj Kannan. Venue: Innovation Auditorium, JIT Foundation, Chennai.',
-        'LOCATION:Innovation Auditorium, JIT Foundation, Jeppiaar Institute of Technology, Kunnam, Chennai, India',
+        'DTSTART:20260910T050000Z',
+        'DTEND:20260910T080000Z',
+        'SUMMARY:LeukQuant Grand Launch 2026 | Official Inauguration',
+        'DESCRIPTION:Official Grand Launch of LeukQuant - AI-Powered Active Deception & Autonomous Cybersecurity Platform.\nChief Guest: Dr. N. Marie Wilson (Director, JIT).\nSpecial Guest: Soundarraj Kannan (Target Product Security).\nVenue: Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam, Chennai.',
+        'LOCATION:Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam, Sriperumbudur, Tamil Nadu 631604',
         'STATUS:CONFIRMED',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT2H',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:LeukQuant Grand Launch in 2 Hours',
+        'END:VALARM',
         'END:VEVENT',
         'END:VCALENDAR'
-      ].join('\\r\\n');
+      ].join('
+
+');
 
       const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'LeukQuant_Grand_Launch_Sep10_2026.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('📅 Calendar Event (.ics) Downloaded for Sep 10, 2026!');
+    });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
       link.setAttribute('download', 'LeukQuant_Grand_Launch.ics');
@@ -716,7 +735,7 @@
     }
 
     function shareWhatsapp() {
-      const text = encodeURIComponent('Official Invitation: LeukQuant Grand Launch Ceremony 2026 & Live AI Demonstration on Monday, September 07, 2026 at 10:00 AM IST | Innovation Auditorium, JIT Foundation, Chennai Campus.\n\nChief Guest: Dr. N. Marie Wilson (Director, Jeppiaar Institute of Technology)\nSpecial Guest: Soundarraj Kannan (Director @ KRP Tech Solutions)\n\nView Digital Invitation: ' + window.location.href);
+      const text = encodeURIComponent('Official Invitation: LeukQuant Grand Launch Ceremony 2026 & Live AI Demonstration on Thursday, September 10, 2026 at 10:30 AM IST | Innovation Auditorium, JIT Foundation, Chennai Campus.\n\nChief Guest: Dr. N. Marie Wilson (Director, Jeppiaar Institute of Technology)\nSpecial Guest: Soundarraj Kannan (Director @ KRP Tech Solutions)\n\nView Digital Invitation: ' + window.location.href);
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     }
 

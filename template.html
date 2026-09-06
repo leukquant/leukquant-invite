@@ -2536,7 +2536,7 @@
 
     <div class="hero-badge-pill">
       <span class="hero-badge-dot"></span>
-      <span>Official Grand Launch &bull; September 07, 2026</span>
+      <span>Official Grand Launch &bull; September 10, 2026</span>
     </div>
 
     <h1 class="hero-title" id="hero-title-split">
@@ -2556,7 +2556,17 @@
       </div>
     </div>
 
-    <div class="hero-scroll-indicator" onclick="smoothScrollTo('#invitation')">
+    <!-- Quick Action Links on Hero -->
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; z-index: 5;">
+      <button class="btn-material-primary" onclick="smoothScrollTo('#invitation')" style="padding: 10px 22px; font-size: 13px;">
+        <span>📖 Open Royal Booklet</span>
+      </button>
+      <button class="btn-material-secondary" onclick="smoothScrollTo('#countdown')" style="padding: 10px 20px; font-size: 13px; background: rgba(255,255,255,0.85);">
+        <span>⏰ Live Countdown &bull; Sep 10</span>
+      </button>
+    </div>
+
+    <div class="hero-scroll-indicator"  onclick="smoothScrollTo('#invitation')">
       <span>Scroll to Open Royal Invitation</span>
       <div class="hero-gold-scroll-line" id="hero-gold-line"></div>
     </div>
@@ -2572,7 +2582,7 @@
       <div class="envelope-header-hint" id="envelope-hint">
 
         <h2 class="envelope-hint-title">Grand Launch Invitation</h2>
-        <p class="envelope-hint-subtitle">Official Inauguration &bull; September 07, 2026 &bull; 09:30 AM IST</p>
+        <p class="envelope-hint-subtitle">Official Inauguration &bull; September 10, 2026 &bull; 10:30 AM IST</p>
       </div>
 
       <!-- Luxury Envelope / Book Bed -->
@@ -2718,7 +2728,7 @@
                 <div class="royal-sub-line">AI-POWERED ACTIVE DECEPTION &amp; AUTONOMOUS CYBERSECURITY</div>
 
                 <!-- Date Display -->
-                <div class="royal-date-big">SEP 07, 2026</div>
+                <div class="royal-date-big">SEP 10, 2026</div>
 
                 <!-- Meta Pills -->
                 <div class="royal-meta-list">
@@ -2728,7 +2738,7 @@
                   </div>
                   <div class="royal-meta-item">
                     <span class="royal-meta-badge-num">2</span>
-                    <span><strong>TIME:</strong> 09:30 AM IST &bull; Live Demonstrations &amp; Keynote</span>
+                    <span><strong>TIME:</strong> 10:30 AM IST &bull; Live Demonstrations &amp; Keynote</span>
                   </div>
                 </div>
               </div>
@@ -2750,9 +2760,11 @@
 
                 <!-- Action Buttons -->
                 <div class="royal-actions-container">
-                  
+                  <button class="btn-material-primary" onclick="window.location.href='#countdown'" style="background: linear-gradient(135deg, #B45309 0%, #D4AF37 100%); color: #0F172A; font-weight: 800;">
+                    <span>⏰ Live Timing &amp; Countdown</span>
+                  </button>
                   <button class="btn-material-primary" onclick="window.location.href='#venue'">
-                    <span>📍 Navigate to Venue</span>
+                    <span>📍 Venue &amp; Map</span>
                   </button>
                   <button class="btn-material-secondary" onclick="addToCalendar()">
                     <span>📅 Add to Calendar</span>
@@ -2799,13 +2811,13 @@
         <p class="showcase-caption-desc">Ground Floor Auditorium at Jeppiaar Institute of Technology, equipped with live cyber streaming arrays.</p>
       </div>
 
-      <!-- 3. September 07, Monday -->
+      <!-- 3. September 10, Thursday -->
       <div class="showcase-card">
         <div class="showcase-img-wrap">
-          <img src="__ISO_CALENDAR_3D__" alt="September 07, Monday" class="showcase-img" loading="lazy">
+          <img src="__ISO_CALENDAR_3D__" alt="September 10, Thursday" class="showcase-img" loading="lazy">
         </div>
         <span class="showcase-caption-tag">Milestone Date</span>
-        <h3 class="showcase-caption-title">September 07, Monday</h3>
+        <h3 class="showcase-caption-title">September 10, Thursday</h3>
         <p class="showcase-caption-desc">Official launch day for corporate deployment across South India.</p>
       </div>
 
@@ -2884,11 +2896,11 @@
       </div>
 
       <h2 class="countdown-date-display" id="countdown-heading">
-        SEP 07, 2026 &bull; 09:30 AM IST
+        SEP 10, 2026 &bull; 10:30 AM IST
       </h2>
 
       <div class="date-sub-text" id="cd-subtext">
-        MONDAY &bull; GROUND FLOOR AUDITORIUM &bull; JEPPIAAR INSTITUTE OF TECHNOLOGY
+        THURSDAY &bull; GROUND FLOOR AUDITORIUM &bull; JEPPIAAR INSTITUTE OF TECHNOLOGY
       </div>
 
       <div class="countdown-flip-grid" id="countdown-grid">
@@ -3555,8 +3567,8 @@
       }
     }
 
-// 4. Live Countdown to September 07, 2026 at 10:30 AM IST
-    const targetLaunchDate = new Date('2026-09-07T10:30:00+05:30').getTime();
+// 4. Live Countdown to September 10, 2026 at 10:30 AM IST
+    const targetLaunchDate = new Date('2026-09-10T10:30:00+05:30').getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
@@ -3659,36 +3671,45 @@
 
     // 8. Calendar, WhatsApp & Link Sharing
     function addToCalendar() {
-      const icsData = [
+      const icsLines = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
         'PRODID:-//LeukQuant//Launch Invitation//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
         'BEGIN:VEVENT',
-        'UID:leukquant-launch-2026@jit',
+        'UID:leukquant-grand-launch-20260910@leukquant.com',
         'DTSTAMP:20260901T000000Z',
-        'DTSTART:20260907T043000Z',
-        'DTEND:20260907T080000Z',
-        'SUMMARY:LeukQuant Grand Launch Ceremony 2026 & AI Demonstration',
-        'DESCRIPTION:Official Grand Launch Ceremony of LeukQuant AI Cybersecurity Platform. Chief Guest: Dr N. Marie Wilson (Director, JIT). Special Guest: Soundarraj Kannan. Venue: Innovation Auditorium, JIT Foundation, Chennai.',
-        'LOCATION:Innovation Auditorium, JIT Foundation, Jeppiaar Institute of Technology, Kunnam, Chennai, India',
+        'DTSTART:20260910T050000Z',
+        'DTEND:20260910T080000Z',
+        'SUMMARY:LeukQuant Grand Launch 2026 | Official Inauguration',
+        'DESCRIPTION:Official Grand Launch of LeukQuant - AI-Powered Active Deception & Autonomous Cybersecurity Platform.\\nChief Guest: Dr. N. Marie Wilson (Director, JIT).\\nSpecial Guest: Soundarraj Kannan (Target Product Security).\\nVenue: Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam, Chennai.',
+        'LOCATION:Ground Floor Auditorium, Jeppiaar Institute of Technology, Kunnam, Sriperumbudur, Tamil Nadu 631604',
         'STATUS:CONFIRMED',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT2H',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:LeukQuant Grand Launch in 2 Hours',
+        'END:VALARM',
         'END:VEVENT',
         'END:VCALENDAR'
-      ].join('\\r\\n');
-
+      ];
+      const icsData = icsLines.join('\r\n');
       const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
-      const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
-      link.setAttribute('download', 'LeukQuant_Grand_Launch.ics');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      showToast('📅 Calendar Event (.ics) Downloaded!');
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'LeukQuant_Grand_Launch_Sep10_2026.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('📅 Calendar Event (.ics) Downloaded for Sep 10, 2026!');
       spawnConfettiBurst();
     }
 
     function shareWhatsapp() {
-      const text = encodeURIComponent('Official Invitation: LeukQuant Grand Launch Ceremony 2026 & Live AI Demonstration on Monday, September 07, 2026 at 10:00 AM IST | Innovation Auditorium, JIT Foundation, Chennai Campus.\n\nChief Guest: Dr. N. Marie Wilson (Director, Jeppiaar Institute of Technology)\nSpecial Guest: Soundarraj Kannan (Director @ KRP Tech Solutions)\n\nView Digital Invitation: ' + window.location.href);
+      const text = encodeURIComponent('Official Invitation: LeukQuant Grand Launch Ceremony 2026 & Live AI Demonstration on Thursday, September 10, 2026 at 10:30 AM IST | Innovation Auditorium, JIT Foundation, Chennai Campus.\n\nChief Guest: Dr. N. Marie Wilson (Director, Jeppiaar Institute of Technology)\nSpecial Guest: Soundarraj Kannan (Director @ KRP Tech Solutions)\n\nView Digital Invitation: ' + window.location.href);
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     }
 
