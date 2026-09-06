@@ -2279,6 +2279,161 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* Authentic Official Invitation Card Display & Modal */
+  .official-card-inline-wrap {
+    width: 100%;
+    max-width: 980px;
+    margin: 28px auto 0 auto;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(16px);
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    border-radius: 20px;
+    padding: 16px 20px 20px 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 25;
+  }
+
+  .official-card-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .official-card-tag {
+    font-family: var(--font-royal);
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #FEF3C7;
+    letter-spacing: 0.12em;
+  }
+
+  .official-card-frame {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid #C5A059;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .official-card-frame:hover {
+    transform: scale(1.01);
+    box-shadow: 0 20px 55px rgba(212, 175, 55, 0.35);
+  }
+
+  .official-card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* Fullscreen Modal */
+  .official-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 8, 16, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 9999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .official-modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .official-modal-content {
+    background: #0F172A;
+    border: 2px solid #D4AF37;
+    border-radius: 20px;
+    padding: 16px 20px;
+    max-width: 95vw;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.4);
+    transform: scale(0.92);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .official-modal-backdrop.active .official-modal-content {
+    transform: scale(1);
+  }
+
+  .official-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: #FEF3C7;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10;
+  }
+
+  .official-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-right: 32px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .official-modal-title {
+    font-family: var(--font-royal);
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #FEF3C7;
+    letter-spacing: 0.08em;
+  }
+
+  .official-modal-img-wrap {
+    overflow: auto;
+    max-height: 80vh;
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+  }
+
+  .official-modal-img {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 850px) {
+    .official-card-inline-wrap {
+      padding: 10px;
+      margin-top: 14px;
+      border-radius: 14px;
+    }
+    .official-card-tag {
+      font-size: 9px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -2387,9 +2542,10 @@
     <div class="envelope-stage-wrapper" id="envelope-stage">
       <div class="envelope-header-hint" id="envelope-hint">
         <div class="envelope-hint-controls">
-          <span class="envelope-hint-pill">👑 Royal Double-Side Booklet &bull; 2026</span>
+          <span class="envelope-hint-pill">👑 Official Royal Booklet &bull; 2026</span>
           <button class="btn-envelope-action" onclick="replayBookletAnimation()">✨ Open / Close Booklet</button>
           <button class="btn-envelope-action" onclick="toggleBookFold()">📖 3D Perspective</button>
+          <button class="btn-envelope-action" onclick="openOfficialCardModal()" style="background: linear-gradient(135deg, #B45309 0%, #D4AF37 100%); color: #0F172A; font-weight: 800; border-color: #FEF3C7;">📜 View Full Official Card (HD)</button>
         </div>
         <h2 class="envelope-hint-title">Grand Launch Invitation</h2>
         <p class="envelope-hint-subtitle">Official Inauguration &bull; September 07, 2026 &bull; 09:30 AM IST</p>
@@ -2570,6 +2726,9 @@
 
                 <!-- Action Buttons -->
                 <div class="royal-actions-container">
+                  <button class="btn-material-primary" onclick="openOfficialCardModal()" style="background: linear-gradient(135deg, #B45309 0%, #D4AF37 100%); color: #0F172A; font-weight: 800;">
+                    <span>📜 Official Card (HD)</span>
+                  </button>
                   <button class="btn-material-primary" onclick="window.location.href='#venue'">
                     <span>📍 Navigate to Venue</span>
                   </button>
@@ -2581,6 +2740,32 @@
             </div>
 
           </div>
+        </div>
+
+        <!-- Authentic Official Invitation Card Inline Container -->
+        <div class="official-card-inline-wrap" id="official-card-inline">
+          <div class="official-card-header">
+            <span class="official-card-tag">📜 OFFICIAL PRINTED INVITATION CARD</span>
+            <button class="btn-envelope-action" onclick="openOfficialCardModal()" style="font-size: 10.5px; padding: 4px 12px;">🔍 Fullscreen HD Zoom</button>
+          </div>
+          <div class="official-card-frame">
+            <img src="__OFFICIAL_INVITE_FULL__" alt="LeukQuant Official Grand Launch Invitation Card" class="official-card-img" onclick="openOfficialCardModal()" title="Click to View Fullscreen Official Card">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Official Fullscreen Modal -->
+    <div id="official-card-modal" class="official-modal-backdrop" onclick="closeOfficialCardModal()">
+      <div class="official-modal-content" onclick="event.stopPropagation()">
+        <button class="official-modal-close" onclick="closeOfficialCardModal()" title="Close">&times;</button>
+        <div class="official-modal-header">
+          <span class="official-modal-title">👑 LeukQuant Official Grand Launch 2026 Invitation Card</span>
+          <a href="__OFFICIAL_INVITE_FULL__" download="LeukQuant_Official_Invitation_2026.png" class="btn-envelope-action" style="background: #D4AF37; color: #0F172A;">📥 Download HD Card</a>
+        </div>
+        <div class="official-modal-img-wrap">
+          <img src="__OFFICIAL_INVITE_FULL__" alt="Official Invitation Card HD" class="official-modal-img">
         </div>
       </div>
     </div>
@@ -2990,6 +3175,23 @@
         isFolioFolded = false;
         gsap.to([leftPage, rightPage], { rotateY: 0, duration: 0.6, ease: 'power2.out' });
         showToast('📖 2-Page Royal Spread Flat');
+      }
+    }
+
+    
+    function openOfficialCardModal() {
+      const modal = document.getElementById('official-card-modal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeOfficialCardModal() {
+      const modal = document.getElementById('official-card-modal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
       }
     }
 

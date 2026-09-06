@@ -29,6 +29,9 @@ logo_uri = get_data_uri('clean_assets/leukquant_logo.png')
 guest_uri = get_data_uri('clean_assets/guest_photo.png')
 guest_soundarraj_uri = get_data_uri('clean_assets/guest_soundarraj.png')
 authentic_card_uri = get_data_uri('clean_assets/authentic_invitation_card.jpg')
+official_invite_full_uri = get_data_uri('clean_assets/official_invite_full.png')
+official_invite_left_uri = get_data_uri('clean_assets/official_invite_left.png')
+official_invite_right_uri = get_data_uri('clean_assets/official_invite_right.png')
 
 iso_launch_stage_uri = get_data_uri('assets_3d/iso_launch_stage.jpg')
 iso_cyber_shield_uri = get_data_uri('assets_3d/iso_cyber_shield.jpg')
@@ -44,6 +47,9 @@ rendered = rendered.replace('__LEUKQUANT_LOGO__', logo_uri)
 rendered = rendered.replace('__GUEST_PHOTO__', guest_uri)
 rendered = rendered.replace('__GUEST_SOUNDARRAJ__', guest_soundarraj_uri)
 rendered = rendered.replace('__AUTHENTIC_CARD__', authentic_card_uri)
+rendered = rendered.replace('__OFFICIAL_INVITE_FULL__', official_invite_full_uri)
+rendered = rendered.replace('__OFFICIAL_INVITE_LEFT__', official_invite_left_uri)
+rendered = rendered.replace('__OFFICIAL_INVITE_RIGHT__', official_invite_right_uri)
 
 rendered = rendered.replace('__ISO_LAUNCH_STAGE__', iso_launch_stage_uri)
 rendered = rendered.replace('__ISO_CYBER_SHIELD__', iso_cyber_shield_uri)
@@ -59,4 +65,3 @@ with open('invitation.html', 'w', encoding='utf-8') as f:
     f.write(rendered)
 
 print(f"DONE! Written {len(rendered)} bytes to index.html & invitation.html")
-
